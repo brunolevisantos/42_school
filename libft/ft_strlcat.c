@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 15:24:30 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/13 16:18:20 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/14 10:52:48 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ size_t  ft_strlcat(char *dst, char *src, size_t size)
     return (n + m);
 }
 
+/*
 int main(void)
 {
     char    src[] = " world";
@@ -44,3 +45,4 @@ int main(void)
     printf("%s\n", dst);
     return (0);
 }
+*/
