@@ -1,47 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 15:24:30 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/16 19:27:44 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/10/14 12:04:27 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/10/16 19:35:03 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t  ft_strlcat(char *dst, char *src, size_t size)
+int ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-    int i;
-    int j;
-    size_t n;
-    size_t m;
+    size_t i;
 
     i = 0;
-    j = ft_strlen(dst);
-    n = ft_strlen(dst);
-    m = ft_strlen(src);
-    if (size <= j)
-        return (size + m);
-    while (j < size - 1 && src[i])
-    {
-        dst[j] = src[i];
+    while (i < n && *s1 == *s2)
+    {         
+        s1++;
+        s2++;
         i++;
-        j++;
     }
-    dst[j] = 0;
-    return (n + m);
+    return ((unsigned char)*s1 - (unsigned char)*s2);
 }
-
 
 // int main(void)
 // {
-//     char    src[] = " world";
-//     char    dst[] = "hello";
-
-//     printf("%zu\n", ft_strlcat(dst, src, 8));
-//     printf("%s\n", dst);
+//     printf("%d\n", ft_strncmp("bruno", "brupo", 5));
 //     return (0);
 // }

@@ -1,47 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 15:24:30 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/16 19:27:44 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/10/14 11:28:53 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/10/14 12:00:22 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t  ft_strlcat(char *dst, char *src, size_t size)
+//Encontra e retorna um ponteiro para a ultima ocorrencia da char c.
+char    *ft_strrchr(const char *s, int c)
 {
     int i;
-    int j;
-    size_t n;
-    size_t m;
 
-    i = 0;
-    j = ft_strlen(dst);
-    n = ft_strlen(dst);
-    m = ft_strlen(src);
-    if (size <= j)
-        return (size + m);
-    while (j < size - 1 && src[i])
+    i = ft_strlen(s);
+    while (*s)
+        s++;
+    if (c == 0)
+        return ((char *)s);
+    while (i >= 0)
     {
-        dst[j] = src[i];
-        i++;
-        j++;
+        if (*s == c)
+            return ((char *)s);
+        i--;
+        s--;
     }
-    dst[j] = 0;
-    return (n + m);
+    return (0);
 }
-
 
 // int main(void)
 // {
-//     char    src[] = " world";
-//     char    dst[] = "hello";
+//     char s[] = "hipopotamo";
 
-//     printf("%zu\n", ft_strlcat(dst, src, 8));
-//     printf("%s\n", dst);
+//     printf("%s\n", ft_strrchr(s, 0));
 //     return (0);
 // }
