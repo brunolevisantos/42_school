@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/16 21:04:02 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/18 09:46:57 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/10/16 22:23:19 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/10/18 09:40:43 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    *ft_memchr(const void *s, int c, size_t n)
+char    *ft_strnstr(const char *big, const char *little, size_t n)
 {
     int i;
 
     i = 0;
-    while (*(char *)s && i <= n)
+    while (i <= n && *big && *little)
     {
-        if (*(char *)s == c)
-            return (s);
-        i++;
-        s++;
+        
     }
-    return (0);
 }
