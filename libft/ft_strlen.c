@@ -6,12 +6,13 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 11:00:06 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/13 11:56:08 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/18 11:10:37 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+//tamanho da string.
 size_t  ft_strlen(const char *s)
 {
     int i;

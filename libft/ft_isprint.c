@@ -6,12 +6,13 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 10:56:40 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/13 11:56:36 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/18 10:42:53 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+//e positiva se for printable.
 int ft_isprint(int c)
 {
     if (c >= 32 && c <= 126)

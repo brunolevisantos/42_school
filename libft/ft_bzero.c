@@ -6,12 +6,13 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 11:40:41 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/13 12:00:21 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/18 10:52:48 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+//transforma os elementos do bloco de memoria em 0, ate ao size.
 void    ft_bzero(void *s, size_t n)
 {
     ft_memset(s, 0, n);

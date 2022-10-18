@@ -6,12 +6,13 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 10:52:11 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/13 11:56:41 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/18 10:42:35 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+//e positiva se for tabela ascii.
 int ft_isascii(int c)
 {
     if (c >= 0 && c <= 127)

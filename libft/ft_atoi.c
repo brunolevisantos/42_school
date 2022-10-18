@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 12:02:33 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/18 18:57:55 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/10/18 10:27:32 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/10/18 10:54:45 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//copia para o bloco de memoria dest o que esta no bloco src, ate ao size.
-//foi preciso type cast por serem void.
-void    *ft_memcpy(void *dest, const void *src, size_t n)
+//retorna o primeiro conjunto de numeros encontrados na string como int.
+int ft_atoi(const char *nptr)
 {
-    char    *tmpdest;
-    char    *tmpsrc;
-    size_t  i;
+    int y;
+    int sign;
     
-    tmpdest = (char *)dest;
-    tmpsrc = (char *)src;
-    i = 0;
-    while (i < n)
+    y = 0;
+    sign = 1;
+    while (*nptr <= 32)
+        nptr++;
+    if (*nptr == 43 || *nptr == 45)
     {
-        tmpdest[i] = tmpsrc[i];
-        i++;
+        if (*nptr == 45)
+            sign *= -1;
+        nptr++;
     }
+    while (*nptr >= 48 && *nptr <= 57)
+    {
+        y = *nptr * 10 + *nptr - '0';
+        nptr++;
+    }
+    return (y * sign);        
 }

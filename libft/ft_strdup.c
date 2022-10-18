@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 12:02:33 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/18 18:57:55 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/10/18 14:02:57 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/10/18 15:30:02 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//copia para o bloco de memoria dest o que esta no bloco src, ate ao size.
-//foi preciso type cast por serem void.
-void    *ft_memcpy(void *dest, const void *src, size_t n)
+char    *ft_strdup(const char *s)
 {
-    char    *tmpdest;
-    char    *tmpsrc;
-    size_t  i;
+    const char    *sdup;
+    const char    *start;
     
-    tmpdest = (char *)dest;
-    tmpsrc = (char *)src;
-    i = 0;
-    while (i < n)
+    sdup = (char *)malloc((sizeof(char *)) * ft_strlen(s) + 1);
+    start = sdup;
+    if (sdup == 0)
+        return (0);
+    while (*s)
     {
-        tmpdest[i] = tmpsrc[i];
-        i++;
+        sdup = s;
+        s++;
+        sdup++;
     }
+    sdup++;
+    sdup = 0;
+    return ((char *)start);
 }

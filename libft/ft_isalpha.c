@@ -6,15 +6,16 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 10:52:21 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/13 11:59:04 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/18 15:12:47 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+//e positiva se for letra.
 int ft_isalpha(int c)
 {
-    if (c >= 65 && c <= 90 || c >= 97 && c <= 122)
+    if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
         return (1);
     return (0);
 }

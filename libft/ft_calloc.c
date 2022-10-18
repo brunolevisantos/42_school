@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 12:02:33 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/18 18:57:55 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/10/18 13:49:12 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/10/18 14:04:20 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//copia para o bloco de memoria dest o que esta no bloco src, ate ao size.
-//foi preciso type cast por serem void.
-void    *ft_memcpy(void *dest, const void *src, size_t n)
+//Aloca uma memoria de n elementos de tamanho "element size" e preenche com 0.
+void    *calloc(size_t nelem, size_t elsize)
 {
-    char    *tmpdest;
-    char    *tmpsrc;
-    size_t  i;
+    void    *ptr;
     
-    tmpdest = (char *)dest;
-    tmpsrc = (char *)src;
-    i = 0;
-    while (i < n)
-    {
-        tmpdest[i] = tmpsrc[i];
-        i++;
-    }
+    ptr = malloc(nelem * elsize);
+    if (ptr == 0)
+        return (0);
+    else
+        ft_bzero(ptr, nelem);
+    return (ptr);
 }

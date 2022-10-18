@@ -6,16 +6,17 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 10:50:31 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/13 11:56:46 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/18 15:28:10 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+//e positiva se for alfanumerico.
 int ft_isalnum(int c)
 {
-    if (c >= '0' && c <= '9' || c >= 'A' && c <= 'Z' \
-    || c >= 'a' && c <= 'z')
+	if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') \
+    || (c >= 'a' && c <= 'z'))
         return (1);
     return (0);
 }
