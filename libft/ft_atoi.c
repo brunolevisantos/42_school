@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 10:27:32 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/18 10:54:45 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/19 11:34:51 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ int ft_atoi(const char *nptr)
     
     y = 0;
     sign = 1;
-    while (*nptr <= 32)
+	if (*nptr == 0)
+		return (0);
+    while ((*nptr >= 9 && *nptr <= 13) || *nptr == 32)
         nptr++;
     if (*nptr == 43 || *nptr == 45)
     {
@@ -30,7 +32,7 @@ int ft_atoi(const char *nptr)
     }
     while (*nptr >= 48 && *nptr <= 57)
     {
-        y = *nptr * 10 + *nptr - '0';
+        y = y * 10 + *nptr - '0';
         nptr++;
     }
     return (y * sign);        

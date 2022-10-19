@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 22:23:19 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/18 15:32:16 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/19 12:27:51 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char    *ft_strnstr(const char *big, const char *little, size_t n)
 
     i = 0;
     tmp = little;
-    if (little == 0)
+    if (*little == 0)
         return ((char *)big);
     while (i < n && *big)
     {

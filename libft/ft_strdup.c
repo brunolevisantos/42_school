@@ -6,13 +6,13 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 14:02:57 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/18 15:30:02 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/18 21:37:16 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_strdup(const char *s)
+char	*ft_strdup(const char *s)
 {
     const char    *sdup;
     const char    *start;

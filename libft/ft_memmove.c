@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:18:05 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/18 15:18:55 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/19 14:42:32 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,25 @@ void    *ft_memmove(void *dest, const void *src, size_t n)
 
     tmpdest = (char *)dest;
     tmpsrc = (char *)src;
-    i = 0;
-    while (i < n)
-    {
-        tmpmove = tmpsrc[i];
-        tmpdest[i] = tmpmove;
-        i++;
-    }
+	if (dest > src)
+	{
+		i = n;
+		while (i > 0)
+		{
+			tmpmove = tmpsrc[i - 1];
+			tmpdest[i - 1] = tmpmove;
+			i--;
+    	}
+	}
+	else
+	{
+		i = 0;
+		while (i < n)
+		{
+			tmpmove = tmpsrc[i];
+			tmpdest[i] = tmpmove;
+			i++;
+		}
+	}
     return (dest);
 }
