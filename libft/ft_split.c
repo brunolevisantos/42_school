@@ -12,33 +12,28 @@
 
 #include "libft.h"
 
-// void	issplit(const char *s, char c)
-// {
-// 	int	*start;
-// 	int	*end;
-// 	int	i;
-		
-// 	i = 0;
-// 	while (s[i])
-// 	{
-// 		if (s[i] = c || s[i] = 0)
-// 		{
-// 			split = i;
-// 			return (split);
-// 			split = 0;
-// 		}
-// 		i++;
-// 	}
-// }
-
 char	**ft_split(char const *s, char c)
 {
 	char	**string;
 	int		num;
+	int		i;
+	int		start;
 
 	num = 0;
-	while ()
-	*string[num] = (char *)malloc(sizeof(char) * issplit(*s, c, issplit(*s, c, split)) + 1)
+	i = 0;
+	start = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+		{
+			string[num] = (char *)malloc(sizeof(char) * (i - start + 1));
+			ft_memmove(string[num], &s[i], i - start + 1);
+			num++;
+			start = i;
+		}
+		i++;
+	}
+	return (string);
 }
 
 
