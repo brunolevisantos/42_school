@@ -3,29 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 11:07:31 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/18 11:01:09 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/24 14:28:37 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 //transforma o byte do bloco de memoria em c, ate ao size.
-void    *ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
-    size_t  i;
-    char   *ptr;
+	size_t	i;
+	char	*ptr;
 
-    i = 0;
-    ptr = (char *)s;
-    while (i < n)
-    {
-        ptr[i] = c;
-        i++;
-    }
-    return (s);
+	i = 0;
+	ptr = (char *)s;
+	while (i < n)
+	{
+		ptr[i] = c;
+		i++;
+	}
+	return (s);
 }
 
 /*

@@ -12,6 +12,27 @@
 
 #include "libft.h"
 
+char	**stringcount(char const *s, char c)
+{
+	char	**string;
+	int		i;
+	int		count;
+
+	i = 0;
+	while (s[i])
+	{
+		while (s[i] == c)
+			i++;
+		while (s[i] != c && s[i + 1] != c)
+			i++;
+		count++;
+	}
+	printf ("%d\n", count);
+	string = (char **)malloc((sizeof (char *)) * (count + 1));
+	string[count] = 0;
+	return (string);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**string;
@@ -22,6 +43,7 @@ char	**ft_split(char const *s, char c)
 	num = 0;
 	i = 0;
 	start = 0;
+	string = stringcount(s, c);
 	while (s[i])
 	{
 		if (s[i] == c)
@@ -36,5 +58,17 @@ char	**ft_split(char const *s, char c)
 	return (string);
 }
 
+int	main(void)
+{
+	char	**string;
+	int		i;
 
-bruno levi santos
+	i = 0;
+	string = ft_split("bruno levi santos", ' ');
+	while (i < 3)
+	{
+		printf("%s\n", string[i]);
+		i++;
+	}
+	return (0);
+}

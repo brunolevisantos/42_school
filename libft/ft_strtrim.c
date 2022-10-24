@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 11:09:13 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/20 13:51:20 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/24 14:33:03 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	notcharset2(const char *s1, const char *set)
 	}
 	return (end);
 }
+
 //retira os caracteres contidos em set
 char	*ft_strtrim(const char *s1, const char *set)
 {
