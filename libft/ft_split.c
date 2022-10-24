@@ -29,6 +29,7 @@ char	**stringcount(char const *s, char c)
 		if (s[i] != 0)
 			count++;
 	}
+	printf("%d\n", count);
 	string = (char **)malloc((sizeof (char *)) * (count + 1));
 	string[count] = 0;
 	return (string);
@@ -62,13 +63,13 @@ char	**ft_split(char const *s, char c)
 	return (string);
 }
 
-/* int	main(void)
+int	main(void)
 {
 	char	**string;
 	int		i;
 
 	i = 0;
-	string = ft_split("bruno levi santos     ", ' ');
+	string = ft_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ');
 	while (string[i])
 	{
 		printf("%s\n", string[i]);
@@ -78,4 +79,3 @@ char	**ft_split(char const *s, char c)
 	free(string);
 	return (0);
 }
- */
