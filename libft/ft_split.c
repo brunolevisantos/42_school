@@ -62,7 +62,7 @@ char	**ft_split(char const *s, char c)
 	return (string);
 }
 
-int	main(void)
+/* int	main(void)
 {
 	char	**string;
 	int		i;
@@ -78,3 +78,4 @@ int	main(void)
 	free(string);
 	return (0);
 }
+ */

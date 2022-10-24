@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 11:00:06 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/24 14:31:19 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/24 15:53:53 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //tamanho da string.
 size_t	ft_strlen(const char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i])

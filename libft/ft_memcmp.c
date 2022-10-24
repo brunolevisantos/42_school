@@ -6,14 +6,14 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 21:25:16 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/24 14:26:17 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/24 15:51:55 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//compara 2 blocos de memoria ate ao size dado ou serem diferentes e 
-//retorna positivo/negativo na diferenca, ou 0 se forem iguais.
+/* compara 2 blocos de memoria ate ao size dado ou serem diferentes e 
+retorna positivo/negativo na diferenca, ou 0 se forem iguais. */
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t	i;
