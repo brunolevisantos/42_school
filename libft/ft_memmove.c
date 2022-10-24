@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:18:05 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/24 14:27:43 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/24 15:15:40 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	char	*tmpdest;
 	char	*tmpsrc;
-	char	tmpmove;
 	size_t	i;
 
 	tmpdest = (char *)dest;
@@ -29,8 +28,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		i = n;
 		while (i > 0)
 		{
-			tmpmove = tmpsrc[i - 1];
-			tmpdest[i - 1] = tmpmove;
+			tmpdest[i - 1] = tmpsrc[i - 1];
 			i--;
 		}
 	}
@@ -39,10 +37,19 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		i = 0;
 		while (i < n)
 		{
-			tmpmove = tmpsrc[i];
-			tmpdest[i] = tmpmove;
+			tmpdest[i] = tmpsrc[i];
 			i++;
 		}
 	}
 	return (dest);
 }
+
+/* int	main(void)
+{
+	char	src[] = "hello";
+	char	dest[] = "blabla";
+
+	printf("%s\n", (char *)ft_memmove(dest, src, 4));
+	return (0);
+}
+ */

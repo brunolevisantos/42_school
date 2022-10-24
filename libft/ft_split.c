@@ -19,15 +19,16 @@ char	**stringcount(char const *s, char c)
 	int		count;
 
 	i = 0;
+	count = 0;
 	while (s[i])
 	{
 		while (s[i] == c)
 			i++;
-		while (s[i] != c && s[i + 1] != c)
+		while (s[i] != c && s[i])
 			i++;
-		count++;
+		if (s[i] != 0)
+			count++;
 	}
-	printf ("%d\n", count);
 	string = (char **)malloc((sizeof (char *)) * (count + 1));
 	string[count] = 0;
 	return (string);
@@ -42,18 +43,21 @@ char	**ft_split(char const *s, char c)
 
 	num = 0;
 	i = 0;
-	start = 0;
 	string = stringcount(s, c);
 	while (s[i])
 	{
-		if (s[i] == c)
+		while (s[i] == c)
+			i++;
+		start = i;
+		while (s[i] != c && s[i])
+			i++;
+		if (s[i] != 0)
 		{
 			string[num] = (char *)malloc(sizeof(char) * (i - start + 1));
-			ft_memmove(string[num], &s[i], i - start + 1);
+			string[num][i - start] = 0;
+			ft_memmove(string[num], &s[start], i - start);
 			num++;
-			start = i;
 		}
-		i++;
 	}
 	return (string);
 }
@@ -64,11 +68,13 @@ int	main(void)
 	int		i;
 
 	i = 0;
-	string = ft_split("bruno levi santos", ' ');
-	while (i < 3)
+	string = ft_split("bruno levi santos     ", ' ');
+	while (string[i])
 	{
 		printf("%s\n", string[i]);
+		free (string[i]);
 		i++;
 	}
+	free(string);
 	return (0);
 }
