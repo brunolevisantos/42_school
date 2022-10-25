@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+//separa a string original em varias diferentes cada vez que encontra c.
 char	**stringcount(char const *s, char c)
 {
 	char	**string;
@@ -24,12 +25,13 @@ char	**stringcount(char const *s, char c)
 	{
 		while (s[i] == c)
 			i++;
-		while (s[i] != c && s[i])
-			i++;
-		if (s[i] != 0)
+		if (s[i] != c && s[i])
+		{
 			count++;
+			while (s[i] != c && s[i])
+				i++;
+		}
 	}
-	printf("%d\n", count);
 	string = (char **)malloc((sizeof (char *)) * (count + 1));
 	string[count] = 0;
 	return (string);
@@ -50,10 +52,10 @@ char	**ft_split(char const *s, char c)
 		while (s[i] == c)
 			i++;
 		start = i;
-		while (s[i] != c && s[i])
-			i++;
-		if (s[i] != 0)
+		if (s[i] != c && s[i])
 		{
+			while (s[i] != c && s[i])
+				i++;
 			string[num] = (char *)malloc(sizeof(char) * (i - start + 1));
 			string[num][i - start] = 0;
 			ft_memmove(string[num], &s[start], i - start);
@@ -62,14 +64,14 @@ char	**ft_split(char const *s, char c)
 	}
 	return (string);
 }
-
+/* 
 int	main(void)
 {
 	char	**string;
 	int		i;
 
 	i = 0;
-	string = ft_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ');
+	string = ft_split("lorem ipsum dolor", ' ');
 	while (string[i])
 	{
 		printf("%s\n", string[i]);
@@ -79,3 +81,4 @@ int	main(void)
 	free(string);
 	return (0);
 }
+ */

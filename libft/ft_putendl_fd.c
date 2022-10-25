@@ -1,43 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 11:27:00 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/25 14:33:40 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/10/25 15:20:00 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/10/25 15:20:08 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* pega na string s, aloca memoria para uma nova str de tamanho igual,
-aplica a funcao f e preenche na nova com o resultado. */
-char	*allocate(char const *s)
+void	ft_putstr_fd(char *s, int fd)
 {
-	char	*str;
-	size_t	n;
-
-	n = ft_strlen(s);
-	str = (char *)malloc(sizeof(char) * (n + 1));
-	if (!str)
-		return (0);
-	str[n] = 0;
-	return (str);
-}
-
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
-{
-	unsigned int	i;
-	char			*str;
+	int	i;
 
 	i = 0;
-	str = allocate(s);
 	while (s[i])
 	{
-		str[i] = f(i, s[i]);
+		write(fd, s[i], 1);
 		i++;
 	}
-	return (str);
+	
 }

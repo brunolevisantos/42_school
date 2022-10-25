@@ -1,43 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 11:27:00 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/25 14:33:40 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/10/25 14:32:23 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/10/25 14:44:20 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* pega na string s, aloca memoria para uma nova str de tamanho igual,
-aplica a funcao f e preenche na nova com o resultado. */
-char	*allocate(char const *s)
-{
-	char	*str;
-	size_t	n;
-
-	n = ft_strlen(s);
-	str = (char *)malloc(sizeof(char) * (n + 1));
-	if (!str)
-		return (0);
-	str[n] = 0;
-	return (str);
-}
-
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+/* aplica a funcao f ao que consta no endereco para onde aponta s[i]
+ */
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	unsigned int	i;
-	char			*str;
 
 	i = 0;
-	str = allocate(s);
 	while (s[i])
 	{
-		str[i] = f(i, s[i]);
+		f(i, &s[i]);
 		i++;
 	}
-	return (str);
 }
