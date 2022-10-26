@@ -30,9 +30,13 @@ SOURCES	= ft_atoi.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
-		ft_putnbr_fd.c
+		ft_putnbr_fd.c \
+		
+BONUS = ft_lstnew.c
 
 OBJECTS = ${SOURCES:.c=.o}
+
+BONUS_OBJECTS = ${BONUS:.c=.o}
 
 FULLGCC = gcc -Wall -Werror -Wextra
 
@@ -50,6 +54,12 @@ clean:
 fclean: clean
 	rm -rf ${NAME}
 
-re: fclean all
+re: fclean bonus
+
+bonus:
+	${FULLGCC} -c ${SOURCES} libft.h
+	${FULLGCC} -c ${BONUS} libft.h
+	ar rsc ${NAME} ${OBJECTS} ${BONUS_OBJECTS}
 
 .PHONY: all clean fclean re
+
