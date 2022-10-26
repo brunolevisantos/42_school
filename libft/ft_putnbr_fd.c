@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 15:14:22 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/26 09:30:32 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/10/26 09:31:01 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/10/26 09:44:14 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* escreve a str no ficheiro para onde aponta o fd 
- */
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	i;
+	long int	ln;
+	char		c;
 
-	i = 0;
-	while (s[i])
+	ln = n;
+	if (ln == 0)
+		write(fd, "0", 1);
+	if (ln < 0)
 	{
-		write(fd, s[i], 1);
-		i++;
+		ln *= -1;
+		write(fd, "-", 1);
+	}
+	while (ln > 0)
+	{
+		c = ln % 10 + '0';
+		write(fd, &c, 1);
+		ln /= 10;
 	}
 }
