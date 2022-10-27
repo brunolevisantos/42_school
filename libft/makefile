@@ -32,7 +32,8 @@ SOURCES	= ft_atoi.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
 		
-BONUS = ft_lstnew.c
+BONUS = ft_lstnew.c \
+		ft_lstadd_front.c
 
 OBJECTS = ${SOURCES:.c=.o}
 
