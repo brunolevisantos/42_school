@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 14:37:45 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/27 14:51:56 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/28 11:31:34 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,14 @@
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*current;
-	t_list	*aux;
 
 	if (!*lst)
 		return ;
-	current = *lst;
-	while (current != NULL)
+	while (*lst != NULL)
 	{
-		aux = current;
-		current = current -> next;
-		del((t_list *)(aux));
+		current = (*lst) -> next;
+		(*del)((*lst) -> content);
+		free(*lst);
+		*lst = current;
 	}
 }
