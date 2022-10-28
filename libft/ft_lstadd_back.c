@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 12:12:29 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/28 12:34:53 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/28 12:45:02 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*current;
 
-	if (!new && !lst)
+	if (!new || !lst)
 		return ;
 	current = *lst;
 	if (current)
 	{	
-		while (current -> next != NULL)
+		while (current -> next)
 			current = current -> next;
 		current -> next = new;
 	}
