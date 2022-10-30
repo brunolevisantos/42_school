@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 14:40:34 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/30 12:13:41 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/10/28 14:07:12 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/10/28 14:18:34 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list	*node;
-
-	node = (t_list *)malloc(sizeof(t_list));
-	if (!node)
-		return (0);
-	node -> content = content;
-	node -> next = 0;
-	return (node);
+	if (lst)
+	{
+		while (lst)
+		{
+			(*f)(lst -> content);
+			lst = lst -> next;
+		}
+	}
 }
