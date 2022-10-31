@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 11:04:38 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/24 14:29:31 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/30 20:48:47 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strchr(const char *s, int c)
 {
 	while (*s)
 	{
-		if (*s == c)
+		if (*s == (unsigned char)c)
 			return ((char *)s);
 	s++;
 	}

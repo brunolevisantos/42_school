@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 14:37:45 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/28 11:31:34 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/30 16:45:15 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		return ;
 	while (*lst != NULL)
 	{
-		current = (*lst) -> next;
-		(*del)((*lst) -> content);
+		current = (*lst)-> next;
+		(*del)((*lst)-> content);
 		free(*lst);
 		*lst = current;
 	}

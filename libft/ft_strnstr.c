@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 22:23:19 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/24 15:56:01 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/31 08:01:09 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t n)
 	}
 	return (0);
 }
+
+// int	main(void)
+// {
+// 	printf("%s\n", ft_strnstr("aaabcabcd", "aabc", 1));
+// }

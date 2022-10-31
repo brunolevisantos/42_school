@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 14:20:04 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/30 12:16:24 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/30 16:45:53 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *newlist;
-	t_list *nlcurrent;
+	t_list	*newlist;
+	t_list	*nlcurrent;
 
 	if (lst)
 	{

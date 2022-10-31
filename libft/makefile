@@ -12,6 +12,7 @@ SOURCES	= ft_atoi.c \
 		ft_memmove.c \
 		ft_memset.c \
 		ft_strchr.c \
+		ft_strrchr.c \
 		ft_strdup.c \
 		ft_strlcat.c \
 		ft_strlcpy.c \
@@ -42,22 +43,22 @@ BONUS = ft_lstnew.c \
 		ft_lstiter.c \
 		ft_lstmap.c
 
-OBJECTS = ${SOURCES:.c=.o}
+OBJECTS			= ${SOURCES:.c=.o}
 
-BONUS_OBJECTS = ${BONUS:.c=.o}
+BONUS_OBJECTS	= ${BONUS:.c=.o}
 
-FULLGCC = gcc -Wall -Werror -Wextra
+FULLGCC			= gcc -Wall -Werror -Wextra
 
-NAME	= libft.a
+NAME			= libft.a
 
 ${NAME}:
 	${FULLGCC} -c ${SOURCES} libft.h
-	ar rsc ${NAME} ${OBJECTS}
+	ar rcs ${NAME} ${OBJECTS}
 
 all: ${NAME}
 
 clean: 
-	rm -rf ${OBJECTS}
+	rm -rf ${OBJECTS} ${BONUS_OBJECTS}
 
 fclean: clean
 	rm -rf ${NAME}
