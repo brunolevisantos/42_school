@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 22:23:19 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/31 08:01:09 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/31 14:48:05 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,26 @@ retorna ponteiro para onde comecou a ser igual. */
 char	*ft_strnstr(const char *big, const char *little, size_t n)
 {
 	size_t		i;
-	const char	*tmp;
+	//const char	*tmp;
 	const char	*start;
 
 	i = 0;
-	tmp = little;
+	//tmp = little;
 	if (*little == 0)
 		return ((char *)big);
 	while (i < n && *big)
 	{
 		start = big;
-		while (i < n && *little == *big && *little)
+		while (*little == *big && i < n)
 		{
-			if (!*(little + 1))
+			if (!*(little + 1) || i == (n - 1))
 				return ((char *)start);
 			little++;
 			big++;
 			i++;
 		}
 		big++;
-		little = tmp;
+		//little = &little[0];
 		i++;
 	}
 	return (0);
@@ -44,5 +44,5 @@ char	*ft_strnstr(const char *big, const char *little, size_t n)
 
 // int	main(void)
 // {
-// 	printf("%s\n", ft_strnstr("aaabcabcd", "aabc", 1));
+// 	printf("%s\n", ft_strnstr("aaabcabcd", "aabc", -1));
 // }

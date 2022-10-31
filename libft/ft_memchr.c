@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 21:04:02 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/24 14:25:27 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/31 23:46:10 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@ void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t	i;
 
+	c = (char)c;
 	i = 0;
-	while (*(char *)s && i < n)
+	while (s && i < n)
 	{
 		if (*(char *)s == c)
-			return ((void *) s);
+			return ((void *)s);
 		i++;
 		s++;
 	}

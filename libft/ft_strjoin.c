@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 10:33:51 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/20 11:07:58 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/31 14:21:54 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*s3;
 	char	*s3start;
 
-	s3 = (char *)malloc(sizeof(char *) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	s3 = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (s3 == 0)
 		return (0);
 	s3start = s3;

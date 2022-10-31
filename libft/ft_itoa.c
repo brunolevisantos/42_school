@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:24:51 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/25 13:35:20 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/31 19:34:45 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 //aloca uma (char) string e preenche com o int.
-char	*allocate(size_t s)
+char	*alloc(size_t s)
 {
 	char	*str;
 
@@ -36,6 +36,8 @@ size_t	count(long int ln)
 		sign = 1;
 		count *= -1;
 	}
+	if (count == 0)
+		s = 1;
 	while (count > 0)
 	{
 		count = count / 10;
@@ -52,14 +54,17 @@ char	*ft_itoa(int n)
 
 	ln = n;
 	i = count(ln) - 1;
-	str = allocate(count(ln));
+	str = alloc(count(ln));
 	if (ln < 0)
 	{
 		str[0] = '-';
 		ln *= -1;
 	}
 	if (ln == 0)
-		return ("0");
+	{
+		str[i] = '0';
+		return (str);
+	}
 	while (ln > 0)
 	{
 		str[i] = ln % 10 + '0';
@@ -68,9 +73,8 @@ char	*ft_itoa(int n)
 	}
 	return (str);
 }
-/* 
-int	main(void)
-{
-	printf("%s\n", ft_itoa(0));
-}
- */
+
+// int	main(void)
+// {
+// 	printf("%s\n", ft_itoa(0));
+// }

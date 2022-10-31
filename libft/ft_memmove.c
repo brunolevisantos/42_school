@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:18:05 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/24 15:15:40 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/10/31 20:03:13 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	tmpdest = (char *)dest;
 	tmpsrc = (char *)src;
+	if (!dest && !src)
+		return (0);
 	if (dest > src)
 	{
 		i = n;
