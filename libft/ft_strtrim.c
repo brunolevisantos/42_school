@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 11:09:13 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/31 16:30:56 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/11/01 19:27:04 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+//retira os caracteres contidos em set
 int	notcharset1(const char *s1, const char *set)
 {
 	int	start;
@@ -60,7 +61,6 @@ int	notcharset2(const char *s1, const char *set)
 	return (end);
 }
 
-//retira os caracteres contidos em set
 char	*ft_strtrim(const char *s1, const char *set)
 {
 	char	*s2;
@@ -70,12 +70,14 @@ char	*ft_strtrim(const char *s1, const char *set)
 	int		end;
 
 	i = 0;
+	if (!*set)
+		return ((char *)s1);
 	start = notcharset1(s1, set);
 	end = notcharset2(s1, set);
 	cut = end - start + 1;
 	if (cut <= 0)
-		return ("");
-	s2 = (char *)malloc(sizeof(char) * (cut + 1));
+		return ((char *)ft_calloc(1, 1));
+	s2 = (char *)ft_calloc((cut + 1), sizeof(char));
 	if (!s2)
 		return (NULL);
 	while (start <= end)
@@ -84,11 +86,11 @@ char	*ft_strtrim(const char *s1, const char *set)
 		start++;
 		i++;
 	}
-	s2[i] = 0;
 	return (s2);
 }
 
-// int main(void)
-// {
-// 	printf("%s\n", ft_strtrim("      ", " "));
-// }
+/* int	main(void)
+{
+	printf("%s\n", ft_strtrim("123", ""));
+}
+ */

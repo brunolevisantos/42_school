@@ -3,24 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:24:51 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/31 19:34:45 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/11/01 19:13:04 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-//aloca uma (char) string e preenche com o int.
-char	*alloc(size_t s)
-{
-	char	*str;
-
-	str = (char *)malloc((sizeof(char) * (s + 1)));
-	str[s] = 0;
-	return (str);
-}
 
 size_t	count(long int ln)
 {
@@ -54,17 +44,16 @@ char	*ft_itoa(int n)
 
 	ln = n;
 	i = count(ln) - 1;
-	str = alloc(count(ln));
+	str = (char *)ft_calloc(i + 2, sizeof(char));
+	if (!str)
+		return (NULL);
 	if (ln < 0)
 	{
 		str[0] = '-';
 		ln *= -1;
 	}
 	if (ln == 0)
-	{
 		str[i] = '0';
-		return (str);
-	}
 	while (ln > 0)
 	{
 		str[i] = ln % 10 + '0';

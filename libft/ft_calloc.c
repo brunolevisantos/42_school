@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 13:49:12 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/24 14:21:15 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/11/01 18:43:43 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	*ft_calloc(size_t nelem, size_t elsize)
 	void	*ptr;
 
 	ptr = malloc(nelem * elsize);
-	if (ptr == 0)
+	if (!ptr)
 		return (0);
 	else
-		ft_bzero(ptr, nelem);
+		ft_bzero(ptr, (nelem * elsize));
 	return (ptr);
 }

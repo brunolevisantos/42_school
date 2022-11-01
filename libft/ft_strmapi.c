@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 11:27:00 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/25 14:33:40 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/11/01 19:16:37 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	i = 0;
 	str = allocate(s);
+	if (!str)
+		return (0);
 	while (s[i])
 	{
 		str[i] = f(i, s[i]);

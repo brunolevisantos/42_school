@@ -32,7 +32,9 @@ char	**stringcount(char const *s, char c)
 				i++;
 		}
 	}
-	string = (char **)malloc((sizeof (char *)) * (count + 1));
+	string = (char **)malloc(sizeof (char *) * (count + 1));
+	if (!string)
+		return (0);
 	string[count] = 0;
 	return (string);
 }
@@ -47,6 +49,8 @@ char	**ft_split(char const *s, char c)
 	num = 0;
 	i = 0;
 	string = stringcount(s, c);
+	if (!string)
+		return (0);
 	while (s[i])
 	{
 		while (s[i] == c)
@@ -56,8 +60,7 @@ char	**ft_split(char const *s, char c)
 		{
 			while (s[i] != c && s[i])
 				i++;
-			string[num] = (char *)malloc(sizeof(char) * (i - start + 1));
-			string[num][i - start] = 0;
+			string[num] = (char *)ft_calloc(i - start + 1, sizeof(char));
 			ft_memmove(string[num], &s[start], i - start);
 			num++;
 		}
@@ -71,7 +74,7 @@ int	main(void)
 	int		i;
 
 	i = 0;
-	string = ft_split("lorem ipsum dolor", ' ');
+	string = ft_split("      split       this for   me  !       ", ' ');
 	while (string[i])
 	{
 		printf("%s\n", string[i]);
