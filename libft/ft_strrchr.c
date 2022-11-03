@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 11:28:53 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/30 20:53:07 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/11/03 00:32:23 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,11 @@ char	*ft_strrchr(const char *s, int c)
 	int	i;
 
 	i = ft_strlen(s);
-	while (*s)
-		s++;
-	if (c == 0)
-		return ((char *)s);
 	while (i >= 0)
 	{
-		if (*s == (unsigned char)c)
-			return ((char *)s);
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
 		i--;
-		s--;
 	}
 	return (0);
 }
@@ -39,3 +34,19 @@ char	*ft_strrchr(const char *s, int c)
     printf("%s\n", ft_strrchr(s, 0));
     return (0);
 }*/
+
+	// int	i;
+
+	// i = ft_strlen(s);
+	// while (*s)
+	// 	s++;
+	// if (c == 0)
+	// 	return ((char *)s);
+	// while (i >= 0)
+	// {
+	// 	if (*s == (unsigned char)c)
+	// 		return ((char *)s);
+	// 	i--;
+	// 	s--;
+	// }
+	// return (0);

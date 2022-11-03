@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:02:33 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/31 19:40:29 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/11/02 19:01:54 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	tmpsrc = (char *)src;
 	i = 0;
 	if (!dest && !src)
-		return (0);
+		return (dest);
 	while (i < n)
 	{
 		tmpdest[i] = tmpsrc[i];

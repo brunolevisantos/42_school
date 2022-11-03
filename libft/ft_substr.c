@@ -6,24 +6,23 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 00:17:06 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/31 19:36:23 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/11/02 11:39:06 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 //copia parte da string original para uma nova, entre o start e o len
-
 char	*allocat(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;
 
-	if (start > ft_strlen(s))
-		sub = (char *)malloc(sizeof(char) * 1);
+	if (!s || start > ft_strlen(s))
+		sub = (char *)ft_calloc(1, (sizeof(char)));
 	else if (len > ft_strlen(s))
-		sub = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+		sub = (char *)ft_calloc((ft_strlen(s) + 1), sizeof(char));
 	else
-		sub = (char *)malloc(sizeof(char) * len + 1);
+		sub = (char *)ft_calloc((len + 1), sizeof(char));
 	return (sub);
 }
 
@@ -43,7 +42,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	else
 	{
-		sfinish = start + len;
+		if (len > ft_strlen(s))
+			sfinish = ft_strlen(s);
+		else
+			sfinish = start + len;
 		substart = sub;
 		while (start < sfinish)
 		{
@@ -52,7 +54,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 			start++;
 		}
 	}
-	*sub = 0;
 	return (substart);
 }
 
