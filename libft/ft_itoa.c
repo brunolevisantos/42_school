@@ -6,12 +6,13 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:24:51 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/11/01 19:13:04 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/11/03 15:58:29 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+//recebe um int e aloca uma str preenchendo a com o n (transforma em char)
 size_t	count(long int ln)
 {
 	size_t		s;

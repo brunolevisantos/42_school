@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 15:24:30 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/24 15:55:09 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/11/03 17:16:30 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlcat(char *dst, char *src, size_t size)
 
 	i = 0;
 	j = ft_strlen(dst);
-	n = ft_strlen(dst);
+	n = j;
 	m = ft_strlen(src);
 	if (size <= j)
 		return (size + m);

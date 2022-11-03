@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 14:02:57 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/31 14:21:18 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/11/03 17:13:40 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+//aloca memoria duplica a string s
 char	*ft_strdup(const char *s)
 {
 	char	*sdup;
