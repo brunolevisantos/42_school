@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 11:09:13 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/11/02 12:40:33 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/11/03 14:59:26 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	notcharset1(const char *s1, const char *set)
 	int	i;
 
 	start = 0;
+	if (set[0] == '\0')
+		return (start);
 	while (s1[start])
 	{
 		i = 0;
@@ -43,6 +45,8 @@ int	notcharset2(const char *s1, const char *set)
 	int	i;
 
 	end = ft_strlen(s1) - 1;
+	if (set[0] == '\0')
+		return (end);
 	while (end != 0)
 	{
 		i = 0;
@@ -70,8 +74,8 @@ char	*ft_strtrim(const char *s1, const char *set)
 	int		end;
 
 	i = 0;
-	if (!*set)
-		return ((char *)s1);
+	if (s1[0] == '\0')
+		return (ft_calloc(1, sizeof(char)));
 	start = notcharset1(s1, set);
 	end = notcharset2(s1, set);
 	cut = end - start + 1;

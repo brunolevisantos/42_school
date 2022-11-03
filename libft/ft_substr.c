@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 00:17:06 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/11/02 11:39:06 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/11/03 15:27:09 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ char	*allocat(char const *s, unsigned int start, size_t len)
 
 	if (!s || start > ft_strlen(s))
 		sub = (char *)ft_calloc(1, (sizeof(char)));
-	else if (len > ft_strlen(s))
-		sub = (char *)ft_calloc((ft_strlen(s) + 1), sizeof(char));
+	else if (len >= ft_strlen(s))
+		sub = (char *)ft_calloc((ft_strlen(s) - start + 1), sizeof(char));
 	else
 		sub = (char *)ft_calloc((len + 1), sizeof(char));
 	return (sub);
