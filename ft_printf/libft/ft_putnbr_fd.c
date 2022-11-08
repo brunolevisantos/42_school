@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 09:31:01 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/11/08 12:21:04 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/11/08 16:47:03 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 /* ALTERADO - RECEBE LN - escreve o n no ficheiro para onde aponta fd
  */
-
 void	ft_putnbr_fd(long int n, int fd)
 {
 	char	c;
