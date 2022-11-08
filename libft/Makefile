@@ -52,7 +52,7 @@ FULLGCC			= clang -Wall -Werror -Wextra
 NAME			= libft.a
 
 ${NAME}:
-	${FULLGCC} -c ${SOURCES} libft.h
+	${FULLGCC} -c ${SOURCES}
 	ar rcs ${NAME} ${OBJECTS}
 
 all: ${NAME}
