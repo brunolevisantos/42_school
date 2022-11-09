@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 14:32:23 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/25 14:44:20 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/10/25 15:14:22 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/11/09 15:22:59 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-/* aplica a funcao f ao que consta no endereco para onde aponta s[i]
+/* ALTERADO - RECEBE PTR BYTS - escreve a str no ficheiro para onde aponta o fd 
  */
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_putstr_fd(char *s, int fd, int *bytesp)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	while (s[i])
+	if (!s)
+		(*bytesp) += write(fd, "(null)", 6);
+	else
 	{
-		f(i, &s[i]);
-		i++;
+		while (s[i])
+		{
+			(*bytesp) += write(fd, &s[i], 1);
+			i++;
+		}
 	}
 }

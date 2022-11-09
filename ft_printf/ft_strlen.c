@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 10:56:40 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/10/24 14:24:41 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/10/13 11:00:06 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/11/09 14:05:58 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-//e positiva se for printable.
-int	ft_isprint(int c)
+//tamanho da string.
+size_t	ft_strlen(const char *s)
 {
-	if (c >= 32 && c <= 126)
-		return (1);
-	return (0);
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

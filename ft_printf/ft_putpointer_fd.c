@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putpointer_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/14 11:28:53 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/11/03 16:46:41 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/11/09 10:16:56 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/11/09 14:32:13 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-//Encontra e retorna um ponteiro para a ultima ocorrencia da char c.
-char	*ft_strrchr(const char *s, int c)
+void	ft_putpointer_fd(unsigned long int n, int fd, int *bytesp)
 {
-	int	i;
+	char	*base;
 
-	i = ft_strlen(s);
-	while (i >= 0)
+	base = "0123456789abcdef";
+	if (n < ft_strlen(base))
+		ft_putchar_fd(base[n], fd, bytesp);
+	else
 	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
-		i--;
+		ft_putpointer_fd(n / ft_strlen(base), 1, bytesp);
+		ft_putpointer_fd(n % ft_strlen(base), 1, bytesp);
 	}
-	return (0);
 }
-
-/*int main(void)
-{
-    char s[] = "hipopotamo";
-
-    printf("%s\n", ft_strrchr(s, 0));
-    return (0);
-}*/
