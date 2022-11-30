@@ -6,14 +6,15 @@ SOURCES	= ft_printf.c \
 		ft_putstr_fd.c \
 		ft_strlen.c
 
-OBJECTS			= ${SOURCES:.c=.o}
+OBJECTS	= ${SOURCES:.c=.o}
 
-FULLGCC			= cc -Wall -Werror -Wextra
+CC		= cc
 
-NAME			= libftprintf.a
+CFLAGS	= -Wall -Werror -Wextra
 
-${NAME}:
-	${FULLGCC} -c ${SOURCES}
+NAME	= libftprintf.a
+
+${NAME}: ${OBJECTS}
 	ar rcs ${NAME} ${OBJECTS}
 
 all: ${NAME}
@@ -24,6 +25,6 @@ clean:
 fclean: clean
 	rm -rf ${NAME}
 
-re: fclean
+re: fclean all
 
 .PHONY: all clean fclean re

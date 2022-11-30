@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:15:58 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/11/11 10:07:18 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/11/11 10:38:01 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,21 +55,3 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (bytesp);
 }
-
-/*int	main(void)
-{
-	int	i;
-
-	i = 10;
-	printf("%d\n", ft_printf("percent sign %%\n"));
-	printf("%d\n", ft_printf("char %p\n", 7));
-	printf("%d\n", ft_printf("string %s\n", "bruno"));
-	printf("%d\n", ft_printf("pointer %p\n", (char *)140));
-	printf("%d\n", ft_printf("unsigned %u\n", -1));
-	printf("%d\n", ft_printf("lets print a percent sign %%, char %d, 
-	a string %s, a negative int %i, decimal %d and a unsigned %u, 
-	a pointer %p\n", 'b', "bruno", -2, 9, -1, &i));
-	printf("%d\n", ft_printf(" NULL %s NULL ", NULL));
-	printf("%d\n", printf(" NULL %s NULL ", NULL));
-}
- */
