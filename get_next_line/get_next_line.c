@@ -6,39 +6,31 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 10:52:43 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/11/30 15:04:22 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/12/09 16:43:47 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "get_next_line.h"
 
 #ifndef BUFFER_SIZE
-# define BUFFER_SIZE 1
+# define BUFFER_SIZE 10
 #endif
 
 char	*get_next_line(int fd)
 {
-	int			i;
-	static char		buf[BUFFER_SIZE];
+	static char	buf[BUFFER_SIZE];
 	char		*line;
+	int			bytes;
 
-	i = 0;
-	read(fd, buf, BUFFER_SIZE);
-	line[i] = buf[i];
-	return (buf);
-}
-
-int	main(void)
-{
-	int		fd;
-
-	fd = open("file_to_read.txt", O_RDONLY);
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
+	line = 0;
+	if (!buf[0])
+		bytes = read(fd, buf, BUFFER_SIZE);
+	while (!ft_strchr(buf, '\n') && bytes)
+	{
+		line = ft_strjoin(line, buf);
+		bytes = read(fd, buf, BUFFER_SIZE);
+	}
+	line = ft_strjoin(line, buf);
+	move_buf(buf);
+	return (line);
 }

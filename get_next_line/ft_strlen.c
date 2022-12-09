@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 10:24:10 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/12/09 16:42:51 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/10/13 11:00:06 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/12/09 11:50:49 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	main(void)
+//ADAPTADO - TAMANHO ATE AO FIM OU \N - tamanho da string.
+int	ft_strlen(const char *s)
 {
-	int		fd;
+	int	i;
 
-	fd = open("file_to_read.txt", O_RDONLY);
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
+	i = 0;
+	if (s)
+	{
+		while (s[i] && s[i] != '\n')
+			i++;
+		if (s[i] == '\n')
+			i++;
+	}
+	return (i);
 }

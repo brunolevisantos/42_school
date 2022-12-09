@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   move_buf.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 10:24:10 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/12/09 16:42:51 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/12/09 13:47:19 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/12/09 16:16:28 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-
-int	main(void)
+void	move_buf(char *buf)
 {
-	int		fd;
+	int	i;
+	int	j;
 
-	fd = open("file_to_read.txt", O_RDONLY);
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
+	i = 0;
+	j = 0;
+	while (buf[i] && buf[i] != '\n')
+	{
+		buf[i] = 0;
+		i++;
+	}
+	if (buf[i] == '\n')
+	{
+		buf[i] = 0;
+		i++;
+		while (buf[i])
+		{
+			buf[j] = buf[i];
+			buf[i] = 0;
+			j++;
+			i++;
+		}
+	}
 }
