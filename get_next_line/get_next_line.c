@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 10:52:43 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/12/11 21:33:55 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/12/11 22:03:09 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@
 
 char	*get_next_line(int fd)
 {
-	static char	buf[BUFFER_SIZE];
+	static char	buf[BUFFER_SIZE + 1];
 	char		*line;
 
 	line = 0;
+    buf[BUFFER_SIZE] = 0;
     if (buf[0])
         line = ft_strjoin(line, buf);
     while (!ft_strchr(line, '\n') && read(fd, buf, BUFFER_SIZE))

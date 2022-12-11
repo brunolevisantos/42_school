@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 10:13:20 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/12/11 21:33:14 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/12/11 21:56:26 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 char	*get_next_line(int fd);
 char	*ft_strchr(const char *s, int c);
-int		ft_strlen(const char *s);
+int		ft_strlen(char *s);
 char	*ft_strjoin(char *s1, char *s2);
 int		main(void);
 void	move_buf(char *buf);

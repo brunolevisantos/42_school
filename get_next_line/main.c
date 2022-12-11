@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 10:24:10 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/12/11 21:33:29 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/12/11 22:02:26 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	main(void)
 	while (str)
 	{
 		printf("%s", str);
+		free(str);
 		str = get_next_line(fd);
 	}
+	free(str);
 }
