@@ -17,10 +17,10 @@ int	main(void)
 	int		fd;
 
 	fd = open("file_to_read.txt", O_RDONLY);
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line2(fd));
+	printf("%s", get_next_line2(fd));
+	printf("%s", get_next_line2(fd));
+	printf("%s", get_next_line2(fd));
+	printf("%s", get_next_line2(fd));
+	printf("%s", get_next_line2(fd));
 }

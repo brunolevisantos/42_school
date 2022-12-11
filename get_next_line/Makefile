@@ -1,4 +1,4 @@
-SOURCES	= get_next_line.c \
+SOURCES	= get_next_line2.c \
 		ft_strlen.c \
 		ft_strchr.c \
 		ft_strjoin.c \

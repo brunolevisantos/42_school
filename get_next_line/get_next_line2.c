@@ -16,22 +16,36 @@
 # define BUFFER_SIZE 10
 #endif
 
-char	*get_next_line(int fd)
+char    *line_cut(char *tmpline)
+{
+    int     i;
+    char    *line;
+
+    i = 0;
+    line = (char *)malloc(sizeof(char) * ft_strlen(tmpline) + 1);
+    while (tmpline[i] != '\0' && tmpline[i] != '\n')
+    {
+        line[i] = tmpline[i];
+        i++;
+    }
+    line[i] = tmpline[i];
+    if (line[i] != '\0')
+        line[++i] = '\0';
+    return (line);
+}
+
+char	*get_next_line2(int fd)
 {
 	static char	buf[BUFFER_SIZE];
 	char		*line;
-	//int			bytes;
 
 	line = 0;
-	if (!buf[0])
-		/* bytes = */read(fd, buf, BUFFER_SIZE);
-	while (!ft_strchr(buf, '\n')/*  && bytes */)
+	while (!ft_strchr(line, '\n'))
 	{
-		line = ft_strjoin(line, buf);
-		/* bytes =  */read(fd, buf, BUFFER_SIZE);
+        read(fd, buf, BUFFER_SIZE);
+        line = ft_strjoin(line, buf);
 	}
-/* 	if (!ft_strchr(buf, '\0')) */
-	line = ft_strjoin(line, buf);
+    line = line_cut(line);
 	move_buf(buf);
 	return (line);
 }
