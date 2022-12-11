@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   move_buf.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:47:19 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/12/09 16:16:28 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/12/11 20:33:50 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "get_next_line.h"
 
 void	move_buf(char *buf)
 {
