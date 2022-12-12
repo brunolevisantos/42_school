@@ -1,15 +1,12 @@
 SOURCES	= get_next_line.c \
-		ft_strlen.c \
-		ft_strchr.c \
-		ft_strjoin.c \
-		main.c \
-		move_buf.c
+		get_next_line_utils.c \
+		main.c
 
 OBJECTS	= ${SOURCES:.c=.o}
 
 CC		= cc
 
-CFLAGS	= -Wall -Werror -Wextra -fsanitize=address -g
+CFLAGS	= -Wall -Werror -Wextra -fsanitie=address -g
 
 NAME	= get_next_line.a
 

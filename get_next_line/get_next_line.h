@@ -22,7 +22,6 @@ char	*get_next_line(int fd);
 char	*ft_strchr(const char *s, int c);
 int		ft_strlen(char *s);
 char	*ft_strjoin(char *s1, char *s2);
-int		main(void);
 void	move_buf(char *buf);
 
 #endif

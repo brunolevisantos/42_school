@@ -23,6 +23,8 @@ char	*get_next_line(int fd)
 
 	line = 0;
     buf[BUFFER_SIZE] = 0;
+    if (!fd)
+        return (NULL);
     if (buf[0])
         line = ft_strjoin(line, buf);
     while (!ft_strchr(line, '\n') && read(fd, buf, BUFFER_SIZE))
