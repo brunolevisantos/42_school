@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/15 10:50:47 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/12/15 14:52:36 by bde-seic         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 int	ft_strlen(char *s)
@@ -82,3 +94,40 @@ void	move_buf(char *buf)
 		}
 	}
 }
+
+/* char	*move_buf(char *buf)
+{
+	int	i;
+	int	j;
+	char	*newbuf;
+
+	i = 0;
+	j = 0;
+	while (buf[i] && buf[i] != '\n')
+		i++;
+	i++;
+	printf("%d\n", i);
+	while (buf[i])
+	{
+		printf("aqui");
+		newbuf[j] = buf[i];
+		i++;
+		j++;
+	}
+	while (j < BUFFER_SIZE)
+	{
+		printf("ali");
+		buf[j] = 0;
+		j++;
+	}
+	return (newbuf);
+}
+ */
+/* int	main(void)
+{
+	char *buf = "abcd\nefghi";
+	printf("%s\n", buf);
+	move_buf(buf);
+	printf("%s\n", buf);
+}
+ */

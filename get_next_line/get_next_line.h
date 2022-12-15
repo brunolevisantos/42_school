@@ -6,11 +6,11 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 10:13:20 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/12/11 21:56:26 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/12/15 14:53:24 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
 # include <fcntl.h>

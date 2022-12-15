@@ -6,7 +6,7 @@ OBJECTS	= ${SOURCES:.c=.o}
 
 CC		= cc
 
-CFLAGS	= -Wall -Werror -Wextra -fsanitie=address -g
+CFLAGS	= -Wall -Werror -Wextra -fsanitize=address -g
 
 NAME	= get_next_line.a
 
