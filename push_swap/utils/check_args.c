@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:44:11 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/12/19 14:55:50 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/12/19 15:03:37 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,12 @@ int	check_doubles(char **argv)
 
 int	check_minmax(char *argv)
 {
-	if 
+	
+}
+
+int check_digits(char *argv)
+{
+	
 }
 
 int	check_args(char **argv)
@@ -47,8 +52,13 @@ int	check_args(char **argv)
 	{
 		while (argv[i])
 		{
-			if (check_minmax(ft_atoi(argv[i])) && check_)
+			if (!check_minmax(ft_atoi(argv[i])) || !check_digits(argv[i]))
+			{
+				write(2, "Error\n", 6);
+				exit ();
+			}
+			i++;
 		}	
 	}
-	return (0);
+	return (1);
 }
