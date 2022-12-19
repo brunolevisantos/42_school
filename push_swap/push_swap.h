@@ -6,14 +6,14 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 10:11:19 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/12/19 13:57:25 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/12/19 15:07:39 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "utils/ft_printf/ft_printf.h"
+# include "utils/ft_printf/ft_printf.h" //ver como procurar libft e printf
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
