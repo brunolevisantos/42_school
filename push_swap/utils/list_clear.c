@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   list_clear.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/19 10:58:06 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/12/20 17:31:17 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/12/20 22:35:56 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/12/20 23:11:09 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	list_clear(t_stack **stack)
 {
-	char	**string;
-	t_stack	**stacka;
-	int		i;
+	t_stack	*current;
 
-	i = 1;
-	stacka = 0;
-	if (argc > 1)
+	if (!*stack)
+		return ;
+	while (*stack != NULL)
 	{
-		string = ft_split(argv, ' ');
-		while (string[i])
-			add_node(stacka, atoi_two(string[i++], stacka));
-		run_algorithm(stacka);
+		current = (*stack) -> next;
+		free(*stack);
+		*stack = current;
 	}
-	return (0);
+	write(2, "Error\n", 6);
+    exit (0);
 }

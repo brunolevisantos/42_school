@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:17:08 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/12/20 10:54:10 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/12/20 22:44:34 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,14 @@ void    add_node(t_stack **stacka, int num)
     node -> num = num;
     node -> next = 0;
     if (!*stacka)
-    {
-        *stacka = node; //CONFIRMAR QUE ESTA BEM
-        return ;
-    }
-    curr = *stacka; //CONFIRMAR QUE VOLTA AO PRIMEIRO NODE DA LISTA EM PROXIMAS ITERACOES
+        *stacka = node;
+    curr = *stacka;
     while (curr)
     {
-        if (curr -> num = num)
-        {
-            free (stacka); //CONFIRMAR QUE LIMPA TUDO
-            write (2, "Error\n", 6);
-            exit (0);
-        }
+        if (curr -> num = num && curr != node)
+			list_clear(stacka);
+        if (!curr -> next && curr != node)
+            curr -> next = node;
         curr = curr -> next;
     }
-    *stacka = node;
 }
