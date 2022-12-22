@@ -40,7 +40,7 @@ $(NAME): $(OBJECTS) $(OBJECTSUTILS) $(OBJECTSOPS) $(OBJECTSLIBFT)
 	$(CC) $(CFLAGS) $(OBJECTS) $(OBJECTSUTILS) $(OBJECTSOPS) $(OBJECTSLIBFT) -o $(NAME)
 
 clean:
-	rm -f *.o utils/*.o utils/operations/*.operations
+	rm -f *.o utils/*.o utils/operations/*.o utils/libft_utils/*.o
 
 fclean: clean
 	rm -f push_swap
