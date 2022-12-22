@@ -6,28 +6,27 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:53:36 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/12/21 17:18:21 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/12/22 16:56:49 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 int	swap_exec(t_stack **stack, int flag)
 {
-	t_stack	**curr;
+	t_stack	*curr;
 
-	if (*stack == NULL || (*stack) -> next == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 		return (0);
-	curr = (*stack) -> next;
-	(*stack) -> next = (*curr) -> next;
-	(*curr) -> next = *stack;
+	curr = (*stack)->next;
+	(*stack)->next = curr->next;
+	curr->next = *stack;
 	*stack = curr;
 	if (flag == 1)
 		write(1, "sa\n", 3);
 	else if (flag == 2)
 		write(1, "sb\n", 3);
-	else
-		return (1);
+	return (1);
 }
 
 void	swap(t_stack **stacka, t_stack **stackb, int flag)

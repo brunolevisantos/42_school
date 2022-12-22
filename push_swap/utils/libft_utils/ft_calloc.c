@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atoi_two.c                                         :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/20 09:37:01 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/12/22 15:55:53 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/10/18 13:49:12 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/12/22 15:20:17 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
-int	atoi_two(char *string, int *error)
+//Aloca uma memoria de n elementos de tamanho "element size" e preenche com 0.
+void	*ft_calloc(size_t nelem, size_t elsize)
 {
-	int			i;
-	int			sign;
-	long int	y;
+	void	*ptr;
 
-	i = 0;
-	sign = 1;
-	y = 0;
-	if (string == 0)
+	ptr = malloc(nelem * elsize);
+	if (!ptr)
 		return (0);
-	if (string[i] == '-')
-	{
-		sign *= -1;
-		i++;
-	}
-	while (string[i])
-	{
-		if (string[i] < '0' || string[i] > '9')
-			*error = 1;
-		else
-			y = y * 10 + (string[i++] - '0') * sign;
-	}
-	if (y < INT_MIN || y > INT_MAX)
-		*error = 1;
-	return ((int)y);
+	else
+		ft_bzero(ptr, (nelem * elsize));
+	return (ptr);
 }

@@ -5,30 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 15:22:29 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/12/21 18:11:58 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/12/21 15:25:40 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/12/22 15:28:56 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 int	rotate_exec(t_stack **stack, int flag)
 {
-	t_stack	**curr;
+	t_stack	*save;
+	t_stack	*curr;
 
-	if (*stack == NULL || (*stack) -> next == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 		return (0);
+	save = *stack;
+	*stack = (*stack)->next;
 	curr = *stack;
-	while ((*curr) -> next -> next != NULL)
-		curr = (*curr) -> next;
-	*stack = (*curr) -> next;
-	(*curr) -> next = NULL;
+	while (curr->next != NULL)
+		curr = curr->next;
+	curr->next = save;
+	save->next = NULL;
 	if (flag == 1)
 		write(1, "ra\n", 3);
 	else if (flag == 2)
 		write(1, "rb\n", 3);
-	else
-		return (1);
+	return (1);
 }
 
 void	rotate(t_stack **stacka, t_stack **stackb, int flag)
