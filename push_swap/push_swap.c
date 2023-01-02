@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 10:58:06 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/12/22 16:47:06 by bde-seic         ###   ########.fr       */
+/*   Updated: 2022/12/22 21:27:40 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ int	main(int argc, char **argv)
 			string = ft_split(*argv, ' ');
 			i = 0;
 			while (string && string[i] && !error)
-				add_node(&stacka, atoi_two(string[i++], &error));
+				add_node(&stacka, atoi_two(string[i++], &error), &error);
 			string_clear(string);
 		}
 		if (error)
-			list_clear(&stacka);
+			list_clear(&stacka, &error);
 		else
-			run_algorithm(&stacka, &stackb);
+			run_algorithm(&stacka, &stackb, &error);
 	}
 	return (0);
 }

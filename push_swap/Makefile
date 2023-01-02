@@ -37,12 +37,12 @@ CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g
 all: $(NAME)
 
 $(NAME): $(OBJECTS) $(OBJECTSUTILS) $(OBJECTSOPS) $(OBJECTSLIBFT)
-	$(CC) $(CFLAGS) $(OBJECTS) $(OBJECTSUTILS) $(OBJECTSOPS) $(OBJECTSLIBFT) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJECTS) $(OBJECTSUTILS) $(OBJECTSOPS) $(OBJECTSLIBFT) -o $(NAME)
 
 clean:
-	rm -f *.o utils/*.o utils/operations/*.o utils/libft_utils/*.o
+	@rm -f *.o utils/*.o utils/operations/*.o utils/libft_utils/*.o
 
 fclean: clean
-	rm -f push_swap
+	@rm -f push_swap
 
 re: fclean all
