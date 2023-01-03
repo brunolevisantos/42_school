@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 22:35:56 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/12/22 21:37:25 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/03 14:41:26 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ void	list_clear(t_stack **stack, int *error)
 		free(*stack);
 		*stack = current;
 	}
-/* 	printf("O valor do error e: %ls\n", error);
-	error = 0; */
-	if (error != NULL)
+	if (*error != 0)
 		write(2, "Error\n", 6);
 }

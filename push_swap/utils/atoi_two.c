@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 09:37:01 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/12/22 21:15:05 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/03 14:46:16 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ int	atoi_two(char *string, int *error)
 	while (string[i])
 	{
 		if (string[i] < '0' || string[i] > '9')
+		{
 			*error = 1;
+			break ;
+		}
 		else
 			y = y * 10 + (string[i++] - '0') * sign;
 	}
