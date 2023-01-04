@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:28:53 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/04 15:30:33 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/04 16:24:55 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,20 @@ void	print_stack(t_stack **stacka, t_stack **stackb)
 	}
 }
 
-void	run_algorithm(t_stack **stacka, t_stack **stackb, int *error)
+void	sort_three(t_stack **stacka, t_stack **stackb)
 {
-	print_stack(stacka, stackb); //retirar quando pronto
-	swap(stacka, stackb, 1);
-	rotate(stacka, stackb, 1);
-	print_stack(stacka, stackb); //retirar quando pronto
-	list_clear(stacka, error);
-	list_clear(stackb, error);
+	t_stack	*curr;
+
+	curr = *stacka;
+	if (curr->num > curr->next->num && curr->next->next->num > curr->num)
+		swap(stacka, stackb, 1);
+}
+
+void	run_algorithm(t_stack **stacka, t_stack **stackb)
+{
+	print_stack(stacka, stackb);
+/* 	if (sorted(stacka) + size = 1 + size = 2?);
+		break ; */
+	sort_three(stacka, stackb);
+	print_stack(stacka, stackb);
 }

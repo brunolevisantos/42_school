@@ -1,4 +1,12 @@
 swap ok
 rotate ok
-rev_rotate com leaks
+rev_rotate ok
 push ok
+
+falta juntar o list clear final para poupar uma linha na main (push_swap.c)
+criar funcao if sorted
+pensar como fazer se tiver so um elemento, ou dois.
+rever as condicoes para o sort three
+	pensar em juntr os 3 swaps e fazer recursivamente
+
+retirar os print_stacks
