@@ -6,28 +6,32 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:22:29 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/12/22 21:45:38 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/04 11:36:05 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-//a dar leak
 int	rev_rotate_exec(t_stack **stack, int flag)
 {
 	t_stack	*curr;
+	t_stack	*new_first;
+	t_stack	*old_first;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 		return (0);
 	curr = *stack;
+	old_first = *stack;
 	while (curr->next->next != NULL)
 		curr = curr->next;
-	*stack = curr->next;
+	new_first = curr->next;
 	curr->next = NULL;
+	new_first->next = old_first;
+	*stack = new_first;
 	if (flag == 1)
-		write(1, "rra\n", 3);
+		write(1, "rra\n", 4);
 	else if (flag == 2)
-		write(1, "rrb\n", 3);
+		write(1, "rrb\n", 4);
 	return (1);
 }
 
