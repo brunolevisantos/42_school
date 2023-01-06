@@ -33,15 +33,15 @@ int	rotate_exec(t_stack **stack, int flag)
 	return (1);
 }
 
-void	rotate(t_stack **stacka, t_stack **stackb, int flag)
+int	rotate(t_stack **stacka, t_stack **stackb, int flag)
 {
 	int	i;
 
 	i = 0;
 	if (flag == 1)
-		rotate_exec(stacka, 1);
+		i += rotate_exec(stacka, 1);
 	else if (flag == 2)
-		rotate_exec(stackb, 2);
+		i += rotate_exec(stackb, 2);
 	else if (flag == 3)
 	{
 		i += rotate_exec(stacka, 0);
@@ -49,4 +49,5 @@ void	rotate(t_stack **stacka, t_stack **stackb, int flag)
 		if (i == 2)
 			write(1, "rr\n", 3);
 	}
+	return (i);
 }
