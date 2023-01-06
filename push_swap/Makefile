@@ -15,7 +15,8 @@ SOURCESLIBFT = ft_split.c \
 		ft_calloc.c \
 		ft_memmove.c \
 		ft_bzero.c \
-		ft_memset.c
+		ft_memset.c \
+		list_size.c
 
 SOURCESUTILSF = $(addprefix utils/, $(SOURCESUTILS))
 

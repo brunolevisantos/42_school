@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 10:11:19 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/04 15:47:44 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/06 11:18:08 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ void	*ft_calloc(size_t nelem, size_t elsize);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
+int		list_size(t_stack **stack);
 
 #endif
