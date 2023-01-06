@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:28:53 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/06 11:53:29 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/06 13:35:23 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,26 @@ void	sort_three(t_stack **stacka, t_stack **stackb, int flag)
 	}
 }
 
+/* void	all_to_b(t_stack **stacka, t_stack **stackb)
+{
+	int		max_one;
+	int		max_two;
+	int		max_three;
+	t_stack	*curr;
+
+	curr = (*stacka)->next->next->next;
+	max_one = (*stacka)->num;
+	max_two = (*stacka)->next->num;
+	max_three = (*stacka)->next->next->num;
+	while (curr)
+	{
+		if (curr->num > max_one)
+
+		else if (curr)
+	}
+
+}
+ */
 void	run_algorithm(t_stack **stacka, t_stack **stackb)
 {
 	print_stack(stacka, stackb);

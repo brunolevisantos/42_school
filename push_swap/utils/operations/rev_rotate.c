@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:22:29 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/04 11:36:05 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/06 12:24:32 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ void	rev_rotate(t_stack **stacka, t_stack **stackb, int flag)
 		i += rev_rotate_exec(stacka, 0);
 		i += rev_rotate_exec(stackb, 0);
 		if (i == 2)
-			write(1, "rrr\n", 3);
+			write(1, "rrr\n", 4);
 	}
 }

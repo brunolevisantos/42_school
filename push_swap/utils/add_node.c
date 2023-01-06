@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:17:08 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/03 14:06:20 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/06 13:38:25 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	add_node(t_stack **stacka, int num, int *error)
 	{
 		if (curr->num == num && curr != node)
 		{
+			*error = 1;
 			list_clear(stacka, error);
 			exit(1);
 		}
