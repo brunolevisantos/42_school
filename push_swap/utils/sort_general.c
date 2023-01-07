@@ -6,11 +6,29 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:20:02 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/06 20:51:21 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/07 23:43:01 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	print_stacks(t_stack **stacka, t_stack **stackb)
+{
+	t_stack	*curr;
+
+	curr = *stacka;
+	while (curr)
+	{
+		printf("Stack a: %d\n", (curr)->num);
+		curr = curr->next;
+	}
+	curr = *stackb;
+	while (curr)
+	{
+		printf("Stack b: %d\n", (curr)->num);
+		curr = curr->next;
+	}
+}
 
 void	below_avg_to_b(t_stack **stacka, t_stack **stackb)
 {
@@ -46,21 +64,27 @@ void	sort_general(t_stack **stacka, t_stack **stackb)
 	t_stack	*ca;
 	t_stack	*cb;
 	int		rot;
-	int		rev_rot;
+	int		i;
 
-	ca = *stacka;
-	cb = *stackb;
 	below_avg_to_b(stacka, stackb);
 	sort_three(stacka, stackb, 1);
-	while (list_size(stackb))
+	print_stacks(stacka, stackb);
+	rot = 0;
+	while (*stackb)
 	{
-		if (cb->num < ca->num)
+		ca = *stacka;
+		cb = *stackb;
+		if (cb->num < ca->num || rot == list_size(stacka))
 		{
 			push(stackb, stacka, 1);
-			rot * rev_rotate(stacka, stackb, 1);
+			i = 0;
+			while (i++ < rot)
+			{
+				rev_rotate(stacka, stackb, 1);
+			}
 			rot = 0;
 		}
 		else
-			rot += rotate(sctaka, stackb, 1);
+			rot += rotate(stacka, stackb, 1);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:28:53 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/06 20:23:18 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/07 22:54:21 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	run_algorithm(t_stack **stacka, t_stack **stackb)
 		swap(stacka, stackb, 1);
 	else if (list_size(stacka) == 3 && !sorted(stacka))
 		sort_three(stacka, stackb, 1);
-	else 
+	else
 		sort_general(stacka, stackb);
 	print_stack(stacka, stackb);
 }

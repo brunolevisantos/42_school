@@ -4,7 +4,9 @@ SOURCESUTILS = add_node.c \
 		atoi_two.c \
 		list_clear.c \
 		run_algorithm.c \
-		string_clear.c
+		string_clear.c \
+		sort_three.c \
+		sort_general.c
 
 SOURCESOPS = push.c \
 		rev_rotate.c \
