@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:20:02 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/07 23:43:01 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/07 23:49:48 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void	sort_general(t_stack **stacka, t_stack **stackb)
 
 	below_avg_to_b(stacka, stackb);
 	sort_three(stacka, stackb, 1);
-	print_stacks(stacka, stackb);
 	rot = 0;
 	while (*stackb)
 	{
