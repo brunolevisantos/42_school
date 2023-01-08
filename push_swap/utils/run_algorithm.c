@@ -57,5 +57,7 @@ void	run_algorithm(t_stack **stacka, t_stack **stackb)
 		sort_three(stacka, stackb, 1);
 	else
 		sort_general(stacka, stackb);
-	/* print_stack(stacka, stackb); */
+	while (!sorted(stacka))
+		rotate(stacka, stackb, 1); //loop infinito
+/* 	print_stack(stacka, stackb); */
 }

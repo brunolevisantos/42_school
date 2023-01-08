@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:20:02 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/08 09:02:33 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/08 09:46:48 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	sort_general(t_stack **stacka, t_stack **stackb)
 	t_stack	*ca;
 	t_stack	*cb;
 	int		rot;
-	int		i;
-
+/* 	int		i;
+ */
 	below_avg_to_b(stacka, stackb);
 	sort_three(stacka, stackb, 1);
 	rot = 0;
@@ -58,9 +58,9 @@ void	sort_general(t_stack **stacka, t_stack **stackb)
 		if (cb->num < ca->num || rot == list_size(stacka))
 		{
 			push(stackb, stacka, 1);
-			i = 0;
+/* 			i = 0;
 			while (i++ < rot)
-				rev_rotate(stacka, stackb, 1);
+				rev_rotate(stacka, stackb, 1); */
 			rot = 0;
 		}
 		else
