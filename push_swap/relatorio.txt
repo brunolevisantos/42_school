@@ -139,7 +139,7 @@ pa
 
 avg = 4 lap iiiiiii
 
-6 5 8 1 2 3 7
+6 5 8 1 2 3 7 min = 6
 rot
 5 8 1 2 3 7 6
 rot
@@ -184,3 +184,7 @@ push                    push
                         2 3 5 6 7 8 1
                         rev_rotate
                         1 2 3 5 6 7 8
+
+
+
+3 5 11 10 15 // 20 7 6 2

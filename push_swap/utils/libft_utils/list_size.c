@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 11:11:14 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/06 11:18:01 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/09 14:21:37 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	list_size(t_stack **stack)
 {
-	int	i;
+	int		i;
 	t_stack	*curr;
-	
+
 	i = 0;
 	curr = *stack;
 	while (curr)
