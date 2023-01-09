@@ -6,106 +6,11 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:20:02 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/09 15:38:55 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/09 23:12:47 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-
-int	avg(t_stack **stack)
-{
-	int		total;
-	t_stack	*curr;
-
-	curr = *stack;
-	total = 0;
-	while (curr)
-	{
-		total += curr->num;
-		curr = curr->next;
-	}
-	return (total / (list_size(stack)));
-}
-
-void	below_avg_to_b(t_stack **stacka, t_stack **stackb)
-{
-	t_stack	*curr;
-
-	curr = *stacka;
-	while (list_size(stacka) > 3)
-	{
-		curr = *stacka;
-		if (curr->num < avg(stacka))
-		{
-			push(stacka, stackb, 2);
-			if ((*stackb)->num < avg(stackb))
-				rotate(0, stackb, 2);
-		}
-		else
-			rotate(stacka, stackb, 1);
-	}	
-}
-
-void	best_to_top(t_stack **stacka, t_stack **stackb, t_stack *best, int flag)
-{
-	t_stack	*curr;
-	t_stack	**stack;
-
-	stack = 0;
-	if (flag == 1)
-		stack = stacka;
-	if (flag == 2)
-		stack = stackb;
-	curr = *stack;
-	if (list_size(&best) < list_size(stack) / 2)
-	{
-		while (curr != best)
-		{
-			rev_rotate(stacka, stackb, flag);
-			curr = *stack;
-		}
-	}
-	else
-	{
-		while (curr != best)
-		{
-			rotate(stacka, stackb, flag);
-			curr = *stack;
-		}
-	}
-}
-
-t_stack	*max_node(t_stack **stack)
-{
-	t_stack	*max;
-	t_stack	*curr;
-
-	max = *stack;
-	curr = *stack;
-	while (curr)
-	{
-		if (curr->num > max->num)
-			max = curr;
-		curr = curr->next;
-	}
-	return (max);
-}
-
-t_stack	*min_node(t_stack **stack)
-{
-	t_stack	*min;
-	t_stack	*curr;
-
-	min = *stack;
-	curr = *stack;
-	while (curr)
-	{
-		if (curr->num < min->num)
-			min = curr;
-		curr = curr->next;
-	}
-	return (min);
-}
+#include "../../push_swap.h"
 
 t_stack	*best_neighbour(t_stack **stacka, t_stack **stackb)
 {

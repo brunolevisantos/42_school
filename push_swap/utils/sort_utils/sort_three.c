@@ -6,11 +6,11 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:17:17 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/06 20:21:30 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/09 23:13:28 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
 void	sort_three(t_stack **stacka, t_stack **stackb, int flag)
 {

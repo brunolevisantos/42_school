@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 10:11:19 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/07 22:33:16 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/09 23:12:59 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,9 @@ void	*ft_memset(void *s, int c, size_t n);
 int		list_size(t_stack **stack);
 void	sort_three(t_stack **stacka, t_stack **stackb, int flag);
 void	sort_general(t_stack **stacka, t_stack **stackb);
+void	best_to_top(t_stack **stacka, t_stack **stackb, t_stack *best, int flag);
+void	below_avg_to_b(t_stack **stacka, t_stack **stackb);
+t_stack	*max_node(t_stack **stack);
+t_stack	*min_node(t_stack **stack);
 
 #endif
