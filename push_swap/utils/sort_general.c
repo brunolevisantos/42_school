@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:20:02 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/09 14:34:51 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/09 15:38:55 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,45 +29,66 @@ int	avg(t_stack **stack)
 
 void	below_avg_to_b(t_stack **stacka, t_stack **stackb)
 {
-	int		lap;
-	int		fulllap;
 	t_stack	*curr;
 
-	lap = 0;
-	fulllap = list_size(stacka);
 	curr = *stacka;
 	while (list_size(stacka) > 3)
 	{
 		curr = *stacka;
-		if (curr->num < avg(stacka) || lap >= fulllap)
+		if (curr->num < avg(stacka))
+		{
 			push(stacka, stackb, 2);
+			if ((*stackb)->num < avg(stackb))
+				rotate(0, stackb, 2);
+		}
 		else
 			rotate(stacka, stackb, 1);
-		lap++;
 	}	
 }
 
-void	best_to_top(t_stack **stacka, t_stack *best)
+void	best_to_top(t_stack **stacka, t_stack **stackb, t_stack *best, int flag)
 {
 	t_stack	*curr;
+	t_stack	**stack;
 
-	curr = *stacka;
-	if (list_size(&best) < list_size(stacka) / 2)
+	stack = 0;
+	if (flag == 1)
+		stack = stacka;
+	if (flag == 2)
+		stack = stackb;
+	curr = *stack;
+	if (list_size(&best) < list_size(stack) / 2)
 	{
 		while (curr != best)
 		{
-			rev_rotate(stacka, 0, 2);
-			curr = *stacka;
+			rev_rotate(stacka, stackb, flag);
+			curr = *stack;
 		}
 	}
 	else
 	{
 		while (curr != best)
 		{
-			rotate(stacka, 0, 2);
-			curr = *stacka;
+			rotate(stacka, stackb, flag);
+			curr = *stack;
 		}
 	}
+}
+
+t_stack	*max_node(t_stack **stack)
+{
+	t_stack	*max;
+	t_stack	*curr;
+
+	max = *stack;
+	curr = *stack;
+	while (curr)
+	{
+		if (curr->num > max->num)
+			max = curr;
+		curr = curr->next;
+	}
+	return (max);
 }
 
 t_stack	*min_node(t_stack **stack)
@@ -115,8 +136,9 @@ void	sort_general(t_stack **stacka, t_stack **stackb)
 	sort_three(stacka, stackb, 1);
 	while (*stackb)
 	{
-		best_to_top(stacka, best_neighbour(stacka, stackb));
+		best_to_top(stacka, stackb, max_node(stackb), 2);
+		best_to_top(stacka, stackb, best_neighbour(stacka, stackb), 1);
 		push(stackb, stacka, 1);
 	}
-	best_to_top(stacka, min_node(stacka));
+	best_to_top(stacka, stackb, min_node(stacka), 1);
 }

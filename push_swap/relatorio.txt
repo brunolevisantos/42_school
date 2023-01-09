@@ -8,6 +8,7 @@ alterei void rotate para int rotate, para saber quantas vezes rodou
 
 falta juntar o list clear final para poupar uma linha na main (push_swap.c)
 
+fazer funcao que calcule o melhor elemento para passar para o a, sendo que e o mais perto do best neighbour
 retirar os print_stacks
 
 6 4 2 1 3 5
