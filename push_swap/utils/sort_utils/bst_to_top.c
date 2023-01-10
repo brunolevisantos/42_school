@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   run_algorithm.c                                    :+:      :+:    :+:   */
+/*   best_to_top.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 15:28:53 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/10 14:59:32 by bde-seic         ###   ########.fr       */
+/*   Created: 2023/01/09 22:58:54 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/01/10 15:11:38 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
-int	sorted(t_stack **stacka)
+void	bst_to_top(t_stack **stacka, t_stack **stackb, t_stack *best, int flag)
 {
 	t_stack	*curr;
+	t_stack	**stack;
 
-	curr = *stacka;
-	while (curr->next)
+	stack = 0;
+	if (flag == 1)
+		stack = stacka;
+	if (flag == 2)
+		stack = stackb;
+	curr = *stack;
+	if (list_size(&best) < list_size(stack) / 2)
 	{
-		if (curr->num < curr->next->num)
-			curr = curr->next;
-		else
-			return (0);
+		while (curr != best)
+		{
+			rev_rotate(stacka, stackb, flag);
+			curr = *stack;
+		}
 	}
-	return (1);
-}
-
-void	run_algorithm(t_stack **stacka, t_stack **stackb)
-{
-	if (sorted(stacka))
-		return ;
-	if (list_size(stacka) == 2)
-		swap(stacka, stackb, 1);
-	else if (list_size(stacka) == 3)
-		sort_three(stacka, stackb, 1);
 	else
-		sort_general(stacka, stackb);
+	{
+		while (curr != best)
+		{
+			rotate(stacka, stackb, flag);
+			curr = *stack;
+		}
+	}
 }

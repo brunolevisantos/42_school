@@ -18,12 +18,14 @@ SOURCESLIBFT = ft_split.c \
 		ft_memset.c \
 		list_size.c
 
-SOURCESSORT = best_to_top.c \
+SOURCESSORT = bst_to_top.c \
 		sort_three.c \
 		sort_general.c \
 		below_avg_to_b.c \
 		max_node.c \
-		min_node.c
+		min_node.c \
+		least_cost.c \
+		best_neighbour.c
 
 SOURCESUTILSF = $(addprefix utils/, $(SOURCESUTILS))
 
@@ -43,7 +45,7 @@ NAME = push_swap
 
 CC = cc
 
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g -O3
 
 all: $(NAME)
 

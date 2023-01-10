@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 10:58:06 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/04 15:51:44 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/10 14:58:38 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	main(int argc, char **argv)
 			list_clear(&stacka, &error);
 		else
 			run_algorithm(&stacka, &stackb);
-		list_clear(&stacka, &error); //pensar em juntar estas duas ultimas listclear
-		list_clear(&stackb, &error);
+		list_clear(&stacka, &error);
 	}
 }
