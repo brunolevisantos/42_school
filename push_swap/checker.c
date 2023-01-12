@@ -6,11 +6,11 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:05:47 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/11 14:09:10 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/12 13:17:01 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 int	main(int argc, char **argv)
 {

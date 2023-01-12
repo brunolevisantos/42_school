@@ -5,5 +5,5 @@ if (string == 0)
 no main retirei
 		list_clear(&stackb, &error);
 
-
-falta juntar o list clear final para poupar uma linha na main (push_swap.c)
+esta a dar leak com ./push_swap 1 2 1
+de resto esta tudo!

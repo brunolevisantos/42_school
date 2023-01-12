@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_push.c                                     :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/22 13:05:50 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/12 10:47:50 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/12/09 10:13:20 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/01/12 11:29:29 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../checker.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-void	checker_push(t_stack **stackfrom, t_stack **stackto)
-{
-	t_stack	*move;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
-	move = *stackfrom;
-	*stackfrom = (*stackfrom)->next;
-	if (*stackto)
-		move->next = *stackto;
-	else
-		move->next = NULL;
-	*stackto = move;
-}
+# include "../checker.h"
+# include <fcntl.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+
+char	*get_next_line(int fd);
+char	*ft_strchr(const char *s, int c);
+int		ft_strlen(char *s);
+char	*ft_strjoin(char *s1, char *s2);
+void	move_buf(char *buf);
+
+#endif

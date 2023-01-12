@@ -6,23 +6,26 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:49:09 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/11 14:59:54 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/12 13:05:47 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../checker.h"
 
 int	my_strcmp(char *s1, char *s2)
 {
 	int	i;
-	
+
 	i = 0;
 	while (s1[i] && s2[i])
 	{
 		if (s1[i] == s2[i])
 			i++;
-		if (!s1[i + 1] && !s2[i + 1])
-			return (1);
+		else if (s1[i] != s2[i])
+			return (0);
 	}
-	return (0);
+	if (!s1[i] && !s2[i])
+		return (1);
+	else
+		return (0);
 }

@@ -6,16 +6,15 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:53:36 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/11 15:10:14 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/12 12:09:31 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../checker.h"
 
-int	swap_exec(t_stack **stack, int flag)
+int	cheker_swap_exec(t_stack **stack)
 {
 	t_stack	*curr;
-	(void) flag;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 		return (0);
@@ -26,18 +25,15 @@ int	swap_exec(t_stack **stack, int flag)
 	return (1);
 }
 
-void	swap(t_stack **stacka, t_stack **stackb, int flag)
+void	checker_swap(t_stack **stacka, t_stack **stackb, int flag)
 {
-	int	i;
-
-	i = 0;
 	if (flag == 1)
-		swap_exec(stacka, 1);
+		cheker_swap_exec(stacka);
 	else if (flag == 2)
-		swap_exec(stackb, 2);
+		cheker_swap_exec(stackb);
 	else if (flag == 3)
 	{
-		i += swap_exec(stacka, 0);
-		i += swap_exec(stackb, 0);
+		cheker_swap_exec(stacka);
+		cheker_swap_exec(stackb);
 	}
 }
