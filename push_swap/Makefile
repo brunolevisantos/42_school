@@ -66,7 +66,7 @@ BONUSNAME = checker
 
 CC = cc
 
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g -O3
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g
 
 all: $(NAME)
 

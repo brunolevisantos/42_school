@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:09:58 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/13 01:50:58 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:51:18 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ void	check_conditions(char *line, t_stack **stacka, t_stack **stackb)
 			checker_push(stackb, stacka);
 		else if (my_strcmp(line, "pb\n"))
 			checker_push(stacka, stackb);
+		else
+			write(1, "Error\n", 6);
 }
 
 void	run_checker(t_stack **stacka, t_stack **stackb)

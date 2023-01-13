@@ -5,5 +5,7 @@ if (string == 0)
 no main retirei
 		list_clear(&stackb, &error);
 
-esta a dar leak com ./push_swap 1 2 1
+acrescentei list clear stackb no checker, caso nao receba as indicacoes necessarias
+
+checkar norminette e medias de solucao
 de resto esta tudo!
