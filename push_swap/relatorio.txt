@@ -9,3 +9,5 @@ acrescentei list clear stackb no checker, caso nao receba as indicacoes necessar
 
 checkar norminette e medias de solucao
 de resto esta tudo!
+
+no checker pus list clear dentro do check sorted

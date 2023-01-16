@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 10:11:19 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/13 12:28:31 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/16 09:56:40 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_list
 
 int		main(int argc, char **argv);
 char	**ft_split(char const *s, char c);
-void	add_node(t_stack **stacka, int num, int *error, char **string);
+void	add_node(t_stack **stacka, int num, int *error, char **str);
 int		atoi_two(char *string, int *error);
 void	list_clear(t_stack **stack, int *error);
 void	swap(t_stack **stacka, t_stack **stackb, int flag);

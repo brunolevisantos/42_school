@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:09:58 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/13 12:51:18 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/16 10:19:44 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,36 +49,38 @@ void	check_sorted(t_stack **stacka, t_stack **stackb)
 
 void	check_conditions(char *line, t_stack **stacka, t_stack **stackb)
 {
-		if (my_strcmp(line, "rra\n"))
-			checker_rev_rotate(stacka, stackb, 1);
-		else if (my_strcmp(line, "rrb\n"))
-			checker_rev_rotate(stacka, stackb, 2);
-		else if (my_strcmp(line, "rrr\n"))
-			checker_rev_rotate(stacka, stackb, 3);
-		else if (my_strcmp(line, "ra\n"))
-			checker_rotate(stacka, stackb, 1);
-		else if (my_strcmp(line, "rb\n"))
-			checker_rotate(stacka, stackb, 2);
-		else if (my_strcmp(line, "rr\n"))
-			checker_rotate(stacka, stackb, 3);
-		else if (my_strcmp(line, "sa\n"))
-			checker_swap(stacka, stackb, 1);
-		else if (my_strcmp(line, "sb\n"))
-			checker_swap(stacka, stackb, 2);
-		else if (my_strcmp(line, "ss\n"))
-			checker_swap(stacka, stackb, 3);
-		else if (my_strcmp(line, "pa\n"))
-			checker_push(stackb, stacka);
-		else if (my_strcmp(line, "pb\n"))
-			checker_push(stacka, stackb);
-		else
-			write(1, "Error\n", 6);
+	if (my_strcmp(line, "rra\n"))
+		checker_rev_rotate(stacka, stackb, 1);
+	else if (my_strcmp(line, "rrb\n"))
+		checker_rev_rotate(stacka, stackb, 2);
+	else if (my_strcmp(line, "rrr\n"))
+		checker_rev_rotate(stacka, stackb, 3);
+	else if (my_strcmp(line, "ra\n"))
+		checker_rotate(stacka, stackb, 1);
+	else if (my_strcmp(line, "rb\n"))
+		checker_rotate(stacka, stackb, 2);
+	else if (my_strcmp(line, "rr\n"))
+		checker_rotate(stacka, stackb, 3);
+	else if (my_strcmp(line, "sa\n"))
+		checker_swap(stacka, stackb, 1);
+	else if (my_strcmp(line, "sb\n"))
+		checker_swap(stacka, stackb, 2);
+	else if (my_strcmp(line, "ss\n"))
+		checker_swap(stacka, stackb, 3);
+	else if (my_strcmp(line, "pa\n"))
+		checker_push(stackb, stacka);
+	else if (my_strcmp(line, "pb\n"))
+		checker_push(stacka, stackb);
+	else
+		write(1, "Error\n", 6);
 }
 
 void	run_checker(t_stack **stacka, t_stack **stackb)
 {
 	char	*line;
+	int		error;
 
+	error = 0;
 	line = get_next_line(0);
 	while (line)
 	{
@@ -88,4 +90,6 @@ void	run_checker(t_stack **stacka, t_stack **stackb)
 	}
 	free(line);
 	check_sorted(stacka, stackb);
+	list_clear(stacka, &error);
+	list_clear(stackb, &error);
 }

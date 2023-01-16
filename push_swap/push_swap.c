@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 10:58:06 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/01/13 12:29:17 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/01/16 10:01:06 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	char	**string;
+	char	**str;
 	t_stack	*stacka;
 	t_stack	*stackb;
 	int		i;
@@ -27,11 +27,11 @@ int	main(int argc, char **argv)
 	{
 		while (++argv && *argv && !error)
 		{
-			string = ft_split(*argv, ' ');
+			str = ft_split(*argv, ' ');
 			i = 0;
-			while (string && string[i] && !error)
-				add_node(&stacka, atoi_two(string[i++], &error), &error, string);
-			string_clear(string);
+			while (str && str[i] && !error)
+				add_node(&stacka, atoi_two(str[i++], &error), &error, str);
+			string_clear(str);
 		}
 		if (error)
 			list_clear(&stacka, &error);
