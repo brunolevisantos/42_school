@@ -1,6 +1,7 @@
-SRCS	= ${wildcard SRCS/*.c} ${wildcard SRCS/*/*.c} ${wildcard SRCS/*/*/*.c}
+NAME = $(shell basename $(CURDIR))
 
-NAME	= so_long
+
+SRCS	= ${wildcard SRCS/*.c} ${wildcard SRCS/*/*.c} ${wildcard SRCS/*/*/*.c}
 
 OBJ		= ${SRCS:.c=.o}
 
@@ -16,6 +17,13 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
+project:
+	@mkdir include
+	@touch include/$(NAME).h
+	@mkdir SRCS
+	@touch SRCS/$(NAME).c
+	@touch report.txt
+
 clean:
 	rm -rf ${OBJ}
 
@@ -27,3 +35,6 @@ norm:
 	norminette -R CheckDefine INCS/*
 
 re: fclean all
+
+r: re
+	./so_long
