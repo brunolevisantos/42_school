@@ -1,0 +1,5 @@
+comecar por ler o mapa e ver erros
+ver como a main vai abrir o mapa
+fazer estrutura para mapa e player
+fazer estrutura que leve todos os elementos visuais
+procurar no google minilibx sample

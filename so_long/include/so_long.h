@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:32:41 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/08 14:30:08 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/08 15:32:31 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 
+typedef struct s_player{
+	t_img	img;
+	int		x;
+	int		y;
+}	t_player;
+
 typedef struct s_img {
 	void	*mlx_img;
 	char	*addr;
@@ -38,7 +44,7 @@ typedef struct s_img {
 typedef struct s_data {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	t_img	img;
+	t_img	canvas;
 }	t_data;
 
 typedef struct s_point {

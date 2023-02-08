@@ -36,7 +36,7 @@ norm:
 
 re: fclean all
 
-r: re
+r: all
 	./so_long
 # CC			= 	cc #-Wall -Wextra -Werror  -g # -fsanitize=address
 # RM			= 	/bin/rm -f
