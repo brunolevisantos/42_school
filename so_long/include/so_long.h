@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:32:41 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/06 15:37:26 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/08 14:30:08 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,6 @@
 # include <stdlib.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
-
-typedef struct s_rect
-{
-	int	x;
-	int	y;
-	int	width;
-	int	height;
-	int	color;
-}	t_rect;
 
 typedef struct s_img {
 	void	*mlx_img;
@@ -61,5 +52,7 @@ int		handle_keypress(int keysym, t_data *data);
 int		handle_keyrelease(int keysym, void *data);
 int		handle_no_event(void *data);
 int		handle_input(int keysym, t_data *data);
+int		ft_close(t_data *data);
+t_data	initialize(void);
 
 #endif

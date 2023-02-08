@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_keypress.c                                  :+:      :+:    :+:   */
+/*   initialize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/06 15:32:34 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/08 14:30:20 by bde-seic         ###   ########.fr       */
+/*   Created: 2023/02/08 11:24:04 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/02/08 14:40:15 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/so_long.h"
+#include "../include/so_long.h"
 
-int	handle_keypress(int keysym, t_data *data)
+t_data	initialize(void)
 {
-	if (keysym == XK_Escape)
-		ft_close(data);
-	return (0);
+	t_data	data;
+
+	data.mlx_ptr = mlx_init();
+	if (!data.mlx_ptr)
+		exit (0);
+	data.win_ptr = mlx_new_window(data.mlx_ptr, W, H, "Hello world!");
+	if (!data.win_ptr)
+		exit (0);
+	return (data);
 }
