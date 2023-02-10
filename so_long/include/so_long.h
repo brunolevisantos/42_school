@@ -27,6 +27,20 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 
+typedef struct s_addr{
+	char	*addrplayer;
+	char	*addrwall;
+	char	*addrcandy;
+	char	*exit;
+}	t_addr;
+
+typedef struct s_obj{
+	t_img	player;
+	t_img	wall;
+	t_img	candy;
+	t_img	exit;
+}	t_obj;
+
 typedef struct s_player{
 	t_img	img;
 	int		x;
@@ -44,7 +58,7 @@ typedef struct s_img {
 typedef struct s_data {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	t_img	canvas;
+	t_obj	objects;
 }	t_data;
 
 typedef struct s_point {

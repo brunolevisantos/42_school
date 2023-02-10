@@ -12,7 +12,7 @@
 
 #include "../include/so_long.h"
 
-t_img	load_image(t_data *data, char *path)
+t_obj	load_image(t_data *data, char *path)
 {
 	int		height;
 	int		width;
@@ -30,13 +30,20 @@ int	render(t_data *data)
 	return (0);
 }
 
+t_addr	fill_addr(void)
+{
+	t_addr address;
+
+	address.
+}
+
 int	main(void)
 {
-	t_data		data;
-	t_player	player;
+	t_data	data;
+	t_obj	objects;
 
 	data = initialize();
-	player = load_image(&data, "./IMG/Owlet_Monster.xpm");
+	objects = load_images(&data, "./IMG/Owlet_Monster.xpm");
 	//load_image(&data, "./IMG/Rock2.xpm");
 	mlx_loop_hook(data.mlx_ptr, render, &data);
 	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, handle_keypress, &data);
