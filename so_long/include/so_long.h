@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:32:41 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/08 15:32:31 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/11 13:28:31 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ typedef struct s_addr{
 	char	*addrplayer;
 	char	*addrwall;
 	char	*addrcandy;
-	char	*exit;
+	char	*addrexit;
 }	t_addr;
 
 typedef struct s_obj{
-	t_img	player;
-	t_img	wall;
-	t_img	candy;
-	t_img	exit;
+	void	*player;
+	void	*wall;
+	void	*candy;
+	void	*exit;
 }	t_obj;
 
 typedef struct s_player{
@@ -58,7 +58,7 @@ typedef struct s_img {
 typedef struct s_data {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	t_obj	objects;
+	t_img	img;
 }	t_data;
 
 typedef struct s_point {
