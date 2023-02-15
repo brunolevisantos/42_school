@@ -48,6 +48,8 @@ int	check_rect(char **map)
 		if (elem_count(map[line++]) != data()->map_elem)
 			handle_msg("Not a rectangle\n");
 	}
+	if (data()->map_lines == data()->elem_lines)
+		handle_msg("Not a rectangle\n");
 	return (1);
 }
 
