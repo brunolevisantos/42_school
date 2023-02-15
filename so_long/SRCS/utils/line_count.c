@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_keypress.c                                  :+:      :+:    :+:   */
+/*   line_count.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/06 15:32:34 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/14 14:01:12 by bde-seic         ###   ########.fr       */
+/*   Created: 2023/02/15 14:33:51 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/02/15 14:36:07 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-int	handle_keypress(int keysym, t_data *data)
+int	line_count(char **map)
 {
-	if (keysym == XK_Escape)
-		ft_close(data);
-	if (keysym == XK_Down)
-		data->player.y += 10;
-	return (0);
+	int	i;
+
+	i = 0;
+	while (map[i])
+		i++;
+	return (i);
 }

@@ -1,22 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_keypress.c                                  :+:      :+:    :+:   */
+/*   handle_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/06 15:32:34 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/14 14:01:12 by bde-seic         ###   ########.fr       */
+/*   Created: 2023/02/15 14:46:19 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/02/15 15:10:19 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/so_long.h"
-
-int	handle_keypress(int keysym, t_data *data)
+void	handle_msg(char *msg)
 {
-	if (keysym == XK_Escape)
-		ft_close(data);
-	if (keysym == XK_Down)
-		data->player.y += 10;
-	return (0);
+	data();
 }

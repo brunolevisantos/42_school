@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_keypress.c                                  :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/06 15:32:34 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/14 14:01:12 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/12/09 10:13:20 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/12/15 16:01:05 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/so_long.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int	handle_keypress(int keysym, t_data *data)
-{
-	if (keysym == XK_Escape)
-		ft_close(data);
-	if (keysym == XK_Down)
-		data->player.y += 10;
-	return (0);
-}
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
+
+# include <fcntl.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+
+char	*get_next_line(int fd);
+char	*ft_strchr(const char *s, int c);
+int		ft_strlen(char *s);
+char	*ft_strjoin(char *s1, char *s2);
+void	move_buf(char *buf);
+
+#endif

@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_keypress.c                                  :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/06 15:32:34 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/14 14:01:12 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/12/09 10:24:10 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/12/16 11:18:37 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/so_long.h"
+#include "get_next_line.h"
 
-int	handle_keypress(int keysym, t_data *data)
+int	main(void)
 {
-	if (keysym == XK_Escape)
-		ft_close(data);
-	if (keysym == XK_Down)
-		data->player.y += 10;
-	return (0);
+	int		fd;
+	char	*str;
+
+	fd = open("file_to_read.txt", O_RDONLY);
+	str = get_next_line(fd);
+	while (str)
+	{
+		printf("%s", str);
+		free(str);
+		str = get_next_line(fd);
+	}
+	free(str);
 }

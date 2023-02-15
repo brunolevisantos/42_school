@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize.c                                       :+:      :+:    :+:   */
+/*   load_map_zico.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 11:24:04 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/15 15:12:54 by bde-seic         ###   ########.fr       */
+/*   Created: 2023/02/15 14:16:27 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/02/15 14:23:26 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void	initialize(void)
+char	**load_map_zico(char **map, int fd, int line_count)
 {
-	data()->mlx_ptr = mlx_init();
-	if (!data()->mlx_ptr)
-		exit (0);
-	(data())->win_ptr = mlx_new_window(data()->mlx_ptr, \
-	W, H, "Hello world!");
-	if (!data()->win_ptr)
-		exit (0);
-	(data())->canva.img = mlx_new_image(data()->mlx_ptr, W, H);
-	(data())->canva.addr = mlx_get_data_addr(data()->canva.img, \
-	&data()->canva.bpp, &data()->canva.line_len, &data()->canva.endian);
+	char	*line;
+
+	line = get_next_line(fd);
+	if (line)
+		map = load_map_zico(map, fd, line_count + 1);
+	else
+		map = malloc(sizeof (char *) * (line_count + 1));
+	if (map)
+		map[line_count] = line;
+	return (map);
 }
