@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:32:37 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/15 15:09:41 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/16 13:19:45 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	fill_obj(t_data *data)
 	data->objects.exit = load_image(data, "./IMG/Pink_Monster.xpm");
 	data->objects.candy = load_image(data, "./IMG/Rock2.xpm");
 	data->objects.wall = load_image(data, "./IMG/Dude_Monster.xpm");
+	data->objects.floor = load_image(data, "./IMG/Dude_Monster.xpm");
 }
 
 int	render(t_data *data)
@@ -45,13 +46,15 @@ t_data	*data(void)
 
 int	main(void)
 {
-
 	initialize();
 	data()->player.x = 100; //nao deve ser preciso depois
 	data()->player.y = 100; //nao deve ser preciso depois
-	fill_obj(&data);
-	mlx_loop_hook(data()->mlx_ptr, render, &data);
-	mlx_hook(data()->win_ptr, KeyPress, KeyPressMask, handle_keypress, &data);
-	mlx_hook(data()->win_ptr, 17, 0, ft_close, &data);
-	mlx_loop(data()->mlx_ptr);
+	if (map_checker())
+	{
+		fill_obj(data());
+		mlx_loop_hook(data()->mlx_ptr, render, data());
+		mlx_hook(data()->win_ptr, KeyPress, KeyPressMask, handle_keypress, data());
+		mlx_hook(data()->win_ptr, 17, 0, ft_close, data());
+		mlx_loop(data()->mlx_ptr);
+	}
 }

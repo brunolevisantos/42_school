@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:38:58 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/15 15:27:29 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/16 11:38:04 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	elem_count(char *line)
 	int	i;
 
 	i = 0;
-	while (line[i] && line[i] != '\n')
+	while (line && line[i] && line[i] != '\n')
 		i++;
 	return (i);
 }

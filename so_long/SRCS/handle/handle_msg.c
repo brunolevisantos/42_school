@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   handle_msg.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 10:24:10 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/12/16 11:18:37 by bde-seic         ###   ########.fr       */
+/*   Created: 2023/02/15 14:46:19 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/02/16 14:15:58 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../../include/so_long.h"
 
-int	main(void)
+int	handle_msg(char *msg)
 {
-	int		fd;
-	char	*str;
-
-	fd = open("file_to_read.txt", O_RDONLY);
-	str = get_next_line(fd);
-	while (str)
-	{
-		printf("%s", str);
-		free(str);
-		str = get_next_line(fd);
-	}
-	free(str);
+	printf("Error:\n%s", msg); //alterar para ft_printf
+	if (data()->player.img_player.img)
+		ft_close(data());
+	else
+		exit (0);
+	return (0);
 }

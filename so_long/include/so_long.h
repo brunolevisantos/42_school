@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:32:41 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/15 15:29:39 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:56:00 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_obj{
 	t_img	wall;
 	t_img	candy;
 	t_img	exit;
+	t_img	floor;
 }	t_obj;
 
 typedef struct s_player{
@@ -50,20 +51,28 @@ typedef struct s_player{
 	int		y;
 }	t_player;
 
+typedef struct s_map{
+	char	**map;
+	int		map_lines;
+	int		map_elem;
+	int		p;
+	int		e;
+	int		c;
+}	t_map;
+
 typedef struct s_data {
 	void		*mlx_ptr;
 	void		*win_ptr;
 	t_img		canva;
 	t_obj		objects;
 	t_player	player;
-	char		**map;
-	int			map_lines;
-	int			map_elem;
+	t_map		map;
 }	t_data;
 
 typedef struct s_point {
-	int	x;
-	int	y;
+	char	value;
+	int		x;
+	int		y;
 }	t_point;
 
 void	initialize(void);
@@ -78,7 +87,9 @@ void	draw_canva(t_data *data, t_img *img, int x1, int y1);
 char	**load_map_zico(char **map, int fd, int line_count);
 int		elem_count(char *line);
 int		line_count(char **map);
-void	handle_msg(char *msg);
+int		handle_msg(char *msg);
 t_data	*data(void);
+int		map_checker(void);
+int	check_path(char	**map);
 
 #endif

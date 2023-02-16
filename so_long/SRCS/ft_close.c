@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   ft_close.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 11:23:52 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/15 14:32:48 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/16 11:13:03 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	ft_close(t_data *data)
 	mlx_destroy_image(data->mlx_ptr, data->objects.wall.img);
 	mlx_destroy_image(data->mlx_ptr, data->objects.candy.img);
 	mlx_destroy_image(data->mlx_ptr, data->objects.exit.img);
+	mlx_destroy_image(data->mlx_ptr, data->objects.floor.img);
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	// mlx_destroy_display(data->mlx_ptr);
 	free(data->mlx_ptr);
