@@ -12,18 +12,18 @@
 
 #include "../include/so_long.h"
 
-int	find_path(char	**map, int i, int line)
+int	find_path(char	**map, int line, int i)
 {
 	
 	mark_and_count();
 	map[line][i] = '1';
-	if (map[i + 1][line] != '1')
+	if (map[line][i + 1] != '1')
 		find_path(map, i + 1, line);
-	if (map[i][line - 1] != '1')
+	if (map[line][i - 1] != '1')
 		find_path(map, i, line - 1);
-	if (map[i - 1][line] != '1')
+	if (map[line - 1][i] != '1')
 		find_path(map, i + 1, line);
-	if (map[i][line + 1] != '1')
+	if (map[line][i + 1] != '1')
 		find_path(map, i, line + 1);
 	return (func_cmp())
 }
@@ -60,7 +60,7 @@ int	check_path(char	**map)
 
 	map2 = map_copy(map);
 	start = find_start(map);
-	if (find_path(map2, start.x, start.y))
+	if (find_path(map2, start.y, start.x))
 	{
 		free_map(map2);
 		return (1);
