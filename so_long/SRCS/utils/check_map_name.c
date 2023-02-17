@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_msg.c                                       :+:      :+:    :+:   */
+/*   check_map_name.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/15 14:46:19 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/17 13:52:51 by bde-seic         ###   ########.fr       */
+/*   Created: 2023/02/17 14:13:11 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/02/17 14:30:06 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-int	handle_msg(char *msg)
+int	check_map_name(char *map_path)
 {
-	printf("Error:\n%s\n", msg); //alterar para ft_printf
-	if (data()->player.img_down.img)
-		ft_close(data());
-	else
-		exit (0);
-	return (0);
+	int	fd;
+	int	i;
+
+	i = -1;
+	fd = 0;
+	while (map_path[++i])
+		;
+	if (map_path[i - 1] == 'r' && map_path[i - 2] == 'e' \
+		&& map_path[i - 3] == 'b' && map_path[i - 4] == '.')
+		fd = open(map_path, O_RDONLY);
+	return (fd);
 }

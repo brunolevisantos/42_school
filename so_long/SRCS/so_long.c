@@ -6,37 +6,44 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:32:37 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/17 13:39:06 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:21:34 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-t_img	load_image(t_data *data, char *path)
+t_img	*decide_img(char i)
 {
-	t_img	img;
-
-	img.img = mlx_xpm_file_to_image(data->mlx_ptr, path, &img.width, &img.height);
-	img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.line_len, &img.endian);
-	return (img);
-}
-
-void	fill_obj(t_data *data)
-{
-	data->player.img_up = load_image(data, "./IMG/CAR/CarUp.xpm");
-	data->player.img_right = load_image(data, "./IMG/CAR/CarRight.xpm");
-	data->player.img_down = load_image(data, "./IMG/CAR/CarDown.xpm");
-	data->player.img_left = load_image(data, "./IMG/CAR/CarLeft.xpm");
-	data->objects.exit = load_image(data, "./IMG/Exit.xpm");
-	data->objects.no = load_image(data, "./IMG/No.xpm");
-	data->objects.candy = load_image(data, "./IMG/Dude_Monster.xpm");
-	data->objects.wall = load_image(data, "./IMG/Wall.xpm");
-	data->objects.floor = load_image(data, "./IMG/Floor.xpm");
+	if (i == 'P')
+		return (&data()->player.img_down);
+	if (i == '1')
+		return (&data()->objects.wall);
+	if (i == '0')
+		return (&data()->objects.floor);
+	if (i == 'C')
+		return (&data()->objects.candy);
+	if (i == 'E')
+		return (&data()->objects.exit_no);
+	return (0);
 }
 
 int	render(t_data *data)
 {
-	draw_canva(data, &data->player.img_down, W / 2, H / 2);
+	int	line;
+	int	i;
+
+	line = -1;
+	while (data->map.map[++line])
+	{
+		i = -1;
+		while (data->map.map[line][++i] != '\n' && data->map.map[line][i] != 0)
+		{
+			printf("line: %d\n", line);
+			printf("i: %d\n", i);
+			draw_canva(data, decide_img(data->map.map[line][i]), 32 * i, 32 * line);
+		}
+	}
+//	draw_canva(data, &data->player.img_down, W / 2, H / 2);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->canva.img, 0, 0);
 	return (0);
 }
@@ -48,17 +55,20 @@ t_data	*data(void)
 	return (&data);
 }
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	initialize();
-	data()->player.i = 100; //nao deve ser preciso depois
-	data()->player.line = 100; //nao deve ser preciso depois
-	if (map_checker())
-	{
-		fill_obj(data());
-		mlx_loop_hook(data()->mlx_ptr, render, data());
-		mlx_hook(data()->win_ptr, KeyPress, KeyPressMask, handle_keypress, data());
-		mlx_hook(data()->win_ptr, 17, 0, ft_close, data());
-		mlx_loop(data()->mlx_ptr);
+	if (ac == 2)
+	{	
+		if (map_checker(av[1]))
+		{
+			initialize();
+			fill_obj(data());
+			mlx_loop_hook(data()->mlx_ptr, render, data());
+			mlx_hook(data()->win_ptr, KeyPress, KeyPressMask, handle_keypress, data());
+			mlx_hook(data()->win_ptr, 17, 0, ft_close, data());
+			mlx_loop(data()->mlx_ptr);
+		}
 	}
+	else
+		handle_msg("Invalid number of arguments.");
 }

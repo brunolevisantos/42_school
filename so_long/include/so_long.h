@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:32:41 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/17 12:05:43 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/17 15:42:48 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_obj{
 	t_img	wall;
 	t_img	candy;
 	t_img	exit;
-	t_img	no;
+	t_img	exit_no;
 	t_img	floor;
 }	t_obj;
 
@@ -80,7 +80,7 @@ typedef struct s_point {
 }	t_point;
 
 void	initialize(void);
-void	draw_line(t_img *img, t_point start, t_point finish);
+void	fill_obj(t_data *data);
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 int		handle_keypress(int keysym, t_data *data);
 int		handle_keyrelease(int keysym, void *data);
@@ -93,9 +93,10 @@ int		elem_count(char *line);
 int		line_count(char **map);
 int		handle_msg(char *msg);
 t_data	*data(void);
-int		map_checker(void);
+int		map_checker(char *map_path);
 int		check_path(char	**map);
 char	**map_copy(char **map);
 int		map_free(char **map);
+int		check_map_name(char *check_map_path);
 
 #endif
