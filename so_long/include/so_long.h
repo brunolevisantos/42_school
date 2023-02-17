@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:32:41 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/16 14:56:00 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/17 10:04:22 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ int		line_count(char **map);
 int		handle_msg(char *msg);
 t_data	*data(void);
 int		map_checker(void);
-int	check_path(char	**map);
+int		check_path(char	**map);
+char	**map_copy(char **map);
+void	map_free(char **map);
 
 #endif
