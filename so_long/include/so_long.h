@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:32:41 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/17 10:04:22 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/17 12:05:43 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,17 @@ typedef struct s_obj{
 	t_img	wall;
 	t_img	candy;
 	t_img	exit;
+	t_img	no;
 	t_img	floor;
 }	t_obj;
 
 typedef struct s_player{
-	t_img	img_player;
-	int		x;
-	int		y;
+	t_img	img_up;
+	t_img	img_right;
+	t_img	img_down;
+	t_img	img_left;
+	int		i;
+	int		line;
 }	t_player;
 
 typedef struct s_map{
@@ -71,8 +75,8 @@ typedef struct s_data {
 
 typedef struct s_point {
 	char	value;
-	int		x;
-	int		y;
+	int		i;
+	int		line;
 }	t_point;
 
 void	initialize(void);
@@ -92,6 +96,6 @@ t_data	*data(void);
 int		map_checker(void);
 int		check_path(char	**map);
 char	**map_copy(char **map);
-void	map_free(char **map);
+int		map_free(char **map);
 
 #endif

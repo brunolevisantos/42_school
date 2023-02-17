@@ -6,18 +6,19 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:01:06 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/17 10:03:51 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/17 13:36:47 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-void	map_free(char **map)
+int	map_free(char **map)
 {
 	int	i;
 
 	i = 0;
-	while (i < data()->map.map_lines && map[i])
+	while (i < (data()->map.map_lines + 1) && map[i])
 		free(map[i++]);
 	free(map);
+	return (1);
 }

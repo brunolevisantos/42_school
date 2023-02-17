@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:24:05 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/16 14:33:22 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/17 13:28:35 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	check_components(char **map)
 			else if (map[line][i] == 'P')
 				data()->map.p++;
 			else if (map[line][i] != '1' && map[line][i] != '0')
-				handle_msg("Wrong elements!\n");
+				handle_msg("Wrong elements!");
 			i++;
 		}
 		line++;
@@ -38,7 +38,7 @@ int	check_components(char **map)
 	if (data()->map.c >= 1 && data()->map.e == 1 && data()->map.p == 1)
 		return (1);
 	else
-		return (handle_msg("Wrong elements!\n"));
+		return (handle_msg("Wrong elements!"));
 }
 
 int	check_walls(char **map)
@@ -50,15 +50,15 @@ int	check_walls(char **map)
 	line = 0;
 	while (map[0][i] != '\n')
 		if (map[0][i++] != '1')
-			handle_msg("Not wall covered!\n");
+			handle_msg("Not wall covered!");
 	i = 0;
 	while (map[data()->map.map_lines - 1][i] != '\0')
 		if (map[data()->map.map_lines - 1][i++] != '1')
-			handle_msg("Not wall covered!\n");
+			handle_msg("Not wall covered!");
 	i = 0;
 	while (line < (data()->map.map_lines))
 		if (map[line][0] != '1' || map[line++][data()->map.map_elem - 1] != '1')
-			handle_msg("Not wall covered!\n");
+			handle_msg("Not wall covered!");
 	return (1);
 }
 
@@ -70,10 +70,10 @@ int	check_rect(char **map)
 	while (line < data()->map.map_lines)
 	{
 		if (elem_count(map[line++]) != data()->map.map_elem)
-			handle_msg("Not a rectangle!\n");
+			handle_msg("Not a rectangle!");
 	}
 	if (data()->map.map_lines == data()->map.map_elem)
-		handle_msg("Not a rectangle!\n");
+		handle_msg("Not a rectangle!");
 	return (1);
 }
 

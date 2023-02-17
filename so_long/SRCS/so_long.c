@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:32:37 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/16 13:19:45 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/17 13:39:06 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,20 @@ t_img	load_image(t_data *data, char *path)
 
 void	fill_obj(t_data *data)
 {
-	data->player.img_player = load_image(data, "./IMG/Owlet_Monster.xpm");
-	data->objects.exit = load_image(data, "./IMG/Pink_Monster.xpm");
-	data->objects.candy = load_image(data, "./IMG/Rock2.xpm");
-	data->objects.wall = load_image(data, "./IMG/Dude_Monster.xpm");
-	data->objects.floor = load_image(data, "./IMG/Dude_Monster.xpm");
+	data->player.img_up = load_image(data, "./IMG/CAR/CarUp.xpm");
+	data->player.img_right = load_image(data, "./IMG/CAR/CarRight.xpm");
+	data->player.img_down = load_image(data, "./IMG/CAR/CarDown.xpm");
+	data->player.img_left = load_image(data, "./IMG/CAR/CarLeft.xpm");
+	data->objects.exit = load_image(data, "./IMG/Exit.xpm");
+	data->objects.no = load_image(data, "./IMG/No.xpm");
+	data->objects.candy = load_image(data, "./IMG/Dude_Monster.xpm");
+	data->objects.wall = load_image(data, "./IMG/Wall.xpm");
+	data->objects.floor = load_image(data, "./IMG/Floor.xpm");
 }
 
 int	render(t_data *data)
 {
-	draw_canva(data, &data->player.img_player, W / 2, H / 2);
+	draw_canva(data, &data->player.img_down, W / 2, H / 2);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->canva.img, 0, 0);
 	return (0);
 }
@@ -47,8 +51,8 @@ t_data	*data(void)
 int	main(void)
 {
 	initialize();
-	data()->player.x = 100; //nao deve ser preciso depois
-	data()->player.y = 100; //nao deve ser preciso depois
+	data()->player.i = 100; //nao deve ser preciso depois
+	data()->player.line = 100; //nao deve ser preciso depois
 	if (map_checker())
 	{
 		fill_obj(data());
