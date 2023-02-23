@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:29:47 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/17 13:23:52 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/23 13:53:09 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ t_point	find_start(char **map)
 				start.line = line;
 				start.i = i;
 				start.value = 'P';
+				data()->player.i = i;
+				data()->player.line = line;
 				return (start);
 			}	
 		}
