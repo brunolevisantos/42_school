@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:32:37 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/17 16:21:34 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/23 13:34:26 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,16 @@ int	render(t_data *data)
 	{
 		i = -1;
 		while (data->map.map[line][++i] != '\n' && data->map.map[line][i] != 0)
-		{
-			printf("line: %d\n", line);
-			printf("i: %d\n", i);
-			draw_canva(data, decide_img(data->map.map[line][i]), 32 * i, 32 * line);
-		}
+			draw_canva(data, decide_img('0'), 32 * i, 32 * line);
 	}
-//	draw_canva(data, &data->player.img_down, W / 2, H / 2);
+	line = -1;
+	while (data->map.map[++line])
+	{
+		i = -1;
+		while (data->map.map[line][++i] != '\n' && data->map.map[line][i] != 0)
+			draw_canva(data, decide_img(data->map.map[line][i]), 32 * i, 32 * line);
+	}
+	// draw_canva(data, &data->player.img_down, W / 2, H / 2);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->canva.img, 0, 0);
 	return (0);
 }
