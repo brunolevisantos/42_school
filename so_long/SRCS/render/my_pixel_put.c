@@ -6,11 +6,11 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 10:25:06 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/23 13:27:25 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/23 15:46:52 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../../include/so_long.h"
 
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {

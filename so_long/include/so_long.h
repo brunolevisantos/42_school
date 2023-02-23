@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:32:41 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/23 15:28:58 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/23 16:39:28 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,18 @@ typedef struct s_img {
 typedef struct s_obj{
 	t_img	wall;
 	t_img	candy;
-	t_img	exit;
+	t_img	*exit;
 	t_img	exit_no;
+	t_img	exit_yes;
 	t_img	floor;
-}	t_obj;
-
-typedef struct s_player{
-	t_img	img_up;
 	t_img	img_right;
 	t_img	img_down;
 	t_img	img_left;
+	t_img	img_up;
+}	t_obj;
+
+typedef struct s_player{
+	t_img	*img;
 	int		i;
 	int		line;
 }	t_player;
@@ -62,6 +64,9 @@ typedef struct s_map{
 	int		p;
 	int		e;
 	int		c;
+	int		p_double;
+	int		e_double;
+	int		c_double;
 }	t_map;
 
 typedef struct s_data {

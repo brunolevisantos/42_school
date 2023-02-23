@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:34:23 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/23 13:28:17 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/23 16:44:15 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,14 @@ t_img	load_image(t_data *data, char *path)
 
 void	fill_obj(t_data *data)
 {
-	data->player.img_up = load_image(data, "./IMG/CAR/CarUp.xpm");
-	data->player.img_right = load_image(data, "./IMG/CAR/CarRight.xpm");
-	data->player.img_down = load_image(data, "./IMG/CAR/CarDown.xpm");
-	data->player.img_left = load_image(data, "./IMG/CAR/CarLeft.xpm");
-	data->objects.exit = load_image(data, "./IMG/Exit.xpm");
+	data->objects.img_up = load_image(data, "./IMG/CAR/CarUp.xpm");
+	data->objects.img_right = load_image(data, "./IMG/CAR/CarRight.xpm");
+	data->objects.img_down = load_image(data, "./IMG/CAR/CarDown.xpm");
+	data->objects.img_left = load_image(data, "./IMG/CAR/CarLeft.xpm");
+	data->player.img = &data->objects.img_down;
+	data->objects.exit_yes = load_image(data, "./IMG/Exit.xpm");
 	data->objects.exit_no = load_image(data, "./IMG/No.xpm");
+	data->objects.exit = &data->objects.exit_no;
 	data->objects.candy = load_image(data, "./IMG/Dude_Monster.xpm");
 	data->objects.wall = load_image(data, "./IMG/Wall.xpm");
 	data->objects.floor = load_image(data, "./IMG/Floor.xpm");

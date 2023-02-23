@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:29:47 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/23 13:53:09 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/23 16:09:35 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void	compare_components(char **map, int line, int i)
 {
 	if (map[line][i] == 'P')
-		data()->map.p--;
+		data()->map.p_double--;
 	if (map[line][i] == 'C')
-		data()->map.c--;
+		data()->map.c_double--;
 	if (map[line][i] == 'E')
-		data()->map.e--;
+		data()->map.e_double--;
 }
 
 int	find_path(char	**map, int line, int i)
@@ -34,7 +34,8 @@ int	find_path(char	**map, int line, int i)
 		find_path(map, line - 1, i);
 	if (map[line + 1][i] != '1')
 		find_path(map, line + 1, i);
-	if (data()->map.p == 0 && data()->map.c == 0 && data()->map.e == 0)
+	if (data()->map.p_double == 0 && data()->map.c_double == 0 \
+		&& data()->map.e_double == 0)
 		return (1);
 	return (0);
 }
@@ -71,6 +72,9 @@ int	check_path(char	**map)
 	t_point	start;
 	char	**map2;
 
+	data()->map.c_double = data()->map.c;
+	data()->map.e_double = data()->map.e;
+	data()->map.p_double = data()->map.p;
 	map2 = map_copy(map);
 	start = find_start(map);
 	if (find_path(map2, start.line, start.i) && map_free(map2))

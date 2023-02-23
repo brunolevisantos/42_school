@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 15:32:34 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/23 15:06:21 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/23 17:11:46 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 
 int	check_next(int line, int i)
 {
+	if (data()->map.map[line][i] == 'C')
+	{	
+		data()->map.map[line][i] = '0';
+		if (--data()->map.c)
+			data()->objects.exit = &data()->objects.exit_yes;
+	}
 	if (data()->map.map[line][i] != '1')
 		return (1);
 	return (0);
