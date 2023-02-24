@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 15:32:34 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/23 17:11:46 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:21:39 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 int	check_next(int line, int i)
 {
+	if (data()->map.map[line][i] == 'E' && data()->map.c == 0)
+		data()->map.c--;
 	if (data()->map.map[line][i] == 'C')
 	{	
 		data()->map.map[line][i] = '0';
-		if (--data()->map.c)
+		if (!--data()->map.c)
 			data()->objects.exit = &data()->objects.exit_yes;
 	}
 	if (data()->map.map[line][i] != '1')
@@ -31,23 +33,31 @@ int	handle_keypress(int keysym, t_data *data)
 		ft_close(data);
 	if (keysym == XK_Down || keysym == XK_s)
 	{
+		data->moves++;
+		data->player.img = &data->objects.img_down;
 		if (check_next(data->player.line + 1, data->player.i))
 			data->player.line++;
 	}
 	if (keysym == XK_Up || keysym == XK_w)
 	{
+		data->moves++;
+		data->player.img = &data->objects.img_up;
 		if (check_next(data->player.line - 1, data->player.i))
-		data->player.line--;
+			data->player.line--;
 	}
 	if (keysym == XK_Left || keysym == XK_a)
 	{
+		data->moves++;
+		data->player.img = &data->objects.img_left;
 		if (check_next(data->player.line, data->player.i - 1))
-		data->player.i--;
+			data->player.i--;
 	}
 	if (keysym == XK_Right || keysym == XK_d)
 	{
+		data->moves++;
+		data->player.img = &data->objects.img_right;
 		if (check_next(data->player.line, data->player.i + 1))
-		data->player.i++;
+			data->player.i++;
 	}
 	return (0);
 }

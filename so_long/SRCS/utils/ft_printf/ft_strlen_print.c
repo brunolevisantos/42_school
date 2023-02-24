@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   erase_obj.c                                        :+:      :+:    :+:   */
+/*   ft_strlen_print.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 15:24:26 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/23 16:42:40 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/10/13 11:00:06 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/02/24 13:09:11 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/so_long.h"
+#include "ft_printf.h"
 
-void	erase_obj(t_data *data, int i, int line)
-{	
-	if (data->map.c == 0)
-	{
-		data->objects.exit = &data->objects.exit_yes;
-	}
-	if (data->map.map[line][i] == 'C')
-	{
-		data->map.c--;
-		data->map.map[line][i] = '0';
-	}
+//tamanho da string.
+size_t	ft_strlen_print(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

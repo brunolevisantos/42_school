@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_keyrelease.c                                :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/06 15:32:32 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/06 15:39:49 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/10/25 15:14:22 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/11/09 15:22:59 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/so_long.h"
+#include "ft_printf.h"
 
-int	handle_keyrelease(int keysym, void *data)
+/* ALTERADO - RECEBE PTR BYTS - escreve a str no ficheiro para onde aponta o fd 
+ */
+void	ft_putstr_fd(char *s, int fd, int *bytesp)
 {
-	(void) data;
+	int	i;
 
-	printf("Keyrelease: %d\n", keysym);
-	return (0);
+	i = 0;
+	if (!s)
+		(*bytesp) += write(fd, "(null)", 6);
+	else
+	{
+		while (s[i])
+		{
+			(*bytesp) += write(fd, &s[i], 1);
+			i++;
+		}
+	}
 }

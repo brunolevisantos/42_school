@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:19:52 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/23 16:41:05 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:29:26 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 t_img	*decide_img(char i)
 {
-	// if (i == 'P')
-	// 	return (&data()->player.img_down);
 	if (i == '1')
 		return (&data()->objects.wall);
 	if (i == '0' || i == 'P')

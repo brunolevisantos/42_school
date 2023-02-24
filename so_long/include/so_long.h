@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:32:41 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/23 16:39:28 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/24 15:54:42 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
 # define WHITE_PIXEL 0x00FFFFFF
 # define MLX_ERROR 1
 
-# include "../get_next_line/get_next_line.h"
+# include "../SRCS/utils/get_next_line/get_next_line.h"
+# include "../SRCS/utils/ft_printf/ft_printf.h"
 # include "../mlx_linux/mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
@@ -49,6 +50,7 @@ typedef struct s_obj{
 	t_img	img_down;
 	t_img	img_left;
 	t_img	img_up;
+	t_img	the_end;
 }	t_obj;
 
 typedef struct s_player{
@@ -76,6 +78,7 @@ typedef struct s_data {
 	t_obj		objects;
 	t_player	player;
 	t_map		map;
+	int			moves;
 }	t_data;
 
 typedef struct s_point {
@@ -106,6 +109,12 @@ int		check_map_name(char *check_map_path);
 int		render(t_data *data);
 t_img	*decide_img(char i);
 void	draw_floor(t_data *data);
-void	erase_obj(t_data *data, int i, int line);
+void	rezise_img(t_img *img, double w, double h);
+char	*ft_itoa(int n);
+char	*ft_strjoin(char *s1, char *s2);
+int		ft_strlen(char *s);
+void	*ft_calloc(size_t nelem, size_t elsize);
+void	ft_bzero(void *s, size_t n);
+void	*ft_memset(void *s, int c, size_t n);
 
 #endif

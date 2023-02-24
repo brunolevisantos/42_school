@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 11:24:04 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/23 13:10:13 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/24 13:58:17 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,6 @@ void	initialize(void)
 		32 * (data()->map.map_elem + 1), 32 * (data()->map.map_lines + 1));
 	(data())->canva.addr = mlx_get_data_addr(data()->canva.img, \
 	&data()->canva.bpp, &data()->canva.line_len, &data()->canva.endian);
+	data()->canva.width = 32 * (data()->map.map_elem + 1);
+	data()->canva.height = 32 * (data()->map.map_lines + 1);
 }

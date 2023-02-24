@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:34:23 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/23 16:44:15 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/24 13:38:18 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ void	fill_obj(t_data *data)
 	data->objects.img_down = load_image(data, "./IMG/CAR/CarDown.xpm");
 	data->objects.img_left = load_image(data, "./IMG/CAR/CarLeft.xpm");
 	data->player.img = &data->objects.img_down;
-	data->objects.exit_yes = load_image(data, "./IMG/Exit.xpm");
-	data->objects.exit_no = load_image(data, "./IMG/No.xpm");
+	data->objects.exit_yes = load_image(data, "./IMG/exit_yes.xpm");
+	data->objects.exit_no = load_image(data, "./IMG/exit_no.xpm");
 	data->objects.exit = &data->objects.exit_no;
 	data->objects.candy = load_image(data, "./IMG/Dude_Monster.xpm");
 	data->objects.wall = load_image(data, "./IMG/Wall.xpm");
 	data->objects.floor = load_image(data, "./IMG/Floor.xpm");
+	data->objects.the_end = load_image(data, "./IMG/the_end.xpm");
 }
