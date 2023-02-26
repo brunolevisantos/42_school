@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 10:25:06 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/24 16:31:44 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/26 21:30:31 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	rezise_img(t_img *img, double w, double h)
 
 	y = -1;
 	i = 0;
+	data()->continue_print = 1;
 	while (++y < h)
 	{
 		x = -1;

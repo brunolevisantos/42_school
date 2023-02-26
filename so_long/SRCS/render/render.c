@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:17:40 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/24 16:18:21 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/26 21:31:32 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,19 @@ void	print_moves(void)
 	char	*movements;
 	char	*message;
 	char	*moves;
-
-	message = 0;
-	movements = " movements.";
-	moves = ft_itoa(data()->moves);
-	message = ft_strjoin(moves, movements);
-	mlx_string_put(data()->mlx_ptr, \
-	data()->win_ptr, 10, 20, WHITE_PIXEL, message);
-	free (message);
+	
+	if (data()->continue_print == 0)
+	{
+		message = 0;
+		movements = " movements.";
+		moves = ft_itoa(data()->moves);
+		message = ft_strjoin(moves, movements);
+		mlx_string_put(data()->mlx_ptr, \
+		data()->win_ptr, 10, 20, WHITE_PIXEL, message);
+		free (message);
+	}
+	else
+		return ;
 }
 
 int	render(t_data *data)

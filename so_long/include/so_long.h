@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:32:41 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/24 15:54:42 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/26 21:29:49 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ typedef struct s_data {
 	t_player	player;
 	t_map		map;
 	int			moves;
+	int			continue_print;
 }	t_data;
 
 typedef struct s_point {
