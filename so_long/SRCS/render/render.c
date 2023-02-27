@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:17:40 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/26 21:31:32 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/27 23:12:59 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	print_moves(void)
 	char	*message;
 	char	*moves;
 	
-	if (data()->continue_print == 0)
+	if (data()->continue_print == 0) //se entrar passar para o bonus e dentro do else, este valor deixa de ser necessario.
 	{
 		message = 0;
 		movements = " movements.";
@@ -57,6 +57,6 @@ int	render(t_data *data)
 	}
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, \
 	data->canva.img, 0, 0);
-	print_moves();
+	print_moves(); //experimentar por isto dentro do else, e trocar para ficheiro bonus.
 	return (0);
 }
