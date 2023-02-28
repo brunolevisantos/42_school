@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 10:25:06 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/26 21:30:31 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/28 14:34:47 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	draw_canva(t_data *data, t_img *img, int x1, int y1)
 	}
 }
 
-void	rezise_img(t_img *img, double w, double h)
+void	resize_img(t_img *img, double w, double h)
 {
 	int		x;
 	int		y;
@@ -54,7 +54,7 @@ void	rezise_img(t_img *img, double w, double h)
 
 	y = -1;
 	i = 0;
-	data()->continue_print = 1;
+	data()->stop_print = 1;
 	while (++y < h)
 	{
 		x = -1;

@@ -6,30 +6,27 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:17:40 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/27 23:12:59 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/28 13:34:21 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-void	print_moves(void)
+void	check_finnish(t_data *data)
 {
-	char	*movements;
-	char	*message;
-	char	*moves;
-	
-	if (data()->continue_print == 0) //se entrar passar para o bonus e dentro do else, este valor deixa de ser necessario.
+	if (data->map.c == -1)
 	{
-		message = 0;
-		movements = " movements.";
-		moves = ft_itoa(data()->moves);
-		message = ft_strjoin(moves, movements);
-		mlx_string_put(data()->mlx_ptr, \
-		data()->win_ptr, 10, 20, WHITE_PIXEL, message);
-		free (message);
+		resize_img(&data->objects.the_end, data->canva.width, \
+		data->canva.height);
+		data->stop_print = 1;
 	}
-	else
-		return ;
+	if ((data->player.i == data->enemy.i) && \
+	(data->player.line == data->enemy.line))
+	{
+		resize_img(&data->objects.game_over, data->canva.width, \
+		data->canva.height);
+		data->stop_print = 1;
+	}
 }
 
 int	render(t_data *data)
@@ -38,10 +35,8 @@ int	render(t_data *data)
 	int		i;
 
 	line = -1;
-	if (data->map.c == -1)
-		rezise_img(&data->objects.the_end, data->canva.width, \
-		data->canva.height);
-	else
+	check_finnish(data);
+	if (data->stop_print == 0)
 	{
 		draw_floor(data);
 		while (data->map.map[++line])
@@ -57,6 +52,6 @@ int	render(t_data *data)
 	}
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, \
 	data->canva.img, 0, 0);
-	print_moves(); //experimentar por isto dentro do else, e trocar para ficheiro bonus.
+	bonus(data);
 	return (0);
 }

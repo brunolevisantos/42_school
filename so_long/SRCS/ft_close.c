@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 11:23:52 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/24 16:25:36 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/28 15:04:50 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ int	ft_close(t_data *data)
 	mlx_destroy_image(data->mlx_ptr, data->objects.exit_yes.img);
 	mlx_destroy_image(data->mlx_ptr, data->objects.floor.img);
 	mlx_destroy_image(data->mlx_ptr, data->objects.the_end.img);
+	mlx_destroy_image(data->mlx_ptr, data->objects.enemy[0].img);
+	mlx_destroy_image(data->mlx_ptr, data->objects.enemy[1].img);
+	mlx_destroy_image(data->mlx_ptr, data->objects.enemy[2].img);
+	mlx_destroy_image(data->mlx_ptr, data->objects.enemy[3].img);
+	mlx_destroy_image(data->mlx_ptr, data->objects.game_over.img);
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	free(data->mlx_ptr);
 	exit (0);

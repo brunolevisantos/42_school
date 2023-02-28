@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:32:41 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/26 21:29:49 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/02/28 15:44:56 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # include <stdlib.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
+# include <sys/time.h>
 
 typedef struct s_img {
 	void	*img;
@@ -51,6 +52,8 @@ typedef struct s_obj{
 	t_img	img_left;
 	t_img	img_up;
 	t_img	the_end;
+	t_img	game_over;
+	t_img	enemy[4];
 }	t_obj;
 
 typedef struct s_player{
@@ -58,6 +61,15 @@ typedef struct s_player{
 	int		i;
 	int		line;
 }	t_player;
+
+typedef struct s_enemy{
+	t_img	*img;
+	int		i;
+	int		line;
+	int		start;
+	time_t	t;
+	time_t	t1;
+}	t_enemy;
 
 typedef struct s_map{
 	char	**map;
@@ -77,9 +89,10 @@ typedef struct s_data {
 	t_img		canva;
 	t_obj		objects;
 	t_player	player;
+	t_enemy		enemy;
 	t_map		map;
 	int			moves;
-	int			continue_print;
+	int			stop_print;
 }	t_data;
 
 typedef struct s_point {
@@ -110,12 +123,15 @@ int		check_map_name(char *check_map_path);
 int		render(t_data *data);
 t_img	*decide_img(char i);
 void	draw_floor(t_data *data);
-void	rezise_img(t_img *img, double w, double h);
+void	resize_img(t_img *img, double w, double h);
 char	*ft_itoa(int n);
 char	*ft_strjoin(char *s1, char *s2);
 int		ft_strlen(char *s);
 void	*ft_calloc(size_t nelem, size_t elsize);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
+void	bonus(t_data *data);
+void	print_moves(void);
+time_t	get_time(void);
 
 #endif

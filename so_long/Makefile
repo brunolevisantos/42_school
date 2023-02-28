@@ -1,6 +1,5 @@
 NAME = $(shell basename $(CURDIR))
 
-
 SRCS	= ${wildcard SRCS/*.c} ${wildcard SRCS/*/*.c} ${wildcard SRCS/*/*/*.c} ${wildcard MAP/*.c} ${wildcard MAP/*/*.c} ${wildcard IMG/*.c}
 
 OBJ		= ${SRCS:.c=.o}
