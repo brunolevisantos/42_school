@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 22:48:47 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/01 10:30:06 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/01 10:48:06 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ void	get_enemy_pos(t_data *data, int n)
 	if (get_time() > data->enemy[n].t)
 	{
 		x = rand() % 4;
-		if (x == 0 && check_enemy_next(data->enemy[n].line, data->enemy[n].i + 1))
+		if (x == 0 && check_enemy_next(data->enemy[n].line, \
+		data->enemy[n].i + 1))
 			data->enemy[n].i++;
 		else if (x == 1 && check_enemy_next(data->enemy[n].line, \
 		data->enemy[n].i - 1))

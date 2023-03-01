@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 15:32:34 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/28 15:44:02 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/01 10:47:44 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,25 @@ int	check_next(int line, int i)
 	}
 	if (data()->map.map[line][i] != '1')
 		return (1);
+	return (0);
+}
+
+int	handle_lateral(int keysym, t_data *data)
+{
+	if (keysym == XK_Left || keysym == XK_a)
+	{
+		data->moves++;
+		data->player.img = &data->objects.img_left;
+		if (check_next(data->player.line, data->player.i - 1))
+			data->player.i--;
+	}
+	if (keysym == XK_Right || keysym == XK_d)
+	{
+		data->moves++;
+		data->player.img = &data->objects.img_right;
+		if (check_next(data->player.line, data->player.i + 1))
+			data->player.i++;
+	}
 	return (0);
 }
 
@@ -45,19 +64,6 @@ int	handle_keypress(int keysym, t_data *data)
 		if (check_next(data->player.line - 1, data->player.i))
 			data->player.line--;
 	}
-	if (keysym == XK_Left || keysym == XK_a)
-	{
-		data->moves++;
-		data->player.img = &data->objects.img_left;
-		if (check_next(data->player.line, data->player.i - 1))
-			data->player.i--;
-	}
-	if (keysym == XK_Right || keysym == XK_d)
-	{
-		data->moves++;
-		data->player.img = &data->objects.img_right;
-		if (check_next(data->player.line, data->player.i + 1))
-			data->player.i++;
-	}
+	handle_lateral(keysym, data);
 	return (0);
 }
