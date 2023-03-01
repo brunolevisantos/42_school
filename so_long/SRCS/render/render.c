@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:17:40 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/28 13:34:21 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/01 10:37:40 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,25 @@
 
 void	check_finnish(t_data *data)
 {
+	int	n;
+
+	n = 0;
 	if (data->map.c == -1)
 	{
 		resize_img(&data->objects.the_end, data->canva.width, \
 		data->canva.height);
 		data->stop_print = 1;
 	}
-	if ((data->player.i == data->enemy.i) && \
-	(data->player.line == data->enemy.line))
+	while (n < 7)
 	{
-		resize_img(&data->objects.game_over, data->canva.width, \
-		data->canva.height);
-		data->stop_print = 1;
+		if ((data->player.i == data->enemy[n].i) && \
+		(data->player.line == data->enemy[n].line))
+		{
+			resize_img(&data->objects.game_over, data->canva.width, \
+			data->canva.height);
+			data->stop_print = 1;
+		}
+		n++;
 	}
 }
 

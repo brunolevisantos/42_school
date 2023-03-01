@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:32:41 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/28 15:44:56 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/01 10:29:18 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ typedef struct s_data {
 	t_img		canva;
 	t_obj		objects;
 	t_player	player;
-	t_enemy		enemy;
+	t_enemy		enemy[8];
 	t_map		map;
 	int			moves;
 	int			stop_print;
