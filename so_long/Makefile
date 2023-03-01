@@ -1,42 +1,42 @@
 NAME = $(shell basename $(CURDIR))
 
-SRCS	= bonus/print_moves.c \
-		bonus/get_time.c \
-		bonus/bonus.c \
-		handle/handle_msg.c \
-		handle/handle_no_event.c \
-		handle/handle_keypress.c \
-		utils/ft_strjoin.c \
-		utils/get_next_line/get_next_line_utils.c \
-		utils/get_next_line/get_next_line.c \
-		utils/ft_printf/ft_strlen_print.c \
-		utils/ft_printf/ft_putpointer_fd.c \
-		utils/ft_printf/ft_putnbr_fd.c \
-		utils/ft_printf/ft_putstr_fd.c \
-		utils/ft_printf/ft_printf.c \
-		utils/ft_printf/ft_puthex_fd.c \
-		utils/ft_printf/ft_putchar_fd.c \
-		utils/ft_memset.c \
-		utils/ft_strlen.c \
-		utils/ft_bzero.c \
-		utils/ft_calloc.c \
-		utils/ft_itoa.c \
-		ft_close.c \
-		initialize.c \
-		so_long.c \
-		map_utils/check_map_name.c \
-		map_utils/load_map_zico.c \
-		map_utils/map_free.c \
-		map_utils/elem_count.c \
-		map_utils/check_path.c \
-		map_utils/line_count.c \
-		map_utils/map_checker.c \
-		map_utils/map_copy.c \
-		render/fill_obj.c \
-		render/draw_floor.c \
-		render/decide_img.c \
-		render/render.c \
-		render/my_pixel_put.c
+SRCS	= SRCS/bonus/print_moves.c \
+		SRCS/bonus/get_time.c \
+		SRCS/bonus/bonus.c \
+		SRCS/handle/handle_msg.c \
+		SRCS/handle/handle_no_event.c \
+		SRCS/handle/handle_keypress.c \
+		SRCS/utils/ft_strjoin.c \
+		SRCS/utils/get_next_line/get_next_line_utils.c \
+		SRCS/utils/get_next_line/get_next_line.c \
+		SRCS/utils/ft_printf/ft_strlen_print.c \
+		SRCS/utils/ft_printf/ft_putpointer_fd.c \
+		SRCS/utils/ft_printf/ft_putnbr_fd.c \
+		SRCS/utils/ft_printf/ft_putstr_fd.c \
+		SRCS/utils/ft_printf/ft_printf.c \
+		SRCS/utils/ft_printf/ft_puthex_fd.c \
+		SRCS/utils/ft_printf/ft_putchar_fd.c \
+		SRCS/utils/ft_memset.c \
+		SRCS/utils/ft_strlen.c \
+		SRCS/utils/ft_bzero.c \
+		SRCS/utils/ft_calloc.c \
+		SRCS/utils/ft_itoa.c \
+		SRCS/ft_close.c \
+		SRCS/initialize.c \
+		SRCS/so_long.c \
+		SRCS/map_utils/check_map_name.c \
+		SRCS/map_utils/load_map_zico.c \
+		SRCS/map_utils/map_free.c \
+		SRCS/map_utils/elem_count.c \
+		SRCS/map_utils/check_path.c \
+		SRCS/map_utils/line_count.c \
+		SRCS/map_utils/map_checker.c \
+		SRCS/map_utils/map_copy.c \
+		SRCS/render/fill_obj.c \
+		SRCS/render/draw_floor.c \
+		SRCS/render/decide_img.c \
+		SRCS/render/render.c \
+		SRCS/render/my_pixel_put.c
 
 OBJ		= ${SRCS:.c=.o}
 

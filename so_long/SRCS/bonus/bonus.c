@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 22:48:47 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/01 10:48:06 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:54:05 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	get_enemy_start(t_data *data, int n)
 	int	i;
 	int	line;
 
-	srand(get_time());
+	srand(rand () % get_time());
 	i = rand () % data->map.map_elem;
 	line = rand () % data->map.map_lines;
 	if (data->map.map[line][i] != '0')
