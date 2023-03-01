@@ -36,5 +36,5 @@ norm:
 re: fclean all
 
 r: all
-	./so_long
+	./pipex
 	
