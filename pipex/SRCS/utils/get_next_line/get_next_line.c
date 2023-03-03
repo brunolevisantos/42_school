@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 16:01:46 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/02 16:12:41 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/12/15 10:33:35 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/12/16 12:10:06 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "get_next_line.h"
 
-int	main(int argc, char **argv)
+char	*get_next_line(int fd)
 {
-	int	fd;
+	static char	buf[BUFFER_SIZE + 1];
+	char		*line;
 
-	if (argc > 5)
+	line = 0;
+	if (buf[0])
 	{
-		fd = open(argv[1], O_RDONLY);
-		
+		line = ft_strjoin(line, buf);
+		move_buf(buf);
 	}
+	while (!ft_strchr(line, '\n') && read(fd, buf, BUFFER_SIZE) > 0)
+	{
+		line = ft_strjoin(line, buf);
+		move_buf(buf);
+	}
+	return (line);
 }

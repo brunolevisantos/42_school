@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 16:01:46 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/02 16:12:41 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/10/18 13:49:12 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/02/24 15:41:04 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "../../include/so_long.h"
 
-int	main(int argc, char **argv)
+//Aloca uma memoria de n elementos de tamanho "element size" e preenche com 0.
+void	*ft_calloc(size_t nelem, size_t elsize)
 {
-	int	fd;
+	void	*ptr;
 
-	if (argc > 5)
-	{
-		fd = open(argv[1], O_RDONLY);
-		
-	}
+	ptr = malloc(nelem * elsize);
+	if (!ptr)
+		return (0);
+	else
+		ft_bzero(ptr, (nelem * elsize));
+	return (ptr);
 }

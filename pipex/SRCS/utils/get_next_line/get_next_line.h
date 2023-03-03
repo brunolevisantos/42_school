@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 16:01:46 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/02 16:12:41 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/12/09 10:13:20 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/03/02 15:58:11 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int	main(int argc, char **argv)
-{
-	int	fd;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
-	if (argc > 5)
-	{
-		fd = open(argv[1], O_RDONLY);
-		
-	}
-}
+# include "../../../include/pipex.h"
+# include <fcntl.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+
+char	*get_next_line(int fd);
+char	*ft_strchr(const char *s, int c);
+// int		ft_strlen2(char *s);
+// char	*ft_strjoin2(char *s1, char *s2);
+void	move_buf(char *buf);
+
+#endif

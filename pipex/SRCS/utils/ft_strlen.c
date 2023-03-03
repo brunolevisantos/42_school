@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 16:01:46 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/02 16:12:41 by bde-seic         ###   ########.fr       */
+/*   Created: 2023/02/24 15:37:38 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/02/24 16:28:56 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "../../include/so_long.h"
 
-int	main(int argc, char **argv)
+int	ft_strlen(char *s)
 {
-	int	fd;
+	int	i;
 
-	if (argc > 5)
+	i = 0;
+	if (s)
 	{
-		fd = open(argv[1], O_RDONLY);
-		
+		while (s[i] != '\0' && s[i] != '\n')
+			i++;
+		if (s[i] == '\n')
+			i++;
 	}
+	return (i);
 }

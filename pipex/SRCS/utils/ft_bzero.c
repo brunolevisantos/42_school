@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 16:01:46 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/02 16:12:41 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/10/13 11:40:41 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/02/24 15:42:08 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "../../include/so_long.h"
 
-int	main(int argc, char **argv)
+//transforma os elementos do bloco de memoria em 0, ate ao size.
+void	ft_bzero(void *s, size_t n)
 {
-	int	fd;
-
-	if (argc > 5)
-	{
-		fd = open(argv[1], O_RDONLY);
-		
-	}
+	ft_memset(s, 0, n);
 }
+
+/*
+int main(void)
+{
+    char str[] = "hello world";
+    int i;
+
+    i = ft_strlen(str);
+    ft_bzero(str, 6);
+    write(1, str, i);
+}
+*/

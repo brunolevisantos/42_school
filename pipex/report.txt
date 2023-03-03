@@ -1,0 +1,22 @@
+LINKS UTEIS:
+
+	https://www.youtube.com/watch?v=6u_iPGVkfZ4&list=PLfqABt5AS4FkW5mOn2Tn9ZZLLDwA3kZUY&index=7
+
+	execv
+	https://www.youtube.com/watch?v=OVFEWSP7n8c&list=PLfqABt5AS4FkW5mOn2Tn9ZZLLDwA3kZUY&index=15
+	exec 'V' stands for a vector, whereas it should receive a vector (char **)
+	exec arguments must end with a null
+	'E' stands for enviornment
+
+	./pipex file1 cmd1 cmd2 file2
+
+	main pipex
+		ver numeros de arguments
+		fd = open(file1)
+		(copiar file1 com dup)
+		ver path cmd
+		ler av[2] e fazer o que e preciso no "dup - file1" (onde encontrar o que e preciso fazer?) (usar execve para executar no "dup - file1" o cmd1??)
+			fazer isto tudo num fork, porque execve para o outro programa.
+			(mandar o resultado para um ** que esteja no parent process com pipe)
+			voltar a fazer um fork, usar novo execve e fazer o cmd2 no **	
+				fazer um pipe e mandar o resultado para o file2 que esteja no parent process

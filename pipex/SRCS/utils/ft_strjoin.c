@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 16:01:46 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/02 16:12:41 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/10/20 10:33:51 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/02/24 16:11:02 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "../../include/so_long.h"
 
-int	main(int argc, char **argv)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	int	fd;
+	char	*s3;
+	int		i;
+	int		j;
 
-	if (argc > 5)
+	i = 0;
+	j = 0;
+	s3 = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (s3 == 0)
+		return (0);
+	while (s1 && s1[i])
 	{
-		fd = open(argv[1], O_RDONLY);
-		
+		s3[i] = s1[i];
+		i++;
 	}
+	while (j < ft_strlen(s2))
+	{
+		s3[i] = s2[j];
+		i++;
+		j++;
+	}
+	s3[i] = 0;
+	free(s1);
+	return (s3);
 }

@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_strlen_print.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 16:01:46 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/02 16:12:41 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/10/13 11:00:06 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/02/24 13:09:11 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "ft_printf.h"
 
-int	main(int argc, char **argv)
+//tamanho da string.
+size_t	ft_strlen_print(const char *s)
 {
-	int	fd;
+	int	i;
 
-	if (argc > 5)
-	{
-		fd = open(argv[1], O_RDONLY);
-		
-	}
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

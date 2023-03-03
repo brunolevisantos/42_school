@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 16:01:46 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/02 16:12:41 by bde-seic         ###   ########.fr       */
+/*   Created: 2022/10/25 15:14:22 by bde-seic          #+#    #+#             */
+/*   Updated: 2022/11/09 15:22:59 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "ft_printf.h"
 
-int	main(int argc, char **argv)
+/* ALTERADO - RECEBE PTR BYTS - escreve a str no ficheiro para onde aponta o fd 
+ */
+void	ft_putstr_fd(char *s, int fd, int *bytesp)
 {
-	int	fd;
+	int	i;
 
-	if (argc > 5)
+	i = 0;
+	if (!s)
+		(*bytesp) += write(fd, "(null)", 6);
+	else
 	{
-		fd = open(argv[1], O_RDONLY);
-		
+		while (s[i])
+		{
+			(*bytesp) += write(fd, &s[i], 1);
+			i++;
+		}
 	}
 }
