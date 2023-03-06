@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   trim_path.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 11:40:41 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/06 10:13:48 by bde-seic         ###   ########.fr       */
+/*   Created: 2023/03/06 10:57:58 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/03/06 11:17:23 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/pipex.h"
+#include "../include/pipex.h"
 
-//transforma os elementos do bloco de memoria em 0, ate ao size.
-void	ft_bzero(void *s, size_t n)
+char	*trim_path(char *env_var)
 {
-	ft_memset(s, 0, n);
-}
+	int		i;
+	int		j;
+	char	*trimed;
 
-/*
-int main(void)
-{
-    char str[] = "hello world";
-    int i;
-
-    i = ft_strlen(str);
-    ft_bzero(str, 6);
-    write(1, str, i);
+	i = 5;
+	j = 0;
+	trimed = malloc(sizeof(char) * (ft_strlen(env_var) - i + 1));
+	while (env_var[i])
+		trimed[j++] = env_var[i++];
+	trimed[j] = '\0';
+	return (trimed);
 }
-*/

@@ -1,6 +1,18 @@
 NAME = $(shell basename $(CURDIR))
 
-SRCS	= ${wildcard SRCS/*.c} ${wildcard SRCS/*/*.c} ${wildcard SRCS/*/*/*.c}
+SRCS	= SRCS/pipex.c \
+		SRCS/get_path.c \
+		SRCS/trim_path.c \
+		SRCS/join_path.c \
+		SRCS/utils/ft_strlen.c \
+		SRCS/utils/ft_calloc.c \
+		SRCS/utils/ft_bzero.c \
+		SRCS/utils/ft_strnstr.c \
+		SRCS/utils/ft_memset.c \
+		SRCS/utils/ft_split.c \
+		SRCS/utils/ft_memmove.c \
+		SRCS/utils/ft_strjoin.c \
+		SRCS/check_access.c
 
 OBJ		= ${SRCS:.c=.o}
 
@@ -14,7 +26,7 @@ all: $(NAME)
 	$(CC) -Wall -Wextra -Werror -g3 -O3 -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 project:
 	@mkdir include
@@ -37,4 +49,3 @@ re: fclean all
 
 r: all
 	./pipex
-	

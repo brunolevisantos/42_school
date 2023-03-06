@@ -6,11 +6,11 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 11:07:31 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/24 15:42:11 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/06 10:13:37 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/so_long.h"
+#include "../../include/pipex.h"
 
 //transforma o byte do bloco de memoria em c, ate ao size.
 void	*ft_memset(void *s, int c, size_t n)

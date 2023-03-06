@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   get_path.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 11:40:41 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/06 10:13:48 by bde-seic         ###   ########.fr       */
+/*   Created: 2023/03/06 10:12:02 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/03/06 15:23:44 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/pipex.h"
+#include "../include/pipex.h"
 
-//transforma os elementos do bloco de memoria em 0, ate ao size.
-void	ft_bzero(void *s, size_t n)
+char	**get_path(char **envp)
 {
-	ft_memset(s, 0, n);
-}
+	int		i;
+	char	*env_var;
+	char	**paths;
 
-/*
-int main(void)
-{
-    char str[] = "hello world";
-    int i;
-
-    i = ft_strlen(str);
-    ft_bzero(str, 6);
-    write(1, str, i);
+	i = 0;
+	env_var = envp[i];
+	paths = 0;
+	while (!ft_strnstr(env_var, "PATH=", 5))
+		env_var = envp[i++];
+	if (!env_var)
+	{
+		perror ("PATH not found");
+		exit (0);
+	}
+	env_var = trim_path(env_var);
+	paths = ft_split(env_var, ':');
+	free (env_var);
+	return (paths);
 }
-*/

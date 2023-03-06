@@ -6,11 +6,11 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 15:37:38 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/02/24 16:28:56 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/06 10:13:21 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/so_long.h"
+#include "../../include/pipex.h"
 
 int	ft_strlen(char *s)
 {

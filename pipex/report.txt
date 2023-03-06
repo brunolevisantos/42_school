@@ -13,7 +13,9 @@ LINKS UTEIS:
 	https://www.youtube.com/watch?v=5fnVr-zH-SE
 
 	./pipex file1 cmd1 cmd2 file2
-
+	
+	./pipex infile "ls -l" "wc -l" "bla -sd" "jksdf -12" outfile 
+	
 
 	trocaro argv para path
 	main pipex
@@ -29,4 +31,20 @@ LINKS UTEIS:
 
 
 ./pipex file1.txt results.txt
-funcionou em casa com isto
+
+		while (i < argc - 1)
+		{
+			pid = fork();
+			if (pid == -1)
+				perror ("fork");
+			else if (pid == 0)
+			{
+				path = check_access(get_path(envp), argv[i]);
+				fd[0] = open(argv[1], O_RDONLY);
+				fd[1] = open(argv[argc - 1], O_WRONLY | O_CREAT | O_TRUNC, 0644);
+				dup2(fd[1], 1);
+				if (execve(path, argVec, envp) == -1)
+					perror("could not execute\n");
+				// free(path);
+			}
+		}
