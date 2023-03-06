@@ -7,9 +7,15 @@ LINKS UTEIS:
 	exec 'V' stands for a vector, whereas it should receive a vector (char **)
 	exec arguments must end with a null
 	'E' stands for enviornment
+	https://www.youtube.com/watch?v=iq7puCxsgHQ
+
+	dup && dup2
+	https://www.youtube.com/watch?v=5fnVr-zH-SE
 
 	./pipex file1 cmd1 cmd2 file2
 
+
+	trocaro argv para path
 	main pipex
 		ver numeros de arguments
 		fd = open(file1)
@@ -20,3 +26,7 @@ LINKS UTEIS:
 			(mandar o resultado para um ** que esteja no parent process com pipe)
 			voltar a fazer um fork, usar novo execve e fazer o cmd2 no **	
 				fazer um pipe e mandar o resultado para o file2 que esteja no parent process
+
+
+./pipex file1.txt results.txt
+funcionou em casa com isto
