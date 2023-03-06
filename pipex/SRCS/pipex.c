@@ -6,11 +6,33 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:01:46 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/06 15:39:56 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/06 23:06:38 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
+
+t_program	**fill_list(int argc, char **argv, char ** envp)
+{
+	t_program	*list;
+	t_program	*node; //ver add_node push swap
+	int			i;
+	
+	i = 2;
+	*list = arg;
+	while (i < argc - 1)
+	{
+		arg.i = i;
+		if (i == 2)
+			arg.fd[0] = open(argv[1], O_RDONLY);
+		else
+			fd[0] = //anterior
+		arg.path = check_access(get_path(envp), argv[i]);
+		arg.argVec = ft_split(argv[i], " ");
+		arg.next = NULL;
+	}
+	return ()
+}
 
 int	main(int argc, char **argv, char **envp)
 {
@@ -19,10 +41,13 @@ int	main(int argc, char **argv, char **envp)
 	int		i;
 	char	*path;
 	char	*argVec[] = {"ls", "-l", argv[1], NULL};
+	t_program	*list;
 
 	i = 2;
 	if (argc > 2) //maior que 5
 	{
+		list = fill_list(argc, argv, envp);
+		//while list
 		if (pipe(fd) == -1)
 			perror ("pipe");
 		pid = fork();
