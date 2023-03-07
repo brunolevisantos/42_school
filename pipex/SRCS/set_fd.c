@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 10:54:53 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/07 15:33:48 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/07 19:59:32 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int	get_previous_fd(t_program *curr, t_program **list)
 	iterate = *list;
 	while (iterate->i != curr->i - 1)
 		iterate = iterate->next;
-	fd = iterate->fd[1];
+	close(iterate->fd[1]);
+	fd = iterate->fd[0];
 	return (fd);
 }
 

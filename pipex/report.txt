@@ -131,3 +131,54 @@ int	main(int argc, char **argv, char **envp)
 		free_my_list(list);
 	}
 }
+
+
+ALL WORKING!!! ?
+
+int	main(int argc, char **argv, char **envp)
+{
+	t_program	*list;
+	t_program	*curr;
+	int			pid;
+
+	list = 0;
+	if (argc >= 5)
+	{
+		fill_list(&list, argc, argv, envp);
+		curr = list;
+		while (curr && curr->i <= argc - 2)
+		{
+			if (pipe(curr->fd) == -1)
+				perror ("pipe");
+			pid = fork();
+			if (pid == -1)
+				perror ("fork");
+			if (pid == 0)
+			{
+				set_fd(curr, &list, argc, argv);
+				printf("o fd[0] do curr->%d = curr->[%d]\n", curr->i, curr->fd[0]);				
+				printf("o fd[1] do curr->%d = curr->[%d]\n", curr->i, curr->fd[1]);
+				dup2(curr->fd[0], 0);
+				close(curr->fd[0]);
+				dup2(curr->fd[1], 1);
+				close(curr->fd[1]);
+				if (execve(curr->path, curr->flags, envp) == -1)
+					perror("could not execute\n");
+			}
+			curr = curr->next;
+		}
+		while (waitpid(-1, NULL, WNOHANG))
+		{
+		}
+		free_my_list(list);
+	}
+}
+
+
+TODO
+
+limpar printfs
+protecao para nao haver infile
+protecao para nao encontrar comandos
+correr norminette
+close fd no free_my_list?
