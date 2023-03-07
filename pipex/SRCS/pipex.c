@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:01:46 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/07 09:37:32 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/07 10:36:46 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,34 +37,47 @@ void	fill_list(t_program **list, int argc, char **argv, char **envp)
 	}
 }
 
-node->fd[0] = open(argv[1], O_RDONLY);
+void	set_fd(t_program *curr, int argc, char **argv)
+{
+	if (curr->i == 2)
+		curr->fd[0] = open(argv[1], O_RDONLY);
+	else
+		curr->fd[0] = get_previous_fd();
+	if (curr-> i == argc - 2)
+		curr->fd[1] = open(argv[argc - 1], O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	else
+		curr->fd[1] = ;
+}
 
 int	main(int argc, char **argv, char **envp)
 {
 	t_program	*list;
+	t_program	*curr;
+	int			pid;
 
 	list = 0;
-	i = 2;
-	if (argc > 2) //maior que 5
+	if (argc > 5)
 	{
-		list = fill_list(&list, argc, argv, envp);
-		//while list
-		if (pipe(fd) == -1)
-			perror ("pipe");
-		pid = fork();
-		if (pid == -1)
-			perror ("fork");
-		else if (pid == 0)
+		fill_list(&list, argc, argv, envp);
+		curr = list;
+		while (curr->i < argc - 1)
 		{
-			path = check_access(get_path(envp), argv[i]);
-			fd[0] = open(argv[1], O_RDONLY);
-			fd[1] = open(argv[argc - 1], O_WRONLY | O_CREAT | O_TRUNC, 0644);
-			dup2(fd[1], 1);
-			if (execve(path, argVec, envp) == -1)
-				perror("could not execute\n");
-			// free(path);
+			if (pipe(curr->fd) == -1)
+				perror ("pipe");
+			set_fd(&curr, argc, argv);
+			pid = fork();
+			if (pid == -1)
+				perror ("fork");
+			if (pid == 0)
+			{
+				dup2(curr->fd[1], 1);
+				if (execve(curr->path, curr->flags, envp) == -1)
+					perror("could not execute\n");
+				// free(path);
 			}
-/* 		else if (pid != 0) //esta sempre a fazer o parent process 
-			printf("Something went wrong\n");  */
+			curr = curr-> next;
+		}
+		waitpid();
+		free //all
 	}
 }

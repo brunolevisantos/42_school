@@ -16,6 +16,7 @@ LINKS UTEIS:
 	
 	./pipex infile "ls -l" "wc -l" "bla -sd" "jksdf -12" outfile 
 	
+	./pipex infile "ls -l" "wc -l" outfile 
 
 	trocaro argv para path
 	main pipex

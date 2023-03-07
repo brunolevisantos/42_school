@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:00:40 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/07 09:21:09 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/07 09:46:15 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-typedef struct  s_program{
-	int 				fd[2];
+typedef struct s_program{
+	int					fd[2];
 	int					i;
 	char				*path;
 	char				**flags;
