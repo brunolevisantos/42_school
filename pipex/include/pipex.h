@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:00:40 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/06 23:01:31 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/07 09:21:09 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct  s_program{
 	int 				fd[2];
 	int					i;
 	char				*path;
-	char				**argVec;
+	char				**flags;
 	struct t_program	*next;
 }	t_program;
 
