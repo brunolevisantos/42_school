@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 22:23:19 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/06 10:13:30 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/07 12:54:16 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /* procura na string big a string little. caso encontre totalmente ate ao size, 
 retorna ponteiro para onde comecou a ser igual. */
-char	*ft_strnstr(const char *big, const char *little, size_t n)
+char	*ft_strnstr(char *big, char *little, size_t n)
 {
 	size_t		b;
 	size_t		l;

@@ -12,7 +12,11 @@ SRCS	= SRCS/pipex.c \
 		SRCS/utils/ft_split.c \
 		SRCS/utils/ft_memmove.c \
 		SRCS/utils/ft_strjoin.c \
-		SRCS/check_access.c
+		SRCS/check_access.c \
+		SRCS/fill_list.c \
+		SRCS/set_fd.c \
+		SRCS/free_my_list.c
+
 
 OBJ		= ${SRCS:.c=.o}
 

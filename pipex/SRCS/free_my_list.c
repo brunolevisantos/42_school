@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_path.c                                         :+:      :+:    :+:   */
+/*   free_my_list.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 10:12:02 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/07 11:48:24 by bde-seic         ###   ########.fr       */
+/*   Created: 2023/03/07 14:24:59 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/03/07 15:03:32 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
 
-char	**get_path(char **envp)
+void	free_my_list(t_program *list)
 {
-	int		i;
-	char	*env_var;
-	char	**paths;
-	// int x;
+	t_program	*curr;
+	int			i;
 
-	i = 0;
-	env_var = envp[i];
-	paths = 0;
-	while (!ft_strnstr(env_var, "PATH=", 5))
-		env_var = envp[i++];
-	if (!env_var)
+	curr = list;
+	while (curr)
 	{
-		perror ("PATH not found");
-		exit (0);
+		list = curr->next;
+		free(curr->path);
+		i = 0;
+		while (curr->flags[i])
+			free(curr->flags[i++]);
+		free(curr->flags);
+		free(curr);
+		curr = list;
 	}
-	env_var = trim_path(env_var);
-	paths = ft_split(env_var, ':');
-	free (env_var);
-	// x = 0;
-	// while (paths[x])
-	// 	printf("paths[x] = %s\n", paths[x++]);
-	return (paths);
+	free (list);
 }

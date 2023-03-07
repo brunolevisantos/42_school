@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:37:32 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/06 15:23:33 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/07 13:41:32 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ char	*check_access(char **paths, char *arg)
 		i++;
 		temp = join_path(paths[i], arg);
 	}
+	// printf("arg = %s\n", arg);
 	if (access(temp, F_OK))
 	{
 		perror ("Program not found");
@@ -34,6 +35,6 @@ char	*check_access(char **paths, char *arg)
 	while (paths[i])
 		free(paths[i++]);
 	free (paths);
-	// printf("temp = %s\n", temp);
+	// printf("cheguei aqui e temp = %s\n", temp);
 	return (temp);
 }

@@ -84,3 +84,50 @@ int	main(int argc, char **argv, char **envp)
 			printf("Something went wrong\n");  */
 	}
 }
+
+
+checkar nodes
+
+int	main(int argc, char **argv, char **envp)
+{
+	t_program	*list;
+	t_program	*curr;
+	//int			pid;
+	int x;
+
+	list = 0;
+	if (argc >= 5)
+	{
+		fill_list(&list, argc, argv, envp);
+		curr = list;
+		while (curr && curr->i <= argc - 2)
+		{
+			printf ("para o curr->i = %d o i = %d\n", curr->i, curr->i);
+			if (pipe(curr->fd) == -1)
+				perror ("pipe");
+			set_fd(curr, &list, argc, argv);
+			// pid = fork();
+			printf ("para o curr = %d o fd[0] = %d\n", curr->i, curr->fd[0]);
+			printf ("para o curr = %d o fd[1] = %d\n", curr->i, curr->fd[1]);
+			printf ("para o curr = %d o curr->path = %s\n", curr->i, curr->path);
+			x = 0;
+			while (curr->flags[x])
+				printf ("para o curr = %d as flags sao = %s\n", curr->i, curr->flags[x++]);
+			// if (pid == -1)
+			// 	perror ("fork");
+			// if (pid == 0)
+			// {
+			// 	dup2(curr->fd[0], 0);
+			// 	dup2(curr->fd[1], 1);
+			// 	if (execve(curr->path, curr->flags, envp) == -1)
+			// 		perror("could not execute\n");
+			// 	// free(path);
+			// }
+			curr = curr->next;
+		}
+		// while (waitpid(-1, NULL, WNOHANG))
+		// {
+		// }
+		free_my_list(list);
+	}
+}

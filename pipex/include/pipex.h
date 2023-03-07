@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:00:40 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/07 09:46:15 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/07 14:29:03 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,14 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <sys/wait.h>
 
 typedef struct s_program{
 	int					fd[2];
 	int					i;
 	char				*path;
 	char				**flags;
-	struct t_program	*next;
+	struct s_program	*next;
 }	t_program;
 
 
@@ -40,5 +41,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 char	*check_access(char **paths, char *arg);
 char	*ft_strjoin(char *s1, char *s2);
 char	*join_path(char *path, char *arg);
+void	fill_list(t_program **list, int argc, char **argv, char **envp);
+void	set_fd(t_program *curr, t_program **list, int argc, char **argv);
+void	free_my_list(t_program *list);
 
 #endif
