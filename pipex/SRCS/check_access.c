@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:37:32 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/07 13:41:32 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/08 10:18:35 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*check_access(char **paths, char *arg)
 	i = 0;
 	while (paths[i])
 		free(paths[i++]);
-	free (paths);
 	// printf("cheguei aqui e temp = %s\n", temp);
+	free (paths);
 	return (temp);
 }

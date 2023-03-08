@@ -178,7 +178,7 @@ int	main(int argc, char **argv, char **envp)
 TODO
 
 limpar printfs
-protecao para nao haver infile
-protecao para nao encontrar comandos
+protecao para nao haver infile - OK
+protecao para nao encontrar comandos - OK
 correr norminette
 close fd no free_my_list?

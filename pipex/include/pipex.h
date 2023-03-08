@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:00:40 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/07 14:29:03 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/08 11:41:34 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ char	*join_path(char *path, char *arg);
 void	fill_list(t_program **list, int argc, char **argv, char **envp);
 void	set_fd(t_program *curr, t_program **list, int argc, char **argv);
 void	free_my_list(t_program *list);
+void	ft_putstr_fd(char *s, int fd);
 
 #endif

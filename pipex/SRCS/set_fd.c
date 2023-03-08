@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 10:54:53 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/07 19:59:32 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/08 11:05:31 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,15 @@ int	get_previous_fd(t_program *curr, t_program **list)
 void	set_fd(t_program *curr, t_program **list, int argc, char **argv)
 {
 	if (curr->i == 2)
+	{
 		curr->fd[0] = open(argv[1], O_RDONLY);
+		if (curr->fd[0] == -1)
+		{
+			free_my_list(*list);
+			perror(0);
+			exit(0);
+		}
+	}
 	else
 		curr->fd[0] = get_previous_fd(curr, list);
 	if (curr-> i == argc - 2)

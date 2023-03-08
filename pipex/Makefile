@@ -15,7 +15,8 @@ SRCS	= SRCS/pipex.c \
 		SRCS/check_access.c \
 		SRCS/fill_list.c \
 		SRCS/set_fd.c \
-		SRCS/free_my_list.c
+		SRCS/free_my_list.c \
+		SRCS/utils/ft_putstr_fd.c
 
 
 OBJ		= ${SRCS:.c=.o}
