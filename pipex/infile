@@ -13,3 +13,5 @@ cc -Wall -Wextra -Werror -g3 -O3 -c SRCS/utils/ft_strjoin.c -o SRCS/utils/ft_str
 cc -Wall -Wextra -Werror -g3 -O3 -c SRCS/check_access.c -o SRCS/check_access.o
 cc -Wall -Wextra -Werror -g3 -O3 -c SRCS/fill_list.c -o SRCS/fill_list.o
 cc -Wall -Wextra -Werror -g3 -O3 -c SRCS/set_fd.c -o SRCS/set_fd.o
+cc -Wall -Wextra -Werror -g3 -O3 -c SRCS/free_my_list.c -o SRCS/free_my_list.o
+cc -Wall -Wextra -Werror -g3 -O3 -c SRCS/utils/ft_putstr_fd.c -o SRCS/utils/ft_putstr_fd.o

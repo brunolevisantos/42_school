@@ -4,19 +4,19 @@ SRCS	= SRCS/pipex.c \
 		SRCS/get_path.c \
 		SRCS/trim_path.c \
 		SRCS/join_path.c \
-		SRCS/utils/ft_strlen.c \
-		SRCS/utils/ft_calloc.c \
 		SRCS/utils/ft_bzero.c \
-		SRCS/utils/ft_strnstr.c \
-		SRCS/utils/ft_memset.c \
-		SRCS/utils/ft_split.c \
+		SRCS/utils/ft_calloc.c \
 		SRCS/utils/ft_memmove.c \
+		SRCS/utils/ft_memset.c \
+		SRCS/utils/ft_putstr_fd.c \
+		SRCS/utils/ft_split.c \
 		SRCS/utils/ft_strjoin.c \
+		SRCS/utils/ft_strlen.c \
+		SRCS/utils/ft_strnstr.c \
 		SRCS/check_access.c \
 		SRCS/fill_list.c \
 		SRCS/set_fd.c \
-		SRCS/free_my_list.c \
-		SRCS/utils/ft_putstr_fd.c
+		SRCS/free_my_list.c
 
 
 OBJ		= ${SRCS:.c=.o}

@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:01:46 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/08 13:16:07 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/08 13:28:23 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,38 +21,39 @@ void	do_child(t_program *curr, t_program *list, int argc, char **argv)
 	close(curr->fd[1]);
 }
 
-int	main(int argc, char **argv, char **envp)
+void	go_function(int argc, char **argv, char **envp)
 {
 	t_program	*list;
 	t_program	*curr;
 	int			pid;
 
 	list = 0;
-	if (argc >= 5)
+	fill_list(&list, argc, argv, envp);
+	curr = list;
+	while (curr && curr->i <= argc - 2)
 	{
-		fill_list(&list, argc, argv, envp);
-		curr = list;
-		while (curr && curr->i <= argc - 2)
+		if (pipe(curr->fd) == -1)
+			perror ("Pipe error");
+		pid = fork();
+		if (pid == -1)
+			perror ("Fork error");
+		if (pid == 0)
 		{
-			if (pipe(curr->fd) == -1)
-				perror ("Pipe error");
-			pid = fork();
-			if (pid == -1)
-				perror ("Fork error");
-			if (pid == 0)
-			{
-				do_child(curr, list, argc, argv);
-				if (execve(curr->path, curr->flags, envp) == -1)
-					perror("Could not execute\n");
-			}
-			close(curr->fd[1]);
-			curr = curr->next;
+			do_child(curr, list, argc, argv);
+			if (execve(curr->path, curr->flags, envp) == -1)
+				perror("Could not execute\n");
 		}
-		while (waitpid(-1, NULL, WNOHANG) == -1)
-		{
-		}
-		free_my_list(list);
+		close(curr->fd[1]);
+		curr = curr->next;
 	}
+	waitpid(-1, NULL, WNOHANG);
+	free_my_list(list);
+}
+
+int	main(int argc, char **argv, char **envp)
+{
+	if (argc >= 5)
+		go_function(argc, argv, envp);
 	else
 		ft_putstr_fd("Invalid number of arguments\n", 2);
 }

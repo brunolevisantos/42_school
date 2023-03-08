@@ -1,3 +1,5 @@
+./pipex infile "cat" "head -5" "grep 3" "wc -l" "grep 5" outfile 
+
 LINKS UTEIS:
 
 	https://www.youtube.com/watch?v=6u_iPGVkfZ4&list=PLfqABt5AS4FkW5mOn2Tn9ZZLLDwA3kZUY&index=7
