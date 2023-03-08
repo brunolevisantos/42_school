@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:51:24 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/08 10:15:48 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/08 13:09:40 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,5 @@ char	*join_path(char *path, char *arg)
 	free(temp);
 	complete = str_trim(temp2);
 	free(temp2);
-	// printf("complete = %s\n", complete);
 	return (complete);
 }

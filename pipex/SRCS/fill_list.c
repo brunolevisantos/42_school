@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 10:56:43 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/07 15:04:16 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/08 13:16:16 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,9 @@ void	fill_list(t_program **list, int argc, char **argv, char **envp)
 		node->flags = ft_split(argv[i], ' ');
 		node->next = 0;
 		if (!(*list))
-		{
 			*list = node;
-			// printf("fiz if uma vez com o curr->i e o i = %d e %d\n", node->i, i);
-		}
 		else
 		{
-			// printf("fiz else uma vez com o curr->i e o i = %d e %d\n", node->i, i);
 			curr = *list;
 			while (curr->next != 0)
 				curr = curr->next;

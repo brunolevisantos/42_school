@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:00:40 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/08 11:41:34 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/08 13:09:15 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct s_program{
 	char				**flags;
 	struct s_program	*next;
 }	t_program;
-
 
 char	**get_path(char **envp);
 char	*ft_strnstr(char *big, char *little, size_t n);

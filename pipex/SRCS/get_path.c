@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 10:12:02 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/07 11:48:24 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/08 13:09:29 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ char	**get_path(char **envp)
 	int		i;
 	char	*env_var;
 	char	**paths;
-	// int x;
 
 	i = 0;
 	env_var = envp[i];
@@ -32,8 +31,5 @@ char	**get_path(char **envp)
 	env_var = trim_path(env_var);
 	paths = ft_split(env_var, ':');
 	free (env_var);
-	// x = 0;
-	// while (paths[x])
-	// 	printf("paths[x] = %s\n", paths[x++]);
 	return (paths);
 }

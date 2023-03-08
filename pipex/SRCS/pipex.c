@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:01:46 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/08 12:09:29 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/08 13:16:07 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,20 @@ int	main(int argc, char **argv, char **envp)
 		while (curr && curr->i <= argc - 2)
 		{
 			if (pipe(curr->fd) == -1)
-				perror ("pipe");
+				perror ("Pipe error");
 			pid = fork();
 			if (pid == -1)
-				perror ("fork");
+				perror ("Fork error");
 			if (pid == 0)
 			{
 				do_child(curr, list, argc, argv);
-				if (execve(curr->path, curr->flags, 0) == -1)
+				if (execve(curr->path, curr->flags, envp) == -1)
 					perror("Could not execute\n");
 			}
 			close(curr->fd[1]);
 			curr = curr->next;
 		}
-		while (waitpid(-1, NULL, WNOHANG))
+		while (waitpid(-1, NULL, WNOHANG) == -1)
 		{
 		}
 		free_my_list(list);

@@ -1,8 +1,0 @@
-cc -Wall -Wextra -Werror -g3 -O3 -c SRCS/utils/ft_strlen.c -o SRCS/utils/ft_strlen.o
-cc -Wall -Wextra -Werror -g3 -O3 -c SRCS/utils/ft_calloc.c -o SRCS/utils/ft_calloc.o
-cc -Wall -Wextra -Werror -g3 -O3 -c SRCS/utils/ft_bzero.c -o SRCS/utils/ft_bzero.o
-cc -Wall -Wextra -Werror -g3 -O3 -c SRCS/utils/ft_strnstr.c -o SRCS/utils/ft_strnstr.o
-cc -Wall -Wextra -Werror -g3 -O3 -c SRCS/utils/ft_memset.c -o SRCS/utils/ft_memset.o
-cc -Wall -Wextra -Werror -g3 -O3 -c SRCS/utils/ft_split.c -o SRCS/utils/ft_split.o
-cc -Wall -Wextra -Werror -g3 -O3 -c SRCS/utils/ft_memmove.c -o SRCS/utils/ft_memmove.o
-cc -Wall -Wextra -Werror -g3 -O3 -c SRCS/utils/ft_strjoin.c -o SRCS/utils/ft_strjoin.o
