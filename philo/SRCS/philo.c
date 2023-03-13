@@ -9,7 +9,7 @@ void	*roll_dice()
 	result = malloc (sizeof(int));
 	*result = value;
 	// printf("%d\n", value);
-	return (result);
+	return ((void*) result);
 }
 
 int	main(int ac, char **av)
@@ -22,8 +22,9 @@ int	main(int ac, char **av)
 	srand(time(0));
 	if (pthread_create(&t1, 0, &roll_dice, 0) != 0)
 		printf("error on thrad creation\n");
-	if (pthread_join(t1, &res) != 0)
+	if (pthread_join(t1, (void **) &res) != 0)
 		printf("error on thread waiting\n");
-	preintf("result: %d\n", *res);
+	printf("result: %d\n", *res);
+	free (res);
 	return (0);
 }
