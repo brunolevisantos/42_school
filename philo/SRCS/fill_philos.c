@@ -1,0 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fill_philos.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/15 12:04:26 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/03/15 15:55:39 by bde-seic         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../include/philo.h"
+
+void	fill_philos(int philsNo)
+{
+	t_philo	*node;
+	t_philo	*curr;
+	int		i;
+
+	i = 0;
+	while (i < philsNo)
+	{
+		node = ft_calloc(sizeof(t_philo));
+		node->i = i;
+		pthread_mutex_init(&node->fork, 0);
+		if (!table()->first_phil)
+			table()->first_phil = node;
+		else
+		{
+			curr = table()->first_phil;
+			while (curr->next != 0)
+				curr = curr->next;
+			curr->next = node;
+			node->prev = curr;
+			table()->last_phil = node;
+		}
+		i++;
+		// printf("philo number: %d\n", node->i);
+	}
+}

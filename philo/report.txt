@@ -1,0 +1,36 @@
+eat - sleep - think
+
+enquanto um filosofo come, outro dorme, outro pensa, outro come
+	nao podem comer dois ao mesmo lado, por causa dos garfos
+
+se for so 1 filosofo, morre porque nao tem 2 garfos
+
+se forem 2 filosofos vivem desde que um coma a seguir ao outro e time to die = time to sleep + time to eat
+
+se forem EVEN filosofos 
+	1		2	  3 	4
+	eat - sleep - eat - sleep
+
+se forem ODD filosofos
+	1		2		3	   4	  5
+	eat - think - sleep - eat - think
+
+1 filosofo e um garfo / thread
+
+pthread_t th[av[2]];
+
+typdef struct s_philo{
+	int	i;
+	int	state;
+	s_philo *next;
+} t_philo;
+
+      
+routine()
+{
+	pega garfos
+	come (conta tempo)
+	larga garfos
+	dorme (conta tempo)
+	pensa (conta tempo)
+}

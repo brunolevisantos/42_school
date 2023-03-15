@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   pass_and_return                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 10:57:20 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/15 16:04:42 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/15 10:32:05 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,51 +30,37 @@ void	*routine(void *arg)
 	return (arg);
 }
 
-t_table	*table(void)
-{
-	static t_table	table;
-
-	return (&table);
-}
-
-
 int	main(int ac, char **av)
 {
 	(void) ac;
 	(void) av;
-	t_philo		*curr;
+	pthread_t th[2];
 	int			i;
 	int			*a;
 	int			*res;
 	int			globalSum;
 
 	globalSum = 0;
-	fill_philos(PHILSNO);
-	printf("first phil i = %d\n", table()->first_phil->i);
-	printf("last phil i = %d\n", table()->last_phil->i);
-	curr = table()->first_phil;
+	// for (i = 0; i < 2; i++)
 	i = 0;
-	while (i < PHILSNO)
+	while (i < 2)
 	{
 		a = malloc(sizeof(int));
 		*a = i * 5;
-		if (pthread_create(&curr->thread, 0, &routine, a) != 0)
+		if (pthread_create(&th[i], 0, &routine, a) != 0)
 			perror ("Failed to create thread");
 		i++;
-		curr = curr->next;
 	}
-	curr = table()->first_phil;
+	// for (i = 0; i < 2; i++)
 	i = 0;
-	while (i < PHILSNO)
+	while (i < 2)
 	{
-		if (pthread_join(curr->thread, (void **) &res) != 0)
+		if (pthread_join(th[i], (void **) &res) != 0)
 			perror ("Failed to join thread");
 		globalSum += *res;
 		free(res);
 		i++;
-		curr = curr->next;
 	}
 	printf("global sum: %d\n", globalSum);
-	free_philos();
 	return (0);
 }

@@ -35,6 +35,6 @@ norm:
 
 re: fclean all
 
-r: all
+r: re
 	./philo
 	
