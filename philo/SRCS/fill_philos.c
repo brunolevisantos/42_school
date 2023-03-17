@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_philos.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 12:04:26 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/15 15:55:39 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/17 16:50:34 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ void	fill_philos(int philsNo)
 	t_philo	*curr;
 	int		i;
 
-	i = 0;
-	while (i < philsNo)
+	i = 1;
+	while (i <= philsNo)
 	{
 		node = ft_calloc(sizeof(t_philo));
 		node->i = i;
 		pthread_mutex_init(&node->fork, 0);
+		pthread_mutex_init(&node->Mtx_lastEaten, 0);
+		pthread_mutex_init(&node->Mtx_imFull, 0);
 		if (!table()->first_phil)
 			table()->first_phil = node;
 		else
@@ -36,6 +38,5 @@ void	fill_philos(int philsNo)
 			table()->last_phil = node;
 		}
 		i++;
-		// printf("philo number: %d\n", node->i);
 	}
 }

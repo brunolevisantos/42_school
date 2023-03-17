@@ -34,3 +34,43 @@ routine()
 	dorme (conta tempo)
 	pensa (conta tempo)
 }
+
+MAIN COM i (sem curr)
+
+int	main(int ac, char **av)
+{
+	t_philo		*curr;
+	int			i;
+	int			*a;
+
+	if (check_args(ac, av))
+	{
+		fill_philos(new_atoi(av[1]));
+		curr = table()->first_phil;
+		i = 0;
+		while (curr)
+		{
+			// a = malloc(sizeof(int));
+			// *a = curr->i;
+			if (pthread_create(&curr->thread, 0, &routine, curr) != 0)
+				printf("Failed to create thread");
+			// i++;
+			curr = curr->next;
+		}
+		curr = table()->first_phil;
+		// i = 0;
+		while (curr)
+		{
+			if (pthread_join(curr->thread, 0) != 0)
+				printf("Failed to join thread");
+			// i++;
+			curr = curr->next;
+		}
+		free_philos();
+	}
+	return (0);
+}
+		1					2			3			4					5
+number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]
+
+falta protecao para 1 philo

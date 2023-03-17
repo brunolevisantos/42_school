@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_philos.c                                      :+:      :+:    :+:   */
+/*   get_mutex_next.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 14:49:30 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/17 16:50:51 by bde-seic         ###   ########.fr       */
+/*   Created: 2023/03/16 14:25:20 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/03/16 21:11:17 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-void	free_philos(void)
+pthread_mutex_t	*get_mutex_next(int index)
 {
 	t_philo	*curr;
-	t_philo	*curr_free;
+	int		index_next;
 
+	index_next = index + 1;
+	if (index == table()->philsNo)
+		return (&(table()->first_phil)->fork);
 	curr = table()->first_phil;
-	while (curr)
-	{
-		curr_free = curr;
+	while (index_next != curr->i)
 		curr = curr->next;
-		pthread_mutex_destroy(&curr_free->fork);
-		pthread_mutex_destroy(&curr_free->Mtx_lastEaten);
-		pthread_mutex_destroy(&curr_free->Mtx_imFull);
-		// free(curr_free);
-	}
-	pthread_mutex_destroy(&table()->Mtx_evryPhilFull);
-	pthread_mutex_destroy(&table()->Mtx_kill);
+	return (&curr->fork);
 }

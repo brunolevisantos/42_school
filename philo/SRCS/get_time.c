@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_philos.c                                      :+:      :+:    :+:   */
+/*   get_time.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 14:49:30 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/17 16:50:51 by bde-seic         ###   ########.fr       */
+/*   Created: 2023/03/17 13:18:13 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/03/17 13:18:33 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-void	free_philos(void)
+time_t	get_time(void)
 {
-	t_philo	*curr;
-	t_philo	*curr_free;
+	struct timeval	curr_time;
 
-	curr = table()->first_phil;
-	while (curr)
-	{
-		curr_free = curr;
-		curr = curr->next;
-		pthread_mutex_destroy(&curr_free->fork);
-		pthread_mutex_destroy(&curr_free->Mtx_lastEaten);
-		pthread_mutex_destroy(&curr_free->Mtx_imFull);
-		// free(curr_free);
-	}
-	pthread_mutex_destroy(&table()->Mtx_evryPhilFull);
-	pthread_mutex_destroy(&table()->Mtx_kill);
+	gettimeofday(&curr_time, 0);
+	return (curr_time.tv_sec * 1000 + curr_time.tv_usec / 1000);
 }
