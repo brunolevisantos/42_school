@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 12:04:26 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/17 16:50:34 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/17 18:55:03 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	fill_philos(int philsNo)
 		pthread_mutex_init(&node->fork, 0);
 		pthread_mutex_init(&node->Mtx_lastEaten, 0);
 		pthread_mutex_init(&node->Mtx_imFull, 0);
+		node->lastEaten = get_time();
 		if (!table()->first_phil)
 			table()->first_phil = node;
 		else

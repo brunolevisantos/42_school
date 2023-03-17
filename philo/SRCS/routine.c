@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:08:36 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/17 18:04:12 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/17 18:50:19 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ void	*routine(void *arg)
 	
 	curr = *(t_philo*)arg;
 	i = 0;
+	pthread_mutex_lock(&curr.Mtx_lastEaten);
 	curr.lastEaten = get_time();
+	pthread_mutex_unlock(&curr.Mtx_lastEaten);
 	if (curr.i % 2 == 0)
 		usleep(10);
 	pthread_mutex_lock(&table()->Mtx_kill);

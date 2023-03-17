@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 10:57:20 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/17 18:12:06 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/17 18:55:32 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ int	go_or_kill(void)
 	while (curr)
 	{
 		pthread_mutex_lock(&curr->Mtx_lastEaten);
-		if (get_time() > (curr->lastEaten + table()->ttd))
+		if (get_time() > (curr->lastEaten + table()->ttd / 1000))
 		{
 			pthread_mutex_unlock(&curr->Mtx_lastEaten);
 			pthread_mutex_lock(&table()->Mtx_kill);
 			table()->kill = 1;
-			printf("%d died", curr->i);
+			printf("%d died\n", curr->i);
 			pthread_mutex_unlock(&table()->Mtx_kill);
 			return (0);
 		}
@@ -43,9 +43,10 @@ int	go_or_kill(void)
 			pthread_mutex_lock(&table()->Mtx_kill);
 			table()->kill = 1;
 			pthread_mutex_unlock(&table()->Mtx_kill);
+			pthread_mutex_unlock(&table()->Mtx_evryPhilFull);
 			return (0);
 		}
-		pthread_mutex_lock(&table()->Mtx_evryPhilFull);
+		pthread_mutex_unlock(&table()->Mtx_evryPhilFull);
 		curr = curr->next;
 	}
 	return (1);
@@ -65,8 +66,9 @@ int	main(int ac, char **av)
 				printf("Failed to create thread");
 			curr = curr->next;
 		}
-		// while (go_or_kill())
-		// 	;
+		usleep(1000);
+		while (go_or_kill())
+			;
 		curr = table()->first_phil;
 		while (curr)
 		{
