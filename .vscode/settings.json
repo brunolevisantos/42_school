@@ -3,6 +3,8 @@
 		"checker.h": "c",
 		"mlx.h": "c",
 		"so_long.h": "c",
-		"exercicios da net": "c"
+		"exercicios da net": "c",
+		"chrono": "cpp",
+		"ctime": "cpp"
 	}
 }
