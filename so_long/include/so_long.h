@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:32:41 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/01 10:29:18 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/19 22:00:58 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,17 @@
 
 # include "../SRCS/utils/get_next_line/get_next_line.h"
 # include "../SRCS/utils/ft_printf/ft_printf.h"
-# include "../mlx_linux/mlx.h"
+// # include "../mlx_linux/mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
-# include <X11/X.h>
-# include <X11/keysym.h>
+// # include <mlx.h>
+// # include <X11/X.h>
+// # include <X11/keysym.h>
+// # include </usr/X11/include/X11/X.h>
+// # include </usr/X11/include/X11/keysym.h>
+# include "minilibx_opengl_20191021/keysym.h"
+# include "minilibx_opengl_20191021/keysymdef.h"
+# include "minilibx_opengl_20191021/mlx.h"
 # include <sys/time.h>
 
 typedef struct s_img {
