@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 10:30:24 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/20 12:36:00 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/20 14:31:00 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ pthread_mutex_t	*get_mutex_next(int index);
 int				new_atoi(char *str);
 int				check_args(int ac, char **av);
 time_t			get_time(void);
+void			my_sleep(int wait);
 
 #endif

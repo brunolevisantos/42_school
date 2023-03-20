@@ -1,76 +1,69 @@
-eat - sleep - think
+falta ver leaks e threads ok
 
-enquanto um filosofo come, outro dorme, outro pensa, outro come
-	nao podem comer dois ao mesmo lado, por causa dos garfos
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   routine.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/16 16:08:36 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/03/20 14:32:56 by bde-seic         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-se for so 1 filosofo, morre porque nao tem 2 garfos
+#include "../include/philo.h"
 
-se forem 2 filosofos vivem desde que um coma a seguir ao outro e time to die = time to sleep + time to eat
-
-se forem EVEN filosofos 
-	1		2	  3 	4
-	eat - sleep - eat - sleep
-
-se forem ODD filosofos
-	1		2		3	   4	  5
-	eat - think - sleep - eat - think
-
-1 filosofo e um garfo / thread
-
-pthread_t th[av[2]];
-
-typdef struct s_philo{
-	int	i;
-	int	state;
-	s_philo *next;
-} t_philo;
-
-      
-routine()
+void	im_full(int *timesEaten)
 {
-	pega garfos
-	come (conta tempo)
-	larga garfos
-	dorme (conta tempo)
-	pensa (conta tempo)
+	if (++(*timesEaten) == table()->x_eat)
+	{
+		pthread_mutex_lock(&table()->mtx_evry_phil_full);
+		table()->evry_phil_full++;
+		pthread_mutex_unlock(&table()->mtx_evry_phil_full);
+	}
 }
 
-MAIN COM i (sem curr)
-
-int	main(int ac, char **av)
+void	state_print(int i, char *msg)
 {
-	t_philo		*curr;
-	int			i;
-	int			*a;
-
-	if (check_args(ac, av))
+	pthread_mutex_lock(&table()->mtx_kill);
+	if (!table()->kill)
 	{
-		fill_philos(new_atoi(av[1]));
-		curr = table()->first_phil;
-		i = 0;
-		while (curr)
-		{
-			// a = malloc(sizeof(int));
-			// *a = curr->i;
-			if (pthread_create(&curr->thread, 0, &routine, curr) != 0)
-				printf("Failed to create thread");
-			// i++;
-			curr = curr->next;
-		}
-		curr = table()->first_phil;
-		// i = 0;
-		while (curr)
-		{
-			if (pthread_join(curr->thread, 0) != 0)
-				printf("Failed to join thread");
-			// i++;
-			curr = curr->next;
-		}
-		free_philos();
+		pthread_mutex_unlock(&table()->mtx_kill);
+		printf("%ld %d %s", get_time(), i, msg);
+		return ;
 	}
+	pthread_mutex_unlock(&table()->mtx_kill);
+}
+
+void	*routine(void *arg)
+{	
+	t_philo	*curr;
+
+	curr = (t_philo *)arg;
+	if (curr->i % 2 == 0)
+		my_sleep(10);
+	pthread_mutex_lock(&table()->mtx_kill);
+	while (!table()->kill)
+	{
+		pthread_mutex_unlock(&table()->mtx_kill);
+		state_print(curr->i, "is thinking\n");
+		pthread_mutex_lock(get_mutex(curr->i));
+		pthread_mutex_lock(get_mutex_next(curr->i));
+		pthread_mutex_lock(&curr->mtx_last_eaten);
+		curr->last_eaten = get_time();
+		pthread_mutex_unlock(&curr->mtx_last_eaten);
+		state_print(curr->i, "has taken a fork\n");
+		state_print(curr->i, "has taken a fork\n");
+		state_print(curr->i, "is eating\n");
+		my_sleep(table()->tte);
+		im_full(&curr->times_eaten);
+		pthread_mutex_unlock(get_mutex(curr->i));
+		pthread_mutex_unlock(get_mutex_next(curr->i));
+		state_print(curr->i, "is sleeping\n");
+		my_sleep(table()->tts);
+		pthread_mutex_lock(&table()->mtx_kill);
+	}
+	pthread_mutex_unlock(&table()->mtx_kill);
 	return (0);
 }
-		1					2			3			4					5
-number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]
-
-falta protecao para 1 philo

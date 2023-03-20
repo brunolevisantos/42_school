@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 10:57:20 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/20 14:06:10 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/20 14:37:37 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,18 @@ t_table	*table(void)
 	return (&table);
 }
 
-int	chrono_last_eaten(t_philo *curr)
+int	are_all_full(void)
 {
-	pthread_mutex_lock(&curr->mtx_last_eaten);
-	if (get_time() > (curr->last_eaten + table()->ttd))
+	pthread_mutex_lock(&table()->mtx_evry_phil_full);
+	if (table()->evry_phil_full >= table()->phils_no)
 	{
-		pthread_mutex_unlock(&curr->mtx_last_eaten);
 		pthread_mutex_lock(&table()->mtx_kill);
 		table()->kill = 1;
-		printf("%ld %d died\n", get_time(), curr->i);
 		pthread_mutex_unlock(&table()->mtx_kill);
+		pthread_mutex_unlock(&table()->mtx_evry_phil_full);
 		return (0);
 	}
-	pthread_mutex_unlock(&curr->mtx_last_eaten);
+	pthread_mutex_unlock(&table()->mtx_evry_phil_full);
 	return (1);
 }
 
@@ -53,16 +52,8 @@ int	go_or_kill(void)
 			return (0);
 		}
 		pthread_mutex_unlock(&curr->mtx_last_eaten);
-		pthread_mutex_lock(&table()->mtx_evry_phil_full);
-		if (table()->evry_phil_full >= table()->phils_no)
-		{
-			pthread_mutex_lock(&table()->mtx_kill);
-			table()->kill = 1;
-			pthread_mutex_unlock(&table()->mtx_kill);
-			pthread_mutex_unlock(&table()->mtx_evry_phil_full);
+		if (!are_all_full())
 			return (0);
-		}
-		pthread_mutex_unlock(&table()->mtx_evry_phil_full);
 		curr = curr->next;
 	}
 	return (1);
