@@ -6,16 +6,16 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:09:20 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/16 13:48:53 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/20 12:39:39 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
 
-int new_atoi(char *str)
+int	new_atoi(char *str)
 {
-	int i;
-	int res;
+	int	i;
+	int	res;
 
 	i = 0;
 	res = 0;

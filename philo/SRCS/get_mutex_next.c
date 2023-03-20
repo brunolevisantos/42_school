@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:25:20 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/16 21:11:17 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/20 12:37:43 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ pthread_mutex_t	*get_mutex_next(int index)
 	int		index_next;
 
 	index_next = index + 1;
-	if (index == table()->philsNo)
+	if (index == table()->phils_no)
 		return (&(table()->first_phil)->fork);
 	curr = table()->first_phil;
 	while (index_next != curr->i)
