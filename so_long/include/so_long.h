@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:32:41 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/21 09:58:53 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/21 10:01:48 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,6 @@
 # include "../mlx_linux/mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
-# include <mlx.h>
-# include </usr/X11/include/X11/X.h>
-// # include <mlx.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <sys/time.h>
