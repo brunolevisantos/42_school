@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:32:41 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/19 22:00:58 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/20 17:20:37 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@
 // # include "../mlx_linux/mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
-// # include <mlx.h>
+# include <mlx.h>
 // # include <X11/X.h>
 // # include <X11/keysym.h>
-// # include </usr/X11/include/X11/X.h>
+# include </usr/X11/include/X11/X.h>
 // # include </usr/X11/include/X11/keysym.h>
-# include "minilibx_opengl_20191021/keysym.h"
-# include "minilibx_opengl_20191021/keysymdef.h"
-# include "minilibx_opengl_20191021/mlx.h"
+// # include </usr/X11/include/X11/keysymdef.h>
+// # include "minilibx_opengl_20191021/keysym.h"
+// # include "minilibx_opengl_20191021/mlx.h"
 # include <sys/time.h>
 
 typedef struct s_img {

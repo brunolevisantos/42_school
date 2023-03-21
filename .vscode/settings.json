@@ -5,6 +5,7 @@
 		"so_long.h": "c",
 		"exercicios da net": "c",
 		"chrono": "cpp",
-		"ctime": "cpp"
+		"ctime": "cpp",
+		"get_next_line.h": "c"
 	}
 }
