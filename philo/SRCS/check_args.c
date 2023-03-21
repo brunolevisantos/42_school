@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:30:02 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/20 12:35:50 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/21 10:25:11 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int	check_args(int ac, char **av)
 	{
 		if (new_atoi(av[1]) == 1)
 		{
-			printf("0 1 has died\n");
+			my_sleep(new_atoi(av[2]));
+			printf("%s 1 has died\n", av[2]);
 			return (0);
 		}
 		table()->phils_no = new_atoi(av[1]);

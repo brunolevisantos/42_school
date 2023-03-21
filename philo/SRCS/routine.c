@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:08:36 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/20 14:34:18 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/21 10:15:40 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	*routine(void *arg)
 
 	curr = (t_philo *)arg;
 	if (curr->i % 2 == 0)
-		my_sleep(10);
+		usleep(100);
 	pthread_mutex_lock(&table()->mtx_kill);
 	while (!table()->kill)
 	{
