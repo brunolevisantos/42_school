@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:08:36 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/21 10:15:40 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/21 10:48:27 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ void	*routine(void *arg)
 	{
 		pthread_mutex_unlock(&table()->mtx_kill);
 		state_print(curr->i, "is thinking\n");
+		if (curr->last_eaten <= table()->tte + table()->tts + 1)
+			usleep(100);
 		nham_nham(curr);
 		state_print(curr->i, "is sleeping\n");
 		my_sleep(table()->tts);
