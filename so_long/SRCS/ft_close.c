@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_close.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 11:23:52 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/01 08:22:07 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/21 13:04:16 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_close(t_data *data)
 	mlx_destroy_image(data->mlx_ptr, data->objects.enemy[3].img);
 	mlx_destroy_image(data->mlx_ptr, data->objects.game_over.img);
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-	mlx_destroy_display(data->mlx_ptr);
+	// mlx_destroy_display(data->mlx_ptr);
 	map_free(data->map.map);
 	free(data->mlx_ptr);
 	exit (0);

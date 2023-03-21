@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:32:41 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/21 10:41:59 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/03/21 13:07:23 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@
 
 # include "../SRCS/utils/get_next_line/get_next_line.h"
 # include "../SRCS/utils/ft_printf/ft_printf.h"
-// # include "../mlx_linux/mlx.h"
+// # include <mlx.h>
+// # include "../minilibx_mac/mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <X11/X.h>
