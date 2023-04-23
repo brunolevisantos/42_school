@@ -1,38 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_access.c                                     :+:      :+:    :+:   */
+/*   sighandler.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 11:37:32 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/04/12 16:06:58 by bde-seic         ###   ########.fr       */
+/*   Created: 2023/04/11 17:02:42 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/04/12 05:27:19 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "../../include/minishell.h"
 
-char	*check_access(char **paths, char *arg)
+void	sighandler(int signum)
 {
-	int		i;
-	char	*temp;
-
-	i = 0;
-	temp = join_path(paths[i], arg);
-	while (paths[i] && access(temp, F_OK))
-	{
-		free(temp);
-		i++;
-		temp = join_path(paths[i], arg);
-	}
-	if (access(temp, F_OK))
-	{
-		perror ("Program not found");
-		exit (0);
-	}
-	i = 0;
-	while (paths[i])
-		free(paths[i++]);
-	free (paths);
-	return (temp);
+	printf("Caught signal %d, coming out...\n", signum);
+	// exit(1);
 }

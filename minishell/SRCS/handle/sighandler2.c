@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_access.c                                     :+:      :+:    :+:   */
+/*   sighandler2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 11:37:32 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/04/12 16:06:58 by bde-seic         ###   ########.fr       */
+/*   Created: 2023/04/11 17:03:27 by bde-seic          #+#    #+#             */
+/*   Updated: 2023/04/12 05:29:49 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "../../include/minishell.h"
 
-char	*check_access(char **paths, char *arg)
+void	sighandler2(int signum)
 {
-	int		i;
-	char	*temp;
-
-	i = 0;
-	temp = join_path(paths[i], arg);
-	while (paths[i] && access(temp, F_OK))
+	(void)signum;
+	g_line = readline("");
+	while (g_line)
 	{
-		free(temp);
-		i++;
-		temp = join_path(paths[i], arg);
+		if (g_line[0] != 0)
+		{
+			add_history(g_line);
+			printf("%s\n", g_line);
+		}
+		free (g_line);
+		g_line = readline("levishell> ");
 	}
-	if (access(temp, F_OK))
-	{
-		perror ("Program not found");
-		exit (0);
-	}
-	i = 0;
-	while (paths[i])
-		free(paths[i++]);
-	free (paths);
-	return (temp);
 }

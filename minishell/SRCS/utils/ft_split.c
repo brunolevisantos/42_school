@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-//separa a string original em varias diferentes cada vez que encontra c.
+#include "../../include/minishell.h"
 
 void	*ft_calloc(size_t size)
 {
