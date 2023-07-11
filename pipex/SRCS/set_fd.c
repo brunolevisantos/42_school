@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_fd.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 10:54:53 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/08 11:05:31 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/05/04 11:58:42 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	set_fd(t_program *curr, t_program **list, int argc, char **argv)
 		if (curr->fd[0] == -1)
 		{
 			free_my_list(*list);
-			perror(0);
+			perror(argv[1]);
 			exit(0);
 		}
 	}

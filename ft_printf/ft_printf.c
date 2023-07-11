@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:15:58 by bde-seic          #+#    #+#             */
-/*   Updated: 2022/11/11 10:38:01 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/07/11 11:21:29 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,9 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(args);
 	return (bytesp);
+}
+
+int	main(void)
+{
+	ft_printf("A tua mae e um %s com %d anos\n", "homem", 33);
 }
