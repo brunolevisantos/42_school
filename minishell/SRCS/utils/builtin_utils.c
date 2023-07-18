@@ -6,7 +6,7 @@
 /*   By: jabecass <jabecass@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:09:29 by jabecass          #+#    #+#             */
-/*   Updated: 2023/06/23 13:49:26 by jabecass         ###   ########.fr       */
+/*   Updated: 2023/07/17 18:56:49 by jabecass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,24 +67,31 @@ char	*add_quotes(char *str)
 	i = -1;
 	j = 0;
 	flag = 0;
-	new = malloc(sizeof(char) * ft_strlen(str) + 3);
+	new = ft_calloc(ft_strlen(str) + 3);
 	while (++i < (ft_strlen(str) + 3))
 	{
-		new[j] = str[i];
+		new[j++] = str[i];
 		if (str[i] == '=' && flag == 0)
 		{
-			new[j + 1] = '"';
-			j++;
+			new[j++] = '"';
 			flag = 1;
 		}
 		if (i == ft_strlen(str))
 		{
-			new[j] = '"';
-			j++;
+			new[--j] = '"';
 			break ;
 		}
-		j++;
 	}
-	new[j] = '\0';
+	new[++j] = '\0';
 	return (new);
+}
+
+int	count_back(char *str, int i, char c)
+{
+	int	counter;
+
+	counter = 0;
+	while (str && i > 0 && str[--i] == c)
+		counter++;
+	return (counter % 2);
 }

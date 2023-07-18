@@ -6,7 +6,7 @@
 /*   By: jabecass <jabecass@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 19:42:40 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/07/11 20:03:11 by jabecass         ###   ########.fr       */
+/*   Updated: 2023/07/17 18:50:30 by jabecass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,14 @@ t_program	*new_node(int id, int flag_no)
 
 	i = 0;
 	node = malloc(sizeof(t_program));
+	if (!node)
+		return (NULL);
 	node->program_id = id;
 	node->pot.program = 0;
 	node->pot.path_program = 0;
 	node->pot.flags = malloc(sizeof(char *) * (flag_no + 1));
+	if (!node->pot.flags)
+		return (NULL);
 	node->pot.flags[flag_no] = 0;
 	while (i < flag_no)
 		node->pot.flags[i++] = 0;
@@ -90,15 +94,12 @@ int	count_flags(char **tokens)
 	return (count);
 }
 
-// A FUNCAO EXPANDED_DOLLAR RETORNA UM MALLOC, QUE VAI PRECISAR SER FREED
-void	parse_nodes(char **tokens, int id, char **nodes, char *treated)
+void	parse_nodes(char **tokens, int id)
 {
-	int			pid;
 	int			i;
 	int			flag_no;
 	char		*temp;
 	t_program	*node;
-	int			status;
 
 	i = -1;
 	meta()->hc = 0;
@@ -107,7 +108,7 @@ void	parse_nodes(char **tokens, int id, char **nodes, char *treated)
 	while (tokens[++i])
 	{
 		if (ft_strchr(tokens[i], 6) || ft_strchr(tokens[i], 5))
-			fill_red(tokens[i], node);
+			fill_red(tokens[i], node, tokens);
 		else if (ft_strchr(tokens[i], '\"') || ft_strchr(tokens[i], '\''))
 		{
 			temp = treat_quotes(tokens[i]);
@@ -118,36 +119,5 @@ void	parse_nodes(char **tokens, int id, char **nodes, char *treated)
 			fill_pot(tokens[i], node);
 	}
 	add_to_list(node);
-	if (node->red.here_doc)
-	{
-		int	fd[2];
-		meta()->hc = 1;
-		if (pipe(fd) == -1)
-			perror("");
-		pid = fork();
-		if (!pid)
-		{
-			signal(SIGQUIT, SIG_IGN);
-			signal(SIGINT, sighandlerhc);
-			run_heredoc(node->red.limiter, node, fd);
-			free(node->red.limiter);
-			clear_last();
-			free_lines(meta()->envp);
-			free_lines(nodes);
-			free_lines(tokens);
-			free(nodes);
-			free(treated);
-			exit(0);
-		}
-		else
-		{
-			close(fd[1]);
-			waitpid(0, &status, 0);
-			node->red.fd_in = fd[0];
-			free(node->red.limiter);
-			signal(SIGINT, sighandler);
-			signal(SIGQUIT, sighandlerquit);
-		}
-	}
 	free_lines(tokens);
 }

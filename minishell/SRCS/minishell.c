@@ -6,7 +6,7 @@
 /*   By: jabecass <jabecass@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 08:11:18 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/07/11 19:48:59 by jabecass         ###   ########.fr       */
+/*   Updated: 2023/07/17 18:47:12 by jabecass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,28 @@
 
 void	start_function(char *g_line)
 {
-	char		*treated;
-	char		**nodes;
 	char		**tokens;
 	int			i;
 
 	i = -1;
-	treated = treat_and_replace(g_line);
-	if (check_syntax(treated))
+	meta()->treated = treat_and_replace(g_line);
+	meta()->exitcode = 0;
+	if (check_syntax(meta()->treated))
 	{
-		nodes = ft_split(treated, 2);
-		if (!nodes)
+		(meta())->nodes = ft_split(meta()->treated, 2);
+		if (!meta()->nodes)
 			return ;
-		while (nodes[++i] != 0)
+		while (meta()->nodes[++i] != 0)
 		{
-			tokens = ft_split(nodes[i], 3);
-			free(nodes[i]); //alterado
-			parse_nodes(tokens, i, nodes, treated);
-			// free_lines(tokens);
+			tokens = ft_split(meta()->nodes[i], 3);
+			parse_nodes(tokens, i);
 		}
-		free(nodes); //alterado
-		free(treated);
+		free_lines(meta()->nodes);
+		free(meta()->treated);
 		execute();
-		// free_lines(nodes); //alterado
 	}
 	else
-		free(treated);
+		free(meta()->treated);
 }
 
 char	**copy_arr(char **str)
@@ -53,9 +49,13 @@ char	**copy_arr(char **str)
 	if (!str || !str[0])
 		return (0);
 	new_env = malloc(sizeof(char *) * (count_strings(str) + 1));
+	if (!new_env)
+		return (0);
 	while (str[i])
 	{
 		new_env[j] = malloc(sizeof(char) * (ft_strlen(str[i]) + 1));
+		if (!new_env[j])
+			return (0);
 		ft_strlcpy(new_env[j], str[i], ft_strlen(str[i]) + 1);
 		j++;
 		i++;
@@ -76,7 +76,7 @@ int	main(int ac, char **av, char **envp)
 	char	*g_line;
 
 	(void)av;
-	meta()->envp = copy_arr(envp); //alterado (estava por baixo do void av)
+	meta()->envp = copy_arr(envp);
 	if (ac >= 1)
 	{
 		rl_catch_signals = 0;
@@ -94,8 +94,6 @@ int	main(int ac, char **av, char **envp)
 			}
 			add_history(g_line);
 			start_function(g_line);
-			// clear_last();
-			// free (g_line);
 			g_line = readline("minishell> ");
 		}
 	}
