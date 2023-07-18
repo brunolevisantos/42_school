@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jabecass <jabecass@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 08:11:18 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/07/17 18:47:12 by jabecass         ###   ########.fr       */
+/*   Updated: 2023/07/18 22:09:56 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	main(int ac, char **av, char **envp)
 	meta()->envp = copy_arr(envp);
 	if (ac >= 1)
 	{
-		rl_catch_signals = 0;
+		// rl_catch_signals = 0;
 		signal(SIGINT, sighandler);
 		signal(SIGQUIT, sighandlerquit);
 		g_line = 0;
