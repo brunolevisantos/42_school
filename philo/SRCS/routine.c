@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:08:36 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/21 10:48:27 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/07/19 11:38:50 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	nham_nham(t_philo *curr)
 }
 
 void	*routine(void *arg)
-{	
+{
 	t_philo	*curr;
 
 	curr = (t_philo *)arg;
