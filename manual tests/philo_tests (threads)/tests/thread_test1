@@ -1,7 +1,6 @@
-#include "../include/philo.h"
 
 int	mails = 0;
-pthread_mutex_t	mutex;
+// pthread_mutex_t	mutex;
 
 void	*routine()
 {	

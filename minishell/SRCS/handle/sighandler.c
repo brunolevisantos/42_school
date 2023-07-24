@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sighandler.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jabecass <jabecass@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 17:02:42 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/07/13 17:58:28 by jabecass         ###   ########.fr       */
+/*   Updated: 2023/07/24 02:23:12 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	sighandler(int signum)
 				return ;
 			}
 			ft_putstr_fd("^C\n", 2);
-			rl_replace_line("", 0);
+			// rl_replace_line("", 0);
 			rl_on_new_line();
 			rl_redisplay();
 		}

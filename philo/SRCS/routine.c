@@ -6,7 +6,7 @@
 /*   By: bde-seic <bde-seic@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:08:36 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/03/21 10:48:27 by bde-seic         ###   ########.fr       */
+/*   Updated: 2023/07/24 03:01:08 by bde-seic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	nham_nham(t_philo *curr)
 	state_print(curr->i, "has taken a fork\n");
 	state_print(curr->i, "has taken a fork\n");
 	state_print(curr->i, "is eating\n");
-	my_sleep(table()->tte);
+	my_sleep(table()->tte); //perguntar miguel
 	im_full(&curr->times_eaten);
 	pthread_mutex_unlock(get_mutex(curr->i));
 	pthread_mutex_unlock(get_mutex_next(curr->i));
@@ -62,7 +62,7 @@ void	*routine(void *arg)
 	{
 		pthread_mutex_unlock(&table()->mtx_kill);
 		state_print(curr->i, "is thinking\n");
-		if (curr->last_eaten <= table()->tte + table()->tts + 1)
+		if (curr->last_eaten <= table()->tte + table()->tts + 1) //perguntar miguel
 			usleep(100);
 		nham_nham(curr);
 		state_print(curr->i, "is sleeping\n");
