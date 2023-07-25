@@ -1,12 +1,22 @@
 NAME = philo
 
-SRCS	= ${wildcard SRCS/*.c} ${wildcard SRCS/*/*.c} ${wildcard SRCS/*/*/*.c}
+SRCS	= SRCS/check_args.c \
+		SRCS/fill_philos.c \
+		SRCS/free_philos.c \
+		SRCS/get_mutex_next.c \
+		SRCS/get_mutex.c \
+		SRCS/get_time.c \
+		SRCS/my_sleep.c \
+		SRCS/philo.c \
+		SRCS/routine.c \
+		SRCS/utils/ft_calloc.c \
+		SRCS/utils/new_atoi.c
 
 OBJ		= ${SRCS:.c=.o}
 
 CC		= cc
 
-CFLAGS	= -Wall -Werror -Wextra -pthread -g -fsanitize=thread
+CFLAGS	= -Wall -Werror -Wextra -pthread -g #-fsanitize=thread
 
 all: $(NAME)
 
@@ -15,13 +25,6 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-
-project:
-	@mkdir include
-	@touch include/$(NAME).h
-	@mkdir SRCS
-	@touch SRCS/$(NAME).c
-	@touch report.txt
 
 clean:
 	rm -rf ${OBJ}
@@ -35,6 +38,4 @@ norm:
 
 re: fclean all
 
-r: re
-	./philo
 	

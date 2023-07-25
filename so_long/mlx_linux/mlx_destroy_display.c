@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_sleep.c                                         :+:      :+:    :+:   */
+/*   mlx_destroy_display.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bde-seic <bde-seic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 14:30:14 by bde-seic          #+#    #+#             */
-/*   Updated: 2023/07/25 10:36:13 by bde-seic         ###   ########.fr       */
+/*   Created: 2020/10/03 18:56:35 by mg                #+#    #+#             */
+/*   Updated: 2020/10/04 01:55:35 by mg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/philo.h"
+#include "mlx_int.h"
 
-void	my_sleep(int wait)
+int	mlx_destroy_display(t_xvar *xvar)
 {
-	time_t	start;
-
-	start = get_time();
-	while (get_time() < start + wait)
-	{
-		usleep(200);
-	}
+	XCloseDisplay(xvar->display);
 }
